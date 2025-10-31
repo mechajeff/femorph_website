@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FEMORPH</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #FFF;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    /* Centered logo image */
+    .logo-img {
+      max-width: 400px;     /* Adjust to desired size */
+      height: auto;
+      display: block;
+      margin: 0 auto 30px auto;
+    }
+
+    .tagline {
+      margin-top: 10px;
+      font-size: 24px;
+      opacity: 0.85;
+    }
+
+    .cta-button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      background-color: #00AEEF;
+      color: #000;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #0098D8;
+    }
+
+    /* Grid accent at bottom of hero section */
+    .hero-grid {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 200px;
+      background:
+        linear-gradient(to top, rgba(0,174,239,0.2), transparent),
+        url('data:image/svg+xml;utf8,\
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="200">\
+            <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">\
+            <path d="M40 0 L0 0 0 40" stroke="#00AEEF" stroke-width="0.5" />\
+            </pattern></defs>\
+            <rect width="100%" height="200" fill="url(#grid)" />\
+          </svg>')
+        bottom center no-repeat;
+      background-size: cover;
+      pointer-events: none;
+    }
+
+    section {
+      max-width: 800px;
+      margin: auto;
+      padding: 60px 20px;
+      line-height: 1.6;
+    }
+
+    h2 {
+      color: #00AEEF;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li::before {
+      content: "✔ ";
+      color: #00AEEF;
+    }
+
+    input, textarea {
+      width: 100%;
+      max-width: 500px;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background-color: #111;
+      color: #FFF;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="femorph_logo.png" alt="FEMORPH logo" class="logo-img">
+    </div>
+    <div class="tagline">Redefining accuracy in digital twin creation</div>
+    <button class="cta-button">Request a Demo</button>
+    <div class="hero-grid"></div>
+  </header>
+
+  <section id="about">
+    <h2>What is FEMORPH?</h2>
+    <p>FEMORPH transforms raw 3D scans into exact replicas of as-manufactured components, enabling high-precision modeling and simulation.</p>
+  </section>
+
+  <section id="features">
+    <h2>Features</h2>
+    <ul>
+      <li>High-precision mesh comparison</li>
+      <li>Digital twin validation</li>
+      <li>Simulation-ready integration</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <form>
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="message" rows="4" placeholder="Your message"></textarea>
+      <br>
+      <button type="submit" class="cta-button">Submit</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 FEMORPH
+  </footer>
+
+</body>
+</html>

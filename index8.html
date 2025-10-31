@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FEMORPH</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #FFF;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    .logo-img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto 30px auto;
+    }
+
+    .tagline {
+      margin-top: 10px;
+      font-size: 24px;
+      opacity: 0.85;
+    }
+
+    .cta-button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      background-color: #00AEEF;
+      color: #000;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #0098D8;
+    }
+
+    .hero-grid {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 200px;
+      background:
+        linear-gradient(to top, rgba(0,174,239,0.2), transparent),
+        url('data:image/svg+xml;utf8,\
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="200">\
+            <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">\
+            <path d="M40 0 L0 0 0 40" stroke="#00AEEF" stroke-width="0.5" />\
+            </pattern></defs>\
+            <rect width="100%" height="200" fill="url(#grid)" />\
+          </svg>')
+        bottom center no-repeat;
+      background-size: cover;
+      pointer-events: none;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 80px 20px;
+      line-height: 1.6;
+    }
+
+    h2, h3 {
+      color: #00AEEF;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      color: orange;
+      font-weight: bold;
+    }
+
+    /* Dynamic tagline animation */
+    .dynamic-tagline {
+      text-align: center;
+      font-size: 26px;
+      font-weight: 600;
+      margin-top: 60px;
+      animation: fadeCycle 9s infinite;
+    }
+
+    @keyframes fadeCycle {
+      0%, 33%   { opacity: 1; content: "Born at AFRL"; }
+      34%, 66%  { opacity: 1; content: "Hardened at Pratt & Whitney"; }
+      67%, 100% { opacity: 1; content: "Ready for Production"; }
+    }
+
+    /* FEMORPH Process Scroll Animation */
+    .femorph-process {
+      background-color: #0a0a0a;
+      padding: 80px 20px;
+    }
+
+    .process-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 60px;
+      color: #00AEEF;
+    }
+
+    .scroll-section {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .scroll-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
+    }
+
+    .scroll-step.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-text {
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
+    .scroll-media {
+      position: relative;
+      height: 400px;
+      width: 100%;
+      max-width: 800px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .scroll-media img,
+    .scroll-media video {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .scroll-media img.active,
+    .scroll-media video.active {
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="femorph_logo.png" alt="FEMORPH logo" class="logo-img">
+    <div class="tagline">Redefining accuracy in digital twin creation</div>
+    <button class="cta-button">Request a Demo</button>
+    <div class="hero-grid"></div>
+  </header>
+
+  <section>
+    <h2>Born at <span class="highlight">AFRL</span>, Hardened at Pratt & Whitney, Ready for Production.</h2>
+    <p>FEMORPH was originally developed at the Air Force Research Laboratory to enable robust shape morphing and simulation accuracy. It has been rigorously tested and applied within Pratt & Whitney’s industrial workflows, and is now ready for production-scale deployment.</p>
+    <div style="display:flex; justify-content:center; align-items:center; gap:60px; margin-top:40px;">
+      <img src="afrl_logo.png" alt="AFRL logo" style="width:180px; height:auto;">
+      <img src="pw_logo.png" alt="Pratt & Whitney logo" style="width:180px; height:auto;">
+    </div>
+  </section>
+
+  <section class="femorph-process">
+    <h2 class="process-title">Basic FEMORPH Process</h2>
+
+    <div class="scroll-section">
+
+      <!-- STEP 1 -->
+      <div class="scroll-step slideshow">
+        <div class="scroll-text">
+          <h3>1. Collect Geometry Data</h3>
+          <p>Geometry data is collected using coordinate measuring machines and optical 3D scanners. These tools produce high-accuracy point clouds or surface meshes for each part.</p>
+        </div>
+        <div class="scroll-media">
+          <img src="cmm.png" alt="CMM machine" class="active">
+          <img src="atos.jpg" alt="Optical scanner">
+          <img src="cmm_points.jpg" alt="Raw scan data">
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="scroll-step">
+        <div class="scroll-text">
+          <h3>2. Import into FEMORPH</h3>
+          <p>The scan data and simulation mesh are imported into FEMORPH and prepared for alignment.</p>
+        </div>
+        <div class="scroll-media">
+          <img src="gui_shiny.png" alt="Importing scan into FEMORPH" class="active">
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="scroll-step">
+        <div class="scroll-text">
+          <h3>3. Align and Compare</h3>
+          <p>The measured geometry and simulation model are aligned, and deviation plots are generated to show geometric differences.</p>
+        </div>
+        <div class="scroll-media">
+          <img src="pbs_deviation.png" alt="Deviation plot" class="active">
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="scroll-step">
+        <div class="scroll-text">
+          <h3>4. Morph the Mesh</h3>
+          <p>FEMORPH automatically morphs the mesh to match the as-measured geometry, eliminating the need for remeshing.</p>
+        </div>
+        <div class="scroll-media">
+          <video autoplay muted loop playsinline class="active">
+            <source src="turbine_morph.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="scroll-step">
+        <div class="scroll-text">
+          <h3>5. Analyze the Morphed Model</h3>
+          <p>The morphed model is ready for simulation, allowing accurate structural or flow analysis that reflects real manufacturing effects.</p>
+        </div>
+        <div class="scroll-media">
+          <img src="final_results.png" alt="Final morphed model" class="active">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2025 FEMORPH
+  </footer>
+
+  <script>
+    // Fade-in steps
+    const steps = document.querySelectorAll('.scroll-step');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+    steps.forEach(step => observer.observe(step));
+
+    // Handle slideshows that cycle only when visible
+    document.querySelectorAll('.scroll-step').forEach(step => {
+      const images = step.querySelectorAll('.scroll-media img');
+      if (images.length > 1) {
+        let index = 0;
+        let interval = null;
+
+        const startShow = () => {
+          if (!interval) {
+            interval = setInterval(() => {
+              images[index].classList.remove('active');
+              index = (index + 1) % images.length;
+              images[index].classList.add('active');
+            }, 2500);
+          }
+        };
+
+        const stopShow = () => {
+          clearInterval(interval);
+          interval = null;
+        };
+
+        const visObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) startShow();
+            else stopShow();
+          });
+        }, { threshold: 0.5 });
+
+        visObserver.observe(step);
+      }
+    });
+  </script>
+
+</body>
+</html>

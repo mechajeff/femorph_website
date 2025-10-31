@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FEMORPH</title>
+  <style>
+    :root {
+      --blue: #00AEEF;
+      --dark: #000;
+      --light: #FFF;
+      --muted: #AAA;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--dark);
+      color: var(--light);
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ===== Sticky Header ===== */
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    .logo-img {
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    .tagline {
+      margin-top: 10px;
+      font-size: 22px;
+      opacity: 0.85;
+    }
+
+    .cta-button {
+      margin-top: 30px;
+      padding: 14px 28px;
+      background-color: var(--blue);
+      color: #000;
+      font-size: 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #0098D8;
+    }
+
+    /* Grid accent under header */
+    .hero-grid {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 200px;
+      background:
+        linear-gradient(to top, rgba(0,174,239,0.2), transparent),
+        url('data:image/svg+xml;utf8,\
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="200">\
+            <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">\
+            <path d="M40 0 L0 0 0 40" stroke="#00AEEF" stroke-width="0.5" />\
+            </pattern></defs>\
+            <rect width="100%" height="200" fill="url(#grid)" />\
+          </svg>')
+        bottom center no-repeat;
+      background-size: cover;
+      pointer-events: none;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 80px 20px;
+      line-height: 1.6;
+    }
+
+    h2 {
+      color: var(--blue);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    ul li::before {
+      content: "✔ ";
+      color: var(--blue);
+    }
+
+    /* Tooltip styling */
+    ul li[data-tooltip] {
+      position: relative;
+    }
+    ul li[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      color: #FFF;
+      padding: 8px;
+      border-radius: 6px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    ul li[data-tooltip]:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Collapsible Panels ===== */
+    .collapsible-btn {
+      background-color: var(--blue);
+      color: #001;
+      cursor: pointer;
+      padding: 14px 20px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      border-radius: 8px;
+      margin-top: 16px;
+      transition: background-color 0.2s ease;
+    }
+    .collapsible-btn:hover {
+      background-color: #00cfff;
+    }
+    .collapsible-content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: rgba(255,255,255,0.05);
+      margin-top: 8px;
+      border-radius: 8px;
+    }
+
+    /* ===== Media Grid (Images & Videos) ===== */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      margin-top: 40px;
+    }
+
+    .media-grid img,
+    .media-grid video {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      background: #111;
+    }
+
+    .media-grid img:hover,
+    .media-grid video:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== Modal Popups ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      padding-top: 80px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 12px;
+    }
+
+    #caption {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 12px;
+      font-size: 16px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 36px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="femorph_logo.png" alt="FEMORPH logo" class="logo-img">
+    <div class="tagline">Redefining accuracy in digital twin creation</div>
+    <button class="cta-button">Request a Demo</button>
+    <div class="hero-grid"></div>
+  </header>
+
+  <section id="about">
+    <h2>What is FEMORPH?</h2>
+    <p>FEMORPH transforms raw 3D scans into exact replicas of as-manufactured components, enabling high-precision modeling and simulation.</p>
+  </section>
+
+  <section id="features">
+    <h2>Features</h2>
+    <ul>
+      <li data-tooltip="Compare as-manufactured geometry to nominal CAD with micron precision.">High-precision mesh comparison</li>
+      <li data-tooltip="Validate digital twins directly against physical measurements.">Digital twin validation</li>
+      <li data-tooltip="Export FEM-ready models into any solver workflow.">Simulation-ready integration</li>
+    </ul>
+
+    <div class="collapsible">
+      <button class="collapsible-btn">More Technical Details</button>
+      <div class="collapsible-content">
+        <p>FEMORPH uses advanced morphing kernels to maintain element quality during deformation.
+        The software also supports automated Python-driven workflows and batch operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- === NEW MEDIA SHOWCASE SECTION === -->
+  <section id="media">
+    <h2>Media Showcase</h2>
+    <p style="text-align:center;">Explore FEMORPH in action — click any image or video to view in full screen.</p>
+    <div class="media-grid">
+      <img src="scan_example.png" alt="3D scan example - as manufactured component">
+      <img src="morph_process.png" alt="FEMORPH morphing process demonstration">
+      <video controls>
+        <source src="demo_video.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+      <video controls>
+        <source src="mesh_validation.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+  </section>
+
+  <section id="use-cases">
+    <h2>Example Use Cases</h2>
+    <ul>
+      <li><a href="mrb.html">MRB</a></li>
+      <li><a href="quality.html">Quality Control</a></li>
+      <li><a href="optimization.html">Optimization</a></li>
+      <li><a href="training.html">Training Data</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2025 FEMORPH
+  </footer>
+
+  <!-- ===== Modal for Images / Videos ===== -->
+  <div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-img" />
+    <video class="modal-content" id="modal-video" controls></video>
+    <div id="caption"></div>
+  </div>
+
+  <script>
+    // Collapsible panels
+    document.querySelectorAll(".collapsible-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const content = btn.nextElementSibling;
+        btn.classList.toggle("active");
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    });
+
+    // Modal popup logic
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalVideo = document.getElementById('modal-video');
+    const captionText = document.getElementById('caption');
+    const closeBtn = document.getElementsByClassName('close')[0];
+
+    document.querySelectorAll('img, video').forEach(el => {
+      el.addEventListener('click', () => {
+        modal.style.display = "block";
+        if (el.tagName === 'IMG') {
+          modalImg.src = el.src;
+          modalImg.style.display = "block";
+          modalVideo.style.display = "none";
+        } else if (el.tagName === 'VIDEO') {
+          modalVideo.src = el.querySelector('source')?.src || el.src;
+          modalVideo.style.display = "block";
+          modalImg.style.display = "none";
+        }
+        captionText.textContent = el.alt || '';
+      });
+    });
+
+    closeBtn.onclick = () => {
+      modal.style.display = "none";
+      modalVideo.pause();
+    };
+    window.onclick = e => {
+      if (e.target == modal) {
+        modal.style.display = "none";
+        modalVideo.pause();
+      }
+    };
+  </script>
+
+</body>
+</html>
