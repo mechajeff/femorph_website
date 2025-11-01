@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morphing Mesh Ball</title>
+  <style>
+    body { margin: 0; background: black; overflow: hidden; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 100);
+    camera.position.z = 3.5;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000);
+    document.body.appendChild(renderer.domElement);
+
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(3, 3, 3);
+    scene.add(light);
+    scene.add(new THREE.AmbientLight(0x404040));
+
+    // ✅ Create a wireframe sphere geometry
+    const geometry = new THREE.SphereGeometry(1, 40, 32);
+    const material = new THREE.MeshPhongMaterial({
+	color: 0x00aaff,
+//	color: #00aeef,
+	wireframe: true
+    });
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    // Store original positions for morphing
+    const originalPositions = geometry.attributes.position.array.slice();
+
+    let time = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+      time += 0.02;
+
+      // Morph vertices smoothly
+      const positions = geometry.attributes.position.array;
+      for (let i = 0; i < positions.length; i += 3) {
+        const ox = originalPositions[i];
+        const oy = originalPositions[i + 1];
+        const oz = originalPositions[i + 2];
+
+        // Morph amplitude based on noise-like function
+        const r = Math.sin(time + ox * 3 + oy * 4 + oz * 5) * 0.1 + 1.0;
+        positions[i] = ox * r;
+        positions[i + 1] = oy * r;
+        positions[i + 2] = oz * r;
+      }
+      geometry.attributes.position.needsUpdate = true;
+
+      sphere.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
+
