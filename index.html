@@ -194,6 +194,35 @@
 	    height: auto;        /* let height scale */
 	    max-height: 300px;   /* optional: constrain very tall media */
 	}
+
+	nav {
+	    flex-direction: column;       /* stack logo and links */
+	    align-items: flex-start;      /* align everything to left */
+	    gap: 12px;                    /* space between stacked items */
+	}
+
+	.nav-left, .nav-right {
+	    width: 100%;                  /* full width for both sides */
+	    display: flex;
+	    /* justify-content: space-between; /\* optional: keep items spaced *\/ */
+	    justify-content: center;
+	}
+	
+	.nav-right {
+	    flex-wrap: wrap;              /* wrap links if needed */
+	    gap: 12px;                    /* spacing between links */
+	}
+	.footer-wrap {
+	    flex-direction: column;
+	    align-items: center;
+	    gap: 24px;
+	    text-align: center;
+	}
+
+	.footer-column {
+	    flex: unset;
+	    width: 100%;
+	}
 	
     }
 
@@ -656,8 +685,79 @@
 	padding-bottom: 80px; /* optional: gives some spacing before the line */
 	margin-bottom: 40px;  /* optional: spacing after the section */
     }
-    
-    
+
+    footer {
+	background: #000;
+	color: #fff;
+	padding: 40px 20px 20px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    .footer-wrap {
+	display: flex;
+	justify-content: space-between;
+	gap: 40px;
+	max-width: 1100px;
+	margin: 0 auto;
+	flex-wrap: wrap;
+    }
+
+    .footer-column {
+	flex: 1 1 200px;
+	min-width: 200px;
+    }
+
+    .footer-left .footer-logo {
+    width: 140px;
+    margin-bottom: 12px;
+    }
+
+    .footer-left .footer-tagline {
+	color: rgba(255,255,255,0.7);
+	font-size: 0.9em;
+    }
+
+    .footer-center h3,
+    .footer-right h3 {
+	margin-bottom: 12px;
+	color: #00AEEF;
+    }
+
+    .footer-nav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+    }
+
+    .footer-nav li {
+	margin: 6px 0;
+    }
+
+    .footer-nav a {
+	color: rgba(255,255,255,0.8);
+	text-decoration: none;
+	transition: color 0.2s;
+    }
+
+    .footer-nav a:hover {
+	color: #00AEEF;
+    }
+
+    .footer-right p {
+	margin: 6px 0;
+	line-height: 1.4;
+	color: rgba(255,255,255,0.8);
+    }
+
+    .footer-bottom {
+	text-align: center;
+	margin-top: 24px;
+	color: rgba(255,255,255,0.6);
+	font-size: 0.85em;
+    }
+
+
+
   </style>
 </head>
 <body>
@@ -703,7 +803,7 @@
 	  
           <div class="cta-row">
             <button class="btn" id="requestDemo">Request a 90 Day Demo</button>
-            <a class="btn secondary" href="#contact">Get in Touch</a>
+            <!-- <a class="btn secondary" href="#contact">Get in Touch</a> -->
           </div>
         </div>
         <div class="hero-right">
@@ -734,10 +834,6 @@
 	
         </div>
       </section>
-
-
-
-      
       
 
       <section class="problem-solution">
@@ -808,7 +904,7 @@
 
       <section class="heritage">
 	<div class="dynamic-title">
-	  <h2 id="dynamicText">Born at AFRL, Hardened at Pratt & Whitney, Ready for Production.</h2>
+	  <h2 id="dynamicText">Born at AFRL, Hardened at Pratt & Whitney, Ready for Production</h2>
 	</div>
 	
 	<div class="heritage-details">
@@ -929,7 +1025,7 @@
 
       <!-- MORPH CHOICE -->
       <section class="morph-choice">
-	<h2>Choose Your Morphing Path</h2>
+	<h2>See More Morphing Workflows</h2>
 	<p>Learn more about specialized mesh morphing workflows:</p>
 	<div class="choice-buttons">
 	  <button class="btn" id="blendRepairBtn">Blend Repair Morphing</button>
@@ -990,7 +1086,7 @@
 
       <!-- USE CASES -->
       <section id="use-cases" class="use-cases">
-	<h2>Explore Key Use Cases</h2>
+	<h2><center>Explore Key Use Cases</center></h2>
 	<div class="use-case-tabs">
 	  <button data-target="mrb">Material Review Board</button>
 	  <button data-target="qc">Physics-Based Quality Control</button>
@@ -1106,12 +1202,56 @@
     </div>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <small>© <span id="year"></span> FEMORPH — All rights reserved</small>
-    </div>
-  </footer>
 
+<footer>
+  <div class="footer-wrap">
+    <!-- Left: Logo + Tagline -->
+    <div class="footer-column footer-left">
+      <img src="aea_logo.png" alt="Company Logo" class="footer-logo">
+      <p class="footer-tagline">Your Company Tagline Here</p>
+    </div>
+
+    <!-- Center: Navigation -->
+    <div class="footer-column footer-center">
+      <h3>Navigation</h3>
+      <ul class="footer-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#software">Software</a></li>
+        <li><a href="#use-cases">Use Cases</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Right: Contact Information -->
+    <div class="footer-column footer-right">
+      <h3>Contact</h3>
+      <p>Email: info@company.com</p>
+      <p>Phone: (123) 456-7890</p>
+      <p>123 Main Street<br>City, State ZIP</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <small>© <span id="footerYear"></span> Your Company — All rights reserved</small>
+  </div>
+</footer>
+
+<style>
+</style>
+
+  
+
+  <!-- <footer> -->
+  <!--   <div class="wrap"> -->
+  <!--     <small>© <span id="year"></span> FEMORPH — All rights reserved</small> -->
+  <!--   </div> -->
+  <!-- </footer> -->
+
+  
+<!-- <script> -->
+<!-- document.getElementById('footerYear').textContent = new Date().getFullYear(); -->
+<!-- </script> -->
+
+  
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
