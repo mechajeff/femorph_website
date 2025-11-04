@@ -790,6 +790,65 @@
 
 
 
+    .opportunities {
+	text-align: center;
+	padding: 80px 20px;
+	background: #0a0a0a;
+	border-top: 1px solid #00AEEF;
+	border-bottom: 1px solid #00AEEF;
+    }
+
+    .opportunities h2 {
+	color: #00AEEF;
+	font-size: 2em;
+	margin-bottom: 10px;
+    }
+
+    .opportunities .intro {
+	max-width: 800px;
+	margin: 0 auto 40px auto;
+	font-size: 1.1em;
+	opacity: 0.85;
+	line-height: 1.6;
+    }
+
+    .opportunity-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 30px;
+	justify-items: center;
+    }
+
+    .card {
+	background: #111;
+	border: 1px solid #00AEEF;
+	border-radius: 10px;
+	padding: 25px 20px;
+	max-width: 340px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	text-align: left;
+    }
+
+    .card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 0 15px rgba(0,174,239,0.5);
+    }
+
+    .card h3 {
+	color: #00AEEF;
+	font-size: 1.3em;
+	margin-bottom: 10px;
+    }
+
+    .card p {
+	color: #ddd;
+	line-height: 1.6;
+	font-size: 0.95em;
+    }
+    
+
+
+
   </style>
 </head>
 <body>
@@ -872,32 +931,82 @@
 	<div class="content">
 	  <h2>The Challenge of Creating Finite Element Meshes</h2>
 	  <p class="lead">
-	    Creating high quality finite element models for an individual part that is defined with design intent CAD geometry can be a <strong>time-consuming, labor-intensive process</strong>. If this meshing process then needs adapted to deal with a single manufacturing non-conformance, it can be just as costly.  Now consider that there can be large numbers of non-conformances for a given part number over its life cycle, the costs can become prohibitive.    
-	  </p>
-	  <p>
-	  Today's nonconformance limits may also be based on relatively standard geometry measurement limits.  But industry is changing this with it's expanding used of Digital Twin / Digital Thread approaches that more precisely determine part usage.  Another level of rigor would include part-specific geometry effects that consider manufacturing variations. Such an approach would require modeling every manuractured part, which with conventional methods is impractical. 
-	  </p>
-	  
-	  <p>
-	    Once a part has been determined to be non-conforming, considerable effort can then undertaken to apply a repair process to the part.  Designing geometry blending subtractive repairs requires repeated remeshing of new geometries which adds cost and leads to fewer repairable parts.
-	  </p>
-	  <p>
-	  This challenge is also faced during the design process where  iteratiively ceating meshed configurations as part of a design study may require excessive time.  Design teams either settle for suboptimal configurations or extend the time and cost of the design program.
-	  </p>	    
-	  <p>
-	   These iteratively generated geometric meshes also underpin the use of Machine Learning and Artifical Intelligence, by providing the array of models that provide training data.
-	  </p>
-	  <p>
-	   These challenges span a products life cycle, from design, to manufacturing, to operational usage.  In order to achieve these goals, an tool is needed that seemlessly creates computational meshes from a varietry of geometric measurement systems.  FEMORPH is that tool and has been proven in industry and government products.
-	  </p>
-	  <p>
+	    Creating high quality finite element models for an individual part that is defined with design intent CAD geometry can be a <strong>time-consuming, labor-intensive process</strong>.
+
 	    The difficulty stems from the <strong>non-robust nature of CAD-based meshing</strong>. Even small changes in geometry can cause meshing algorithms to fail, requiring engineers to spend significant time repairing and remeshing models.
-	  </p>
-	  <p>
-	    <strong>FEMORPH</strong> solves this problem with <strong>robust mesh morphing</strong> — eliminating the need for remeshing altogether. By adapting existing meshes directly to new geometries, FEMORPH enables fast, reliable, and automated model updates that power optimization loops, digital twins, and AI workflows.
-	  </p>
 	</div>
       </section>
+	    
+
+<!--       <p> -->
+<!-- 	    If this meshing process then needs adapted to deal with a single manufacturing non-conformance, it can be just as costly.  Now consider that there can be large numbers of non-conformances for a given part number over its life cycle, the costs can become prohibitive.     -->
+<!-- 	  </p> -->
+<!-- 	  <p> -->
+<!-- 	  Today's nonconformance limits may also be based on relatively standard geometry measurement limits.  But industry is changing this with it's expanding used of Digital Twin / Digital Thread approaches that more precisely determine part usage.  Another level of rigor would include part-specific geometry effects that consider manufacturing variations. Such an approach would require modeling every manuractured part, which with conventional methods is impractical.  -->
+<!-- 	  </p> -->
+	  
+<!-- 	  <p> -->
+<!-- 	    Once a part has been determined to be non-conforming, considerable effort can then undertaken to apply a repair process to the part.  Designing geometry blending subtractive repairs requires repeated remeshing of new geometries which adds cost and leads to fewer repairable parts. -->
+<!-- 	  </p> -->
+<!-- 	  <p> -->
+<!-- 	  This challenge is also faced during the design process where  iteratiively ceating meshed configurations as part of a design study may require excessive time.  Design teams either settle for suboptimal configurations or extend the time and cost of the design program. -->
+<!-- 	  </p>	     -->
+<!-- 	  <p> -->
+<!-- 	   These iteratively generated geometric meshes also underpin the use of Machine Learning and Artifical Intelligence, by providing the array of models that provide training data. -->
+<!-- 	  </p> -->
+<!-- 	  <p> -->
+<!-- 	   These challenges span a products life cycle, from design, to manufacturing, to operational usage.  In order to achieve these goals, an tool is needed that seemlessly creates computational meshes from a varietry of geometric measurement systems.  FEMORPH is that tool and has been proven in industry and government products. -->
+<!-- 	  </p> -->
+<!-- 	  <p> -->
+<!-- 	    <strong>FEMORPH</strong> solves this problem with <strong>robust mesh morphing</strong> — eliminating the need for remeshing altogether. By adapting existing meshes directly to new geometries, FEMORPH enables fast, reliable, and automated model updates that power optimization loops, digital twins, and AI workflows. -->
+<!-- 	  </p> -->
+<!-- 	</div> -->
+<!-- </section> -->
+
+<section class="opportunities">
+  <h2>Opportunities with FEMORPH</h2>
+  <p class="intro">
+    FEMORPH addresses the major challenges in engineering analysis across the entire product lifecycle — from design to manufacturing to in-service operations — by eliminating costly remeshing and enabling fast, reliable model adaptation.
+  </p>
+
+  <div class="opportunity-grid">
+    <div class="card">
+      <h3>1. Material Review Board (MRB)</h3>
+      <p>
+        Handling non-conforming parts often demands new meshes and extensive rework. FEMORPH creates models of damaged or out-of-spec parts in minutes, cutting cost and engineering effort.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>2. Physics-Based Quality Control</h3>
+      <p>
+        Traditional tolerance-based assessments are giving way to Digital Twin–driven evaluations. FEMORPH allows part-specific geometry variations to be analyzed efficiently and consistently.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>3. Repair Design & Blending</h3>
+      <p>
+        Subtractive repair design typically requires repeated remeshing of modified geometries. FEMORPH’s morphing technology applies geometry repairs directly to existing meshes.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>4. Design Optimization</h3>
+      <p>
+        Iterative meshing during design studies slows down optimization and increases cost. FEMORPH enables rapid morphing of baseline meshes, accelerating design iteration cycles.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>5. AI & Machine Learning Training Data</h3>
+      <p>
+        Generating large, consistent datasets for AI models requires hundreds of geometric variants. FEMORPH produces those efficiently, enabling high-fidelity, physics-based learning.
+      </p>
+    </div>
+  </div>
+</section>
+
 
 
       
