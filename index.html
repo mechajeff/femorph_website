@@ -384,13 +384,16 @@
     }
 
 
-    /* Dynamic title section */
+    /* First Heritage Slide */
     .heritage {
-    background: #000;
+
+    background: linear-gradient(to bottom, #0a0a0a, #111);
+    /* background: #000; */
     color: #fff;
     text-align: center;
     padding: 100px 20px 80px;
     border-top: 1px solid #00AEEF;
+    border-bottom: 2px solid #00AEEF;    
     }
 
     .dynamic-title h2 {
@@ -446,103 +449,8 @@
     }
 
 
-
-    .heritage {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: linear-gradient(135deg, #0a0a0a 50%, #001a2b 50%);
-	color: #fff;
-	padding: 80px 10%;
-    }
-
-
-
-
-/* .heritage { */
-/*   background: #0a0a0a; */
-/*   color: #e0e0e0; */
-/*   text-align: center; */
-/*   padding: 80px 8%; */
-/* } */
-
-/* .heritage h2 { */
-/*   font-size: 2.2rem; */
-/*   text-transform: uppercase; */
-/*   letter-spacing: 2px; */
-/*   color: #00b7ff; */
-/*   margin-bottom: 1rem; */
-/* } */
-
-/* .heritage p { */
-/*   max-width: 700px; */
-/*   margin: 0 auto 3rem auto; */
-/*   line-height: 1.6; */
-/*   color: #cccccc; */
-/*   font-size: 1.1rem; */
-/* } */
-
-/* /\* Image layout *\/ */
-/* .heritage-images { */
-/*   display: flex; */
-/*   justify-content: center; */
-/*   align-items: center; */
-/*   gap: 20px; */
-/*   flex-wrap: wrap; */
-/* } */
-
-/* .heritage-images img { */
-/*   width: 45%; */
-/*   max-width: 450px; */
-/*   border-radius: 10px; */
-/*   transition: transform 0.4s ease, box-shadow 0.4s ease; */
-/*   filter: drop-shadow(0 0 15px rgba(0,183,255,0.3)); */
-/* } */
-
-/* .heritage-images img:hover { */
-/*   transform: scale(1.05); */
-/*   box-shadow: 0 0 20px rgba(0,183,255,0.4); */
-/* } */
-
-/* /\* Mobile: stack vertically *\/ */
-/* @media (max-width: 768px) { */
-/*   .heritage { */
-/*     padding: 60px 5%; */
-/*   } */
-
-/*   .heritage-images { */
-/*     flex-direction: column; */
-/*     gap: 15px; */
-/*   } */
-
-/*   .heritage-images img { */
-/*     width: 100%; */
-/*     max-width: 100%; */
-/*   } */
-/* } */
-
-
-
-
-
-
-
-
-
-
-
-
     
-
-
-
-
-
-
-    
-
-
+    /* Second Heritage slide */
     .heritage-bg {
 	position: relative;
 	background-image: url('f22.jpg');
@@ -553,26 +461,19 @@
 	align-items: center;
 	justify-content: center;
 	color: white;
+	border-top: 2px solid #00AEEF;	
     }
     .overlay {
 	background: linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,30,50,0.6));
-	padding: 40px;
+	padding: 30px;
 	border-radius: 10px;
 	text-align: center;
-	max-width: 600px;
+	max-width: 1000px;
     }
     .heritage-bg h2 {
 	font-size: 2.2rem;
 	color: #00b7ff;
     }
-
-    
-
-
-
-
-
-
 
     
     
@@ -969,9 +870,25 @@
 
       <section class="problem-solution">
 	<div class="content">
-	  <h2>The Challenge of Geometry-Based Modeling</h2>
+	  <h2>The Challenge of Creating Finite Element Meshes</h2>
 	  <p class="lead">
-	    Creating finite element models for individual parts — or for series of parts in optimization studies or machine learning datasets — is traditionally a <strong>time-consuming and labor-intensive process</strong>.
+	    Creating high quality finite element models for an individual part that is defined with design intent CAD geometry can be a <strong>time-consuming, labor-intensive process</strong>. If this meshing process then needs adapted to deal with a single manufacturing non-conformance, it can be just as costly.  Now consider that there can be large numbers of non-conformances for a given part number over its life cycle, the costs can become prohibitive.    
+	  </p>
+	  <p>
+	  Today's nonconformance limits may also be based on relatively standard geometry measurement limits.  But industry is changing this with it's expanding used of Digital Twin / Digital Thread approaches that more precisely determine part usage.  Another level of rigor would include part-specific geometry effects that consider manufacturing variations. Such an approach would require modeling every manuractured part, which with conventional methods is impractical. 
+	  </p>
+	  
+	  <p>
+	    Once a part has been determined to be non-conforming, considerable effort can then undertaken to apply a repair process to the part.  Designing geometry blending subtractive repairs requires repeated remeshing of new geometries which adds cost and leads to fewer repairable parts.
+	  </p>
+	  <p>
+	  This challenge is also faced during the design process where  iteratiively ceating meshed configurations as part of a design study may require excessive time.  Design teams either settle for suboptimal configurations or extend the time and cost of the design program.
+	  </p>	    
+	  <p>
+	   These iteratively generated geometric meshes also underpin the use of Machine Learning and Artifical Intelligence, by providing the array of models that provide training data.
+	  </p>
+	  <p>
+	   These challenges span a products life cycle, from design, to manufacturing, to operational usage.  In order to achieve these goals, an tool is needed that seemlessly creates computational meshes from a varietry of geometric measurement systems.  FEMORPH is that tool and has been proven in industry and government products.
 	  </p>
 	  <p>
 	    The difficulty stems from the <strong>non-robust nature of CAD-based meshing</strong>. Even small changes in geometry can cause meshing algorithms to fail, requiring engineers to spend significant time repairing and remeshing models.
@@ -1041,17 +958,17 @@
 	<div class="heritage-details">
 	  <div class="heritage-text">
 	    <p>
-              <strong>FEMORPH</strong> was conceived and developed at the 
-              <strong>Air Force Research Laboratory (AFRL)</strong> to address the challenge of modeling 
-              as-manufactured geometries with simulation-grade accuracy. 
+              <strong>FEMORPH</strong> was conceived and developed at the
+              <strong>Air Force Research Laboratory (AFRL)</strong> to address the challenge of modeling
+              as-manufactured geometries with simulation-grade accuracy.
 	    </p>
 	    <p>
-              The technology has been <strong>industry-hardened in collaboration with Pratt & Whitney</strong>, 
-              where it has demonstrated robust performance across industrial-scale use cases in 
+              The technology has been <strong>industry-hardened in collaboration with Pratt & Whitney</strong>,
+              where it has demonstrated robust performance across industrial-scale use cases in
               digital twin creation, mesh adaptation, and optimization workflows.
 	    </p>
 	    <p>
-              FEMORPH is now <strong>ready for production deployment</strong> in aerospace, energy, and 
+              FEMORPH is now <strong>ready for production deployment</strong> in aerospace, energy, and
               advanced manufacturing environments.
 	    </p>
 	  </div>
@@ -1073,7 +990,7 @@
       <!-- 	    <p> -->
       <!--         <strong>FEMORPH</strong> is in operational use at <strong>Air Force Sustainment Center<strong> at -->
       <!-- 		  Tinker Air Force Base.  It has been integral to the repair and maintenance of the Air Forces most -->
-      <!-- 		  advanced fighter aircraft.   -->
+      <!-- 		  advanced fighter aircraft. -->
       <!-- 	    </p> -->
       <!-- 	  </div> -->
 	  
