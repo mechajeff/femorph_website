@@ -42,12 +42,12 @@
     .hero {
       display: grid;
       grid-template-columns: 1fr 420px;
-      gap: 48px;
-      align-items: center;
-      padding: 64px 20px 60px;
-      /* padding: 64px 20px 120px; */
-      min-height: 60vh;
+    gap: 48px;
+    align-items: center;
+    padding: 64px 20px 60px;
+    min-height: 60vh;
     }
+
     .hero-left { max-width: 720px; }
     h1 { font-size: 56px; margin-bottom: 18px; line-height: 1.02; font-weight: 800; letter-spacing: -0.5px; }
     <!-- h1 { font-size: 56px; margin-bottom: 12px; line-height: 1.02; font-weight: 800; letter-spacing: -0.5px; } -->
@@ -56,12 +56,12 @@
     .cta-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
     .btn { background: var(--blue); color: #001; border: none; padding: 14px 22px; border-radius: 10px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 18px rgba(0,174,239,0.12); text-align: center; }
     .btn.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.06); color: var(--white); padding: 12px 18px; font-weight: 600; border-radius: 10px; }
-
-    /* /\* Wireframe globe *\/ */
-    /* .hero-right { display: flex; justify-content: center; align-items: center; } */
-    /* .globe-wrap { width: 320px; height: 320px; display: flex; justify-content: center; align-items: center; } */
-    /* .globe-svg { width: 280px; height: 280px; opacity: 0.98; transform-origin: center; animation: spin 20s linear infinite; } */
-    /* @keyframes spin { from{ transform: rotateZ(0deg) } to{ transform: rotateZ(360deg) } } */
+    
+    <!-- /* /\* Wireframe globe *\/ */ -->
+    <!-- /* .hero-right { display: flex; justify-content: center; align-items: center; } */ -->
+    <!-- /* .globe-wrap { width: 320px; height: 320px; display: flex; justify-content: center; align-items: center; } */ -->
+    <!-- /* .globe-svg { width: 280px; height: 280px; opacity: 0.98; transform-origin: center; animation: spin 20s linear infinite; } */ -->
+    <!-- /* @keyframes spin { from{ transform: rotateZ(0deg) } to{ transform: rotateZ(360deg) } } */ -->
 
     /* CONTENT SECTIONS */
     section { padding: 40px 20px; }
@@ -131,16 +131,16 @@
 	    width: 180px;    /* smaller width */
 	    height: 180px;   /* smaller height */
 	}
-
+	
 	.hero-right .globe-svg {
 	    width: 160px;
 	    height: 160px;
 	}
-
+	
 	.images-grid {
 	    grid-template-columns: 1fr;  /* stack on small screens */
 	}
-
+	
 	/* .hero { */
 	/*     grid-template-columns: 1fr; */
 	/*     align-items: start;   /\* text at top *\/ */
@@ -170,9 +170,9 @@
 	}
 	
 	.hero-right {
-	    order: 2;   /* optional, ensures it comes after hero-left */
-	    justify-self: center; /* center the sphere horizontally */
-	    width: 200px;        /* shrink if needed */
+	    order: 2;   
+	    justify-self: center; 
+	    width: 200px;        
 	    height: 200px;
 	}
 	
@@ -184,23 +184,23 @@
 	h1 {
 	    font-size: 28px; /* scale text for small screen */
 	}
-
+	
 	.two-col {
 	    grid-template-columns: 1fr; /* one column */
 	    gap: 20px;                  /* smaller gap between stacked items*/
 	}
-
+	
 	.scroll-media {
 	    height: auto;        /* let height scale */
 	    max-height: 300px;   /* optional: constrain very tall media */
 	}
-
+	
 	nav {
 	    flex-direction: column;       /* stack logo and links */
 	    align-items: flex-start;      /* align everything to left */
 	    gap: 12px;                    /* space between stacked items */
 	}
-
+	
 	.nav-left, .nav-right {
 	    width: 100%;                  /* full width for both sides */
 	    display: flex;
@@ -218,7 +218,7 @@
 	    gap: 24px;
 	    text-align: center;
 	}
-
+	
 	.footer-column {
 	    flex: unset;
 	    width: 100%;
@@ -232,7 +232,7 @@
 	    gap: 12px;
 	}
     }
-
+    
     .sphere-wrap {
 	width: 50vw;       /* 50% of viewport width */
 	max-width: 480px;  /* but no bigger than desktop size */
@@ -240,7 +240,7 @@
 	max-height: 480px;
 	margin: 0 auto;
     }
-
+    
     /* .sphere-wrap { */
     /* 	width: 480px;     /\* desktop size *\/ */
     /* 	height: 480px; */
@@ -251,67 +251,66 @@
 	width: 100%;
 	height: 100%;
     }
-
     
     .full-figure {
-    text-align: center;        /* centers all inline content like h2 and img */
-    margin: 40px 0;            /* adds space above and below */
-    }
-
-    .full-figure img {
-    width: 100%;     /* fills container width */
-    height: 100%;    /* fills container height */
-    object-fit: cover; /* crops image if needed to fill container */
-    display: block;
-    }
-
-    }
-
-    .full-figure h2 {
-    margin-top: 15px;          /* space between image and title */
-    font-size: 1.8em;
-    color: #333;
-    text-align: center;        /* makes sure title is centered */
-    }
-
-    video {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 174, 239, 0.3);
-    object-fit: cover;
+	text-align: center;        /* centers all inline content like h2 and img */
+	margin: 40px 0;            /* adds space above and below */
     }
     
-
-    /* ===== Media Grid (Images & Videos) ===== */
-    .media-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      justify-items: center;
-      margin-top: 40px;
+    .full-figure img {
+	width: 100%;     /* fills container width */
+	height: 100%;    /* fills container height */
+	object-fit: cover; /* crops image if needed to fill container */
+	display: block;
     }
+    
+    }
+     
+     .full-figure h2 {
+	 margin-top: 15px;          /* space between image and title */
+	 font-size: 1.8em;
+	 color: #333;
+	 text-align: center;        /* makes sure title is centered */
+     }
 
-    .media-grid img,
-    .media-grid video {
+     video {
+	 width: 100%;
+	 height: auto;
+	 border-radius: 12px;
+	 box-shadow: 0 4px 20px rgba(0, 174, 239, 0.3);
+	 object-fit: cover;
+     }
+     
+     
+     /* ===== Media Grid (Images & Videos) ===== */
+     .media-grid {
+	 display: grid;
+	 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	 gap: 20px;
+	 justify-items: center;
+	 margin-top: 40px;
+     }
+     
+     .media-grid img,
+     .media-grid video {
       width: 100%;
       max-width: 400px;
       border-radius: 8px;
       cursor: pointer;
       transition: transform 0.3s ease;
       background: #111;
-    }
-
+     }
+     
     .media-grid img:hover,
     .media-grid video:hover {
-      transform: scale(1.05);
+	transform: scale(1.05);
     }
-
-
+    
+    
     /* CONTACT FORM */
     .contact-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius: 14px;
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+	border-radius: 14px;
       padding: 28px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.6);
     }
@@ -328,10 +327,10 @@
       resize: vertical;
     }
     textarea { min-height: 140px; }
-
+    
     /* FOOTER */
     footer { padding: 40px 20px; color: var(--muted); text-align: center; }
-
+    
     /* RESPONSIVE */
     /* @media (max-width:980px) { */
     /*   .hero { grid-template-columns: 1fr; gap:28px; padding-bottom:80px; } */
@@ -348,109 +347,110 @@
     /*   .wrap{ padding:20px; } */
     /*   .use-case-buttons { flex-direction: column; gap:12px; } */
     /* } */
-
+    
     .problem-solution {
-    background: linear-gradient(to bottom, #0a0a0a, #111);
-    color: #fff;
-    padding: 80px 20px;
-    text-align: center;
-    border-top: 1px solid #00AEEF;
-    border-bottom: 1px solid #00AEEF;
+	background: linear-gradient(to bottom, #0a0a0a, #111);
+	color: #fff;
+	padding: 80px 20px;
+	/* text-align: center; */
+	text-align: left;
+	border-top: 1px solid #00AEEF;
+	border-bottom: 1px solid #00AEEF;
     }
 
     .problem-solution .content {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: left;
+	max-width: 12
+		   q00px;
+	margin: 0 auto;
+	text-align: left;
     }
 
     .problem-solution h2 {
-    color: #00AEEF;
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
+	color: #00AEEF;
+	font-size: 2em;
+	margin-bottom: 20px;
+	text-align: center;
     }
 
     .problem-solution .lead {
-    font-size: 1.2em;
-    font-weight: 500;
-    margin-bottom: 20px;
-    color: #ddd;
+	font-size: 1.2em;
+	font-weight: 500;
+	margin-bottom: 20px;
+	color: #ddd;
     }
-
+    
     .problem-solution p {
-    line-height: 1.6;
-    margin-bottom: 20px;
+	line-height: 1.6;
+	margin-bottom: 20px;
     }
-
-
+    
+    
     /* First Heritage Slide */
     .heritage {
-
-    background: linear-gradient(to bottom, #0a0a0a, #111);
-    /* background: #000; */
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px 80px;
-    border-top: 1px solid #00AEEF;
-    border-bottom: 2px solid #00AEEF;    
+	background: linear-gradient(to bottom, #0a0a0a, #111);
+	/* background: #000; */
+	color: #fff;
+	text-align: center;
+	padding: 100px 20px 80px;
+	border-top: 1px solid #00AEEF;
+	border-bottom: 2px solid #00AEEF;    
     }
-
-    .dynamic-title h2 {
-    font-size: 2em;
-    color: #00AEEF;
-    opacity: 0;
-    animation: fadeIn 3s ease forwards;
-    }
-
-    @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Description and logos section */
-    .heritage-details {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    max-width: 1000px;
-    margin: 60px auto 0;
-    gap: 40px;
-    text-align: left;
-    }
-
-    .heritage-text {
-    flex: 1 1 400px;
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #ddd;
-    }
-
-    .heritage-logos {
-    flex: 1 1 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    }
-
-    .heritage-logo {
-    max-width: 180px;
-    height: auto;
-    filter: brightness(0.95);
-    transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    .heritage-logo:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
-    }
-
-
     
-    /* Second Heritage slide */
+    .dynamic-title h2 {
+	font-size: 2em;
+	color: #00AEEF;
+	opacity: 0;
+	animation: fadeIn 3s ease forwards;
+    }
+    
+    @keyframes fadeIn {
+	from { opacity: 0; transform: translateY(20px); }
+	to { opacity: 1; transform: translateY(0); }
+    }
+    
+    <!-- /* Description and logos section */ -->
+    .heritage-details {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	max-width: 1000px;
+	margin: 60px auto 0;
+	gap: 40px;
+	text-align: left;
+    }
+    
+    .heritage-text {
+	flex: 1 1 400px;
+	font-size: 1.1em;
+	line-height: 1.6;
+	color: #ddd;
+    }
+    
+    .heritage-logos {
+	flex: 1 1 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 40px;
+	flex-wrap: wrap;
+    }
+    
+    .heritage-logo {
+	max-width: 180px;
+	height: auto;
+	filter: brightness(0.95);
+	transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    
+    .heritage-logo:hover {
+	transform: scale(1.05);
+	filter: brightness(1.2);
+    }
+    
+    
+    
+    <!-- /* Second Heritage slide */ -->
     .heritage-bg {
 	position: relative;
 	background-image: url('f22.jpg');
@@ -476,40 +476,39 @@
     }
 
     
-    
     .highlight-orange {
-    color: #FF6F00;  /* vivid orange */
+	color: #FF6F00;  /* vivid orange */
     }
 
     .femorph-process {
-    background-color: #000;
-    color: #fff;
-    padding: 80px 0;
-    overflow: hidden;
-    text-align: center;
+	background-color: #000;
+	color: #fff;
+	padding: 80px 0;
+	overflow: hidden;
+	text-align: center;
     }
 
     .process-title {
-    color: #00AEEF;
-    font-size: 2.2em;
-    margin-bottom: 60px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+	color: #00AEEF;
+	font-size: 2.2em;
+	margin-bottom: 60px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
     }
 
     .scroll-section {
-      display: flex;
-      flex-direction: column;
-      gap: 120px;
+	display: flex;
+	flex-direction: column;
+	gap: 120px;
     }
 
     .scroll-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.75s ease-out;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	opacity: 0;
+	transform: translateY(50px);
+	transition: all 0.75s ease-out;
     }
 
     .scroll-step.visible {
@@ -518,20 +517,20 @@
     }
 
     .scroll-text {
-      text-align: center;
-      max-width: 800px;
-      margin-bottom: 20px;
+	text-align: center;
+	max-width: 800px;
+	margin-bottom: 20px;
     }
 
     .scroll-text h3 {
-    color: #FFA500;
-    font-size: 1.6em;
-    margin-bottom: 10px;
+	color: #FFA500;
+	font-size: 1.6em;
+	margin-bottom: 10px;
     }
 
     .scroll-text p {
-    color: #ddd;
-    line-height: 1.6;
+	color: #ddd;
+	line-height: 1.6;
     }
     
     .scroll-media {
@@ -543,7 +542,6 @@
       border-radius: 12px;
     }
     
-
     .scroll-media img,
     .scroll-media video {
       position: absolute;
@@ -563,21 +561,21 @@
     }
 
     .morph-choice {
-    text-align: center;
-    padding: 80px 20px;
-    background: #111;
-    color: #fff;
+	text-align: center;
+	padding: 80px 20px;
+	background: #111;
+	color: #fff;
     }
     .choice-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 24px;
+	display: flex;
+	justify-content: center;
+	gap: 40px;
+	flex-wrap: wrap;
+	margin-top: 24px;
     }
     .choice-buttons .btn {
-    min-width: 180px;
-    font-size: 18px;
+	min-width: 180px;
+	font-size: 18px;
     }
 
 
@@ -601,21 +599,21 @@
     .use-case-tabs button:hover:not(.active) {
 	background: rgba(0, 174, 239, 0.1);
     }
-
+    
     /* Active tab has filled color */
     .use-case-tabs button.active {
 	background: var(--blue);
 	color: #000;
 	border-color: var(--blue);
     }
-
     
-    /* .use-case-tabs button.active, */
-    /* .use-case-tabs button:hover { */
-    /* 	background: var(--blue); */
-    /* 	color: #000; */
-    /* } */
-
+    
+    <!-- /* .use-case-tabs button.active, */ -->
+    <!-- /* .use-case-tabs button:hover { */ -->
+    <!-- /* 	background: var(--blue); */ -->
+    <!-- /* 	color: #000; */ -->
+    <!-- /* } */ -->
+    
     .use-case-panel {
 	display: none;
 	opacity: 0;
@@ -635,81 +633,81 @@
 
 
     #faq {
-    padding: 60px 20px;
-    background: #111;
-    color: #fff;
-    max-width: 900px;
-    margin: 0 auto;
+	padding: 60px 20px;
+	background: #111;
+	color: #fff;
+	max-width: 900px;
+	margin: 0 auto;
     }
 
     .faq-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
     }
     
     .faq-question {
-    background: #000;
-    color: #00AEEF;
-    padding: 16px 20px;
-    font-weight: 600;
-    text-align: left;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    transition: background 0.2s ease;
+	background: #000;
+	color: #00AEEF;
+	padding: 16px 20px;
+	font-weight: 600;
+	text-align: left;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	width: 100%;
+	transition: background 0.2s ease;
     }
 
     .faq-question:hover {
-    background: #111;
+	background: #111;
     }
     
     .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    background: #111;
-    padding: 0 20px;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-    border-left: 3px solid #00AEEF;
+	max-height: 0;
+	overflow: hidden;
+	background: #111;
+	padding: 0 20px;
+	transition: max-height 0.4s ease, padding 0.4s ease;
+	border-left: 3px solid #00AEEF;
     }
 
     .faq-item.active .faq-answer {
-    max-height: 500px; /* enough to fit content */
-    padding: 12px 20px;
+	max-height: 500px; /* enough to fit content */
+	padding: 12px 20px;
     }
 
 
     .faq-submit {
-    margin-top: 40px;
-    padding: 20px;
-    background: #111;
-    border-radius: 12px;
+	margin-top: 40px;
+	padding: 20px;
+	background: #111;
+	border-radius: 12px;
     }
 
     .faq-submit h3 {
-    color: #00AEEF;
-    margin-bottom: 16px;
+	color: #00AEEF;
+	margin-bottom: 16px;
     }
 
     .faq-submit .field {
-    margin-bottom: 16px;
+	margin-bottom: 16px;
     }
 
     .faq-submit input,
     .faq-submit textarea {
-    width: 100%;
-    padding: 14px;
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.06);
-    background: rgba(255,255,255,0.02);
-    color: #fff;
-    font-size: 14px;
-    resize: vertical;
+	width: 100%;
+	padding: 14px;
+	border-radius: 8px;
+	border: 1px solid rgba(255,255,255,0.06);
+	background: rgba(255,255,255,0.02);
+	color: #fff;
+	font-size: 14px;
+	resize: vertical;
     }
 
     .faq-submit button {
-    margin-top: 8px;
+	margin-top: 8px;
     }
 
     .blue-underline {
@@ -740,8 +738,8 @@
     }
 
     .footer-left .footer-logo {
-    width: 140px;
-    margin-bottom: 12px;
+	width: 140px;
+	margin-bottom: 12px;
     }
 
     .footer-left .footer-tagline {
@@ -787,8 +785,6 @@
 	color: rgba(255,255,255,0.6);
 	font-size: 0.85em;
     }
-
-
 
     .opportunities {
 	text-align: center;
@@ -845,12 +841,74 @@
 	line-height: 1.6;
 	font-size: 0.95em;
     }
+
+
+    /* Section */
+    .news-section {
+	padding: 60px 20px;
+	background: #f7f9fc;
+    }
     
-
-
-
+    .news-title {
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 30px;
+	color: #003b5c;
+    }
+    
+    /* Horizontal Scroll Container */
+    .news-scroller {
+	display: flex;
+	gap: 20px;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	padding-bottom: 20px;
+	
+	/* Smooth scrolling on iPhone */
+	-webkit-overflow-scrolling: touch;
+    }
+    
+    /* Hide scrollbar (optional) */
+    .news-scroller::-webkit-scrollbar {
+	display: none;
+    }
+    
+    /* Cards */
+    .news-card {
+	min-width: 280px;
+	max-width: 320px;
+	flex-shrink: 0;
+	background: white;
+	padding: 20px;
+	border-radius: 16px;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+	scroll-snap-align: start;
+	border-top: 4px solid #00AEEF; /* accent line */
+    }
+    
+    .news-card h3 {
+	font-size: 1.25rem;
+	margin-bottom: 10px;
+	color: #003b5c;
+    }
+    
+    .news-card p {
+	font-size: 0.95rem;
+	line-height: 1.45;
+	margin-bottom: 15px;
+    }
+    
+    .news-date {
+	font-size: 0.85rem;
+	color: #888;
+    }
+    
+    
+    
   </style>
+  
 </head>
+
 <body>
 
   <header>
@@ -1287,6 +1345,34 @@
       </section>
 
 
+      <section class="news-section">
+	<h2 class="news-title">Latest News</h2>
+	
+	<div class="news-scroller">
+	  
+	  <article class="news-card">
+	    <h3>FEMORPH V2.3 Released</h3>
+	    <p>Includes major improvements to CAD alignment, faster morphing kernels, and enhanced CFD mesh support.</p>
+	    <span class="news-date">Feb 2025</span>
+	  </article>
+	  
+	  <article class="news-card">
+	    <h3>FEMORPH Used in AI Training Pipeline</h3>
+	    <p>Major aerospace OEM integrates FEMORPH to accelerate ML dataset generation for turbine component analysis.</p>
+	    <span class="news-date">Jan 2025</span>
+	  </article>
+	  
+	  <article class="news-card">
+	    <h3>AFRL Publishes Morphing Research</h3>
+	    <p>New paper highlights efficiency gains from using morphing rather than traditional remeshing techniques.</p>
+	    <span class="news-date">Dec 2024</span>
+	  </article>
+	  
+	</div>
+      </section>
+      
+
+
       <section id="faq">
 	<h2>Frequently Asked Questions</h2>
 	
@@ -1369,14 +1455,14 @@
   </main>
 
 
-<footer>
-  <div class="footer-wrap">
-    <!-- Left: Logo + Tagline -->
-    <div class="footer-column footer-left">
-      <img src="aea_logo.png" alt="Company Logo" class="footer-logo">
-      <p class="footer-tagline">Your Company Tagline Here</p>
-    </div>
-
+  <footer>
+    <div class="footer-wrap">
+      <!-- Left: Logo + Tagline -->
+      <div class="footer-column footer-left">
+	<img src="aea_logo.png" alt="Company Logo" class="footer-logo">
+	<p class="footer-tagline">Your Company Tagline Here</p>
+      </div>
+      
     <!-- Center: Navigation -->
     <div class="footer-column footer-center">
       <h3>Navigation</h3>
@@ -1387,7 +1473,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
-
+    
     <!-- Right: Contact Information -->
     <div class="footer-column footer-right">
       <h3>Contact</h3>
@@ -1395,15 +1481,16 @@
       <p>Phone: (123) 456-7890</p>
       <p>123 Main Street<br>City, State ZIP</p>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <small>© <span id="footerYear"></span> Your Company — All rights reserved</small>
-  </div>
-</footer>
-
-<style>
-</style>
-
+    </div>
+    <div class="footer-bottom">
+      <small>© <span id="footerYear"></span> Your Company — All rights reserved</small>
+    </div>
+  </footer>
+  
+  
+  <style>
+  </style>
+  
   
 
   <!-- <footer> -->
@@ -1411,108 +1498,108 @@
   <!--     <small>© <span id="year"></span> FEMORPH — All rights reserved</small> -->
   <!--   </div> -->
   <!-- </footer> -->
-
   
-<!-- <script> -->
-<!-- document.getElementById('footerYear').textContent = new Date().getFullYear(); -->
-<!-- </script> -->
-
   
+  <!-- <script> -->
+  <!-- document.getElementById('footerYear').textContent = new Date().getFullYear(); -->
+  <!-- </script> -->
+
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
+    
     const form = document.getElementById('contactForm');
     const status = document.getElementById('formStatus');
     const resetBtn = document.getElementById('resetBtn');
-
+    
     form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      status.textContent = 'Submitting…';
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
-      if(!email || !message) { status.textContent = 'Please complete both fields.'; return; }
-      setTimeout(() => { status.textContent = 'Thanks — your message was sent. We will respond shortly.'; form.reset(); }, 700);
+    e.preventDefault();
+    status.textContent = 'Submitting…';
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+    if(!email || !message) { status.textContent = 'Please complete both fields.'; return; }
+    setTimeout(() => { status.textContent = 'Thanks — your message was sent. We will respond shortly.'; form.reset(); }, 700);
     });
-
+    
     resetBtn.addEventListener('click', () => { form.reset(); status.textContent = ''; });
-
+    
     document.getElementById('requestDemo').addEventListener('click', () => {
-      location.hash = '#contact';
-      document.getElementById('email').focus();
+    location.hash = '#contact';
+    document.getElementById('email').focus();
     });
   </script>
 
 
   <script>
-// Fade-in steps
-const steps = document.querySelectorAll('.scroll-step');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.3 });
-steps.forEach(step => observer.observe(step));
-
-// Handle slideshows that cycle only when visible
-document.querySelectorAll('.scroll-step').forEach(step => {
-  const images = step.querySelectorAll('.scroll-media img');
-
-  // ✅ Only proceed if images exist
-  if (images.length > 0) {
-    // Show the first image immediately
-    images.forEach(img => img.classList.remove('active'));
-    images[0].classList.add('active');
-
-    // Only set up cycling if there's more than one image
-    if (images.length > 1) {
-      let index = 0;
-      let interval = null;
-
-      const startShow = () => {
-        if (!interval) {
-          interval = setInterval(() => {
-            images[index].classList.remove('active');
-            index = (index + 1) % images.length;
-            images[index].classList.add('active');
-          }, 2500);
-        }
-      };
-
-      const stopShow = () => {
-        clearInterval(interval);
-        interval = null;
-      };
-
-      const visObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) startShow();
-          else stopShow();
-        });
-      }, { threshold: 0.5 });
-
-      visObserver.observe(step);
-    }
-  }
-});
+    // Fade-in steps
+    const steps = document.querySelectorAll('.scroll-step');
+    const observer = new IntersectionObserver(entries => {
+	entries.forEach(entry => {
+	    if (entry.isIntersecting) {
+		entry.target.classList.add('visible');
+	    }
+	});
+    }, { threshold: 0.3 });
+    steps.forEach(step => observer.observe(step));
+    
+    // Handle slideshows that cycle only when visible
+    document.querySelectorAll('.scroll-step').forEach(step => {
+	const images = step.querySelectorAll('.scroll-media img');
+	
+	// ✅ Only proceed if images exist
+	if (images.length > 0) {
+	    // Show the first image immediately
+	    images.forEach(img => img.classList.remove('active'));
+	    images[0].classList.add('active');
+	    
+	    // Only set up cycling if theres more than one image
+	    if (images.length > 1) {
+		let index = 0;
+		let interval = null;
+		
+		const startShow = () => {
+		    if (!interval) {
+			interval = setInterval(() => {
+			    images[index].classList.remove('active');
+			    index = (index + 1) % images.length;
+			    images[index].classList.add('active');
+			}, 2500);
+		    }
+		};
+		
+		const stopShow = () => {
+		    clearInterval(interval);
+		    interval = null;
+		};
+		
+		const visObserver = new IntersectionObserver(entries => {
+		    entries.forEach(entry => {
+			if (entry.isIntersecting) startShow();
+			else stopShow();
+		    });
+		}, { threshold: 0.5 });
+		
+		visObserver.observe(step);
+	    }
+	}
+    });
     
 
-  
-
-  document.getElementById('blendRepairBtn').addEventListener('click', () => {
-  document.querySelectorAll('.morph-detail').forEach(s => s.style.display = 'none');
-  document.getElementById('blendRepair').style.display = 'block';
-  document.getElementById('blendRepair').scrollIntoView({ behavior: 'smooth' });
-  });
-
-  document.getElementById('freeFormBtn').addEventListener('click', () => {
-  document.querySelectorAll('.morph-detail').forEach(s => s.style.display = 'none');
-  document.getElementById('freeForm').style.display = 'block';
-  document.getElementById('freeForm').scrollIntoView({ behavior: 'smooth' });
-  });
-
-
+    
+    
+    document.getElementById('blendRepairBtn').addEventListener('click', () => {
+    document.querySelectorAll('.morph-detail').forEach(s => s.style.display = 'none');
+	document.getElementById('blendRepair').style.display = 'block';
+	document.getElementById('blendRepair').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    document.getElementById('freeFormBtn').addEventListener('click', () => {
+	document.querySelectorAll('.morph-detail').forEach(s => s.style.display = 'none');
+	document.getElementById('freeForm').style.display = 'block';
+	document.getElementById('freeForm').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    
     // Add this in your existing <script> block
     document.querySelectorAll('.use-case-tabs button').forEach(btn => {
 	btn.addEventListener('click', () => {
@@ -1523,53 +1610,52 @@ document.querySelectorAll('.scroll-step').forEach(step => {
 	});
     });
 
-
-
-
-document.querySelectorAll('.faq-question').forEach(button => {
-  button.addEventListener('click', () => {
-    const item = button.parentElement;
-    // Toggle the active state
-    item.classList.toggle('active');
-
-    // Optional: collapse other items when one is opened
-    document.querySelectorAll('.faq-item').forEach(otherItem => {
-      if (otherItem !== item) otherItem.classList.remove('active');
-    });
-  });
-});
-
-
-const faqForm = document.getElementById('faqForm');
-const faqStatus = document.getElementById('faqStatus');
-
-faqForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const email = faqForm.email.value.trim();
-  const question = faqForm.question.value.trim();
-
-  if (!email || !question) {
-    faqStatus.textContent = 'Please complete both fields.';
-    return;
-  }
-
-  // Example: simulate submission (replace with real backend/service)
-  faqStatus.textContent = 'Submitting…';
-  setTimeout(() => {
-    faqStatus.textContent = 'Thanks! Your question has been submitted for review.';
-    faqForm.reset();
-  }, 800);
-
-  // Optional: send data to Formspree / backend
-  // fetch("YOUR_BACKEND_URL", {
-  //   method: "POST",
-  //   body: JSON.stringify({ email, question }),
-  //   headers: { "Content-Type": "application/json" }
-  // });
-});
-     
-	
     
+    
+    
+    document.querySelectorAll('.faq-question').forEach(button => {
+	button.addEventListener('click', () => {
+	    const item = button.parentElement;
+	    // Toggle the active state
+	    item.classList.toggle('active');
+	    
+	    // Optional: collapse other items when one is opened
+	    document.querySelectorAll('.faq-item').forEach(otherItem => {
+		if (otherItem !== item) otherItem.classList.remove('active');
+	    });
+	});
+    });
+    
+    
+    const faqForm = document.getElementById('faqForm');
+    const faqStatus = document.getElementById('faqStatus');
+    
+    faqForm.addEventListener('submit', e => {
+	e.preventDefault();
+	const email = faqForm.email.value.trim();
+	const question = faqForm.question.value.trim();
+	
+	if (!email || !question) {
+	    faqStatus.textContent = 'Please complete both fields.';
+	    return;
+	}
+	
+	// Example: simulate submission (replace with real backend/service)
+	faqStatus.textContent = 'Submitting…';
+	setTimeout(() => {
+	    faqStatus.textContent = 'Thanks! Your question has been submitted for review.';
+	    faqForm.reset();
+  }, 800);
+	
+	// Optional: send data to Formspree / backend
+	// fetch("YOUR_BACKEND_URL", {
+	//   method: "POST",
+	//   body: JSON.stringify({ email, question }),
+	//   headers: { "Content-Type": "application/json" }
+	// });
+    });
+
+
   </script>
 
   
