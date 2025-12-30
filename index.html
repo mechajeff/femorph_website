@@ -7,7 +7,7 @@
 
   <! <link rel="stylesheet" href="css/legacy.css"> >
 
-  <style>
+<style>
 :root{
     --bg: #000;
     --white: #fff;
@@ -236,166 +236,21 @@ ul.features li::before {
     object-fit: contain;
 }
 
+/* @media (max-width: 700px) { */
+/*   .problem-solution-grid { */
+/*     grid-template-columns: 1fr; */
+/*   } */
 
-@media (max-width: 700px) {
-  .problem-solution-grid {
-    grid-template-columns: 1fr;
-  }
+/*   .problem-media { */
+/*     order: 2; */
+/*   } */
 
-  .problem-media {
-    order: 2;
-  }
-
-  .problem-text {
-    order: 1;
-  }
-}
-
-
-@media (max-width: 600px) {
-
-    .hero-images {
-    grid-template-columns: 1fr;
-    }
-    
-    .hero-right .globe-wrap {
-	width: 180px;    /* smaller width */
-	height: 180px;   /* smaller height */
-    }
-    
-    .hero-right .globe-svg {
-	width: 160px;
-	height: 160px;
-    }
-
-    .hero-media figcaption {
-	font-size: 0.8rem;
-    }    
-    
-    .images-grid {
-	grid-template-columns: 1fr;  /* stack on small screens */
-    }
-    
-    .hero {
-	display: grid;
-	grid-template-columns: 1fr; /* stack columns vertically */
-	gap: 20px;                  /* space between text and sphere */
-	padding-top: env(safe-area-inset-top); /* adjust for notch */
-	padding-bottom: 20px;
-    }
-
-    .hero-right {
-	order: 2;   
-	justify-self: center; 
-	width: 200px;        
-	height: 200px;
-    }
-
-    .hero-left {
-	order: 1;
-	text-align: left;  /* optional: center text on small screens */
-    }
-
-    .hero-video {
-	width: 100%;
-	/* max-width: 420px;   /\* matches your hero column *\/ */
-	max-width: 500px;   /* matches your hero column */
-	height: auto;
-	border-radius: 16px;
-	box-shadow: 0 10px 30px rgba(0, 174, 239, 0.35);
-	object-fit: contain;
-    }
-
-    .opportunity-grid {
-	grid-template-columns: 1fr;
-    }    
-
-    h1 {
-	font-size: 28px; /* scale text for small screen */
-    }
-
-    .two-col {
-	grid-template-columns: 1fr; /* one column */
-	gap: 20px;                  /* smaller gap between stacked items*/
-    }
-
-    .scroll-media {
-	height: auto;        
-	max-height: 300px;   
-    }
+/*   .problem-text { */
+/*     order: 1; */
+/*   } */
+/* } */
 
 
-    nav {
-	flex-direction: column;       /* stack logo and links */
-	align-items: flex-start;      /* align everything to left */
-	gap: 12px;                    /* space between stacked items */
-    }
-
-    .nav-left, .nav-right {
-	width: 100%;                  /* full width for both sides */
-	display: flex;
-	/* justify-content: space-between; /\* optional: keep items spaced *\/ */
-	justify-content: center;
-    }
-
-    .nav-right {
-	flex-wrap: wrap;      
-	gap: 12px;            
-    }
-    .footer-wrap {
-	flex-direction: column;
-	align-items: center;
-	gap: 24px;
-	text-align: center;
-    }
-
-    .footer-column {
-	flex: unset;
-	width: 100%;
-    }
-
-    .problem-grid {
-	grid-template-columns: 1fr;
-    }
-
-    .problem-image {
-	order: -1; /* optional: image above text */
-    }
-
-    .problem-solution h2 {
-	text-align: center;
-    }
-    
-    .problem-solution .lead {
-	text-align: left;
-    }
-
-    .opportunity-grid {
-	flex-direction: column;
-	align-items: stretch;
-    }
-
-    .opportunity-grid .card {
-	flex: 1 1 100%;
-	max-width: 100%;
-    }
-
-    .card {
-	padding: 20px 16px;
-    }
-    
-    .opportunities {
-	padding: 60px 16px;
-    }    
-    
-}
-
-@media (max-width: 520px) {
-    .nav-right {
-	flex-direction: column;
-	gap: 12px;
-    }
-}
 
 .sphere-wrap {
     width: 50vw;       /* 50% of viewport width */
@@ -1065,6 +920,176 @@ footer {
 }
 
 
+@media (max-width: 600px) {
+
+    .hero-images {
+    grid-template-columns: 1fr;
+    }
+    
+    .hero-right .globe-wrap {
+	width: 180px;    
+	height: 180px;   
+    }
+    
+    .hero-right .globe-svg {
+	width: 160px;
+	height: 160px;
+    }
+
+    .hero-media figcaption {
+	font-size: 0.8rem;
+    }    
+    
+    .images-grid {
+	grid-template-columns: 1fr;  /* stack on small screens */
+    }
+
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr; /* stack vertically */
+        gap: 20px;
+        padding-bottom: 80px;       /* give space below hero */
+	padding-top: env(safe-area-inset-top);	/* adjust for notch */
+        position: relative;         /* normal flow */
+        overflow: hidden;           /* prevent overlapping content */
+    }    
+    
+    .hero-right {
+	position: relative;
+	text_align: center;
+	/* order: 2; */
+	/* justify-self: center; */
+	/* width: 200px; */
+	/* height: 200px; */
+    }
+
+    .hero-left {
+	position: relative,
+	/* order: 1; */
+	text-align: center;  /* optional: center text on small screens */
+    }
+
+    .hero-left .cta-row {
+	display: flex;
+	justify-content: center; /* center button horizontally */
+	margin-top: 16px;        /* optional spacing above button */
+	margin-bottom: 16px;
+	flex-wrap: wrap;          /* allows responsive stacking if needed */
+    }
+
+    .hero-left .cta-row .btn {
+	display: inline-block;    /* ensures button respects flex centering */
+    }
+    
+
+    .hero-video {
+	width: 100%;
+	/* max-width: 420px;   /\* matches your hero column *\/ */
+	max-width: 500px;   /* matches your hero column */
+	height: auto;
+	border-radius: 16px;
+	box-shadow: 0 10px 30px rgba(0, 174, 239, 0.35);
+	object-fit: contain;
+    }
+
+    /* .hero-left .btn { */
+    /* 	display: inline-block;   /\* ensures button respects text-align *\/ */
+    /* 	margin-top: 8px;        /\* optional: add spacing above button *\/ */
+    /* } */
+
+    .cta-row .btn {
+	display: inline-block;   /* ensures button respects text-align */
+	margin-top: 8px;        /* optional: add spacing above button */
+    }
+    
+
+    h1 {
+	font-size: 28px; /* scale text for small screen */
+    }
+
+    .two-col {
+	grid-template-columns: 1fr; /* one column */
+	gap: 20px;                  /* smaller gap between stacked items*/
+    }
+
+    .scroll-media {
+	height: auto;        
+	max-height: 300px;   
+    }
+
+    nav {
+	flex-direction: column;       /* stack logo and links */
+	align-items: flex-start;      /* align everything to left */
+	gap: 12px;                    /* space between stacked items */
+    }
+
+    .nav-left, .nav-right {
+	width: 100%;                  /* full width for both sides */
+	display: flex;
+	/* justify-content: space-between; /\* optional: keep items spaced *\/ */
+	justify-content: center;
+    }
+
+    .nav-right {
+	flex-wrap: wrap;      
+	gap: 12px;            
+    }
+    .footer-wrap {
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
+	text-align: center;
+    }
+
+    .footer-column {
+	flex: unset;
+	width: 100%;
+    }
+
+    .problem-solution {
+	position: relative; /* ensures it flows normally */
+	z-index: 1;         /* optional, if layering is needed */
+    }
+    
+    .problem-solution-grid {
+	display: grid;              /* keep grid */
+	grid-template-columns: 1fr; /* FORCE single column */
+	gap: 24px;
+	margin-top: 80px; /* adjust as needed */	
+    }
+
+    .problem-image {
+	order: -1;
+    }
+
+    .problem-solution h2 {
+	text-align: center;
+    }
+    
+    .problem-solution .lead {
+	text-align: left;
+    }
+
+    .opportunity-grid {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	width: 100%;
+    }
+
+    .opportunity-grid .card {
+	flex: 0 0 auto;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+    }
+
+}
+    
+
+}
+
+
 </style>  
   
  
@@ -1173,11 +1198,11 @@ footer {
 	</div>
 	
 	<div class="problem-media">
-	<img src="figures/mesh_error.png" alt="Problem illustration">
+	  <img src="figures/mesh_error.png" alt="Problem illustration">
 	</div>
 	
 	</div>
-	</section>
+</section>
 	
 	    
 
