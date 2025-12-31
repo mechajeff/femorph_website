@@ -992,17 +992,65 @@ footer {
 }
 
 .morph-detail {
-  display: none;
+  display: none !important;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
 }
+
 .morph-detail.active {
-  display: block;
+  display: block !important;
+  visibility: visible;
+  height: auto;
 }
 
 /* End Blender and Freeform workflow chooser cards */
 
 
+
+
 /* this closes the blend workflow using a sticky bar */
+/* .workflow-close { */
+/*   position: sticky; */
+/*   top: 0; */
+/*   background: rgba(8, 16, 32, 0.9); */
+/*   backdrop-filter: blur(6px); */
+/*   padding: 12px 16px; */
+/*   z-index: 10; */
+/*   border-bottom: 1px solid rgba(255,255,255,0.1); */
+/* } */
+
+/* .workflow-close { */
+/*   position: sticky; */
+/*   top: 0; */
+/*   z-index: 100; */
+/*   padding: 12px 16px; */
+/*   background: rgba(8, 16, 32, 0.85); */
+/*   border-bottom: 1px solid rgba(255,255,255,0.1); */
+/* } */
+
+/* .workflow-close::before { */
+/*   content: ""; */
+/*   position: absolute; */
+/*   inset: 0; */
+/*   backdrop-filter: blur(6px); */
+/*   background: rgba(8, 16, 32, 0.4); */
+/*   z-index: -1; */
+/* } */
+
+
+/* .workflow-close { */
+/*   position: sticky; */
+/*   top: 0; */
+/*   z-index: 1000; */
+/*   background: rgba(8, 16, 32, 0.95); */
+/*   padding: 12px 16px; */
+/*   border-bottom: 1px solid rgba(255,255,255,0.1); */
+/* } */
+
+
 .workflow-close {
+  display: none;       /* hide initially */
   position: sticky;
   top: 0;
   background: rgba(8, 16, 32, 0.9);
@@ -1011,6 +1059,12 @@ footer {
   z-index: 10;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+
+/* Show it when active */
+.workflow-close.active {
+  display: block;
+}
+
 
 .close-workflow {
   font-size: 2.0rem;
@@ -1784,57 +1838,101 @@ footer {
       </section>
       
 
-      <!-- Blend Repair Morphing Scroll -->
-      <section class="scroll-section morph-detail" id="blendRepair">
+      <!-- <\!-- Blend Repair Morphing Scroll -\-> -->
+      <!-- <section class="scroll-section morph-detail" id="blendRepair"> -->
 
-	<!-- Close / Back control (FIRST CHILD) -->
+      <!-- 	<\!-- Close / Back control (FIRST CHILD) -\-> -->
+      <!-- 	<div class="workflow-close"> -->
+      <!-- 	  <button class="btn secondary close-workflow"> -->
+      <!-- 	    ← Back to workflows -->
+      <!-- 	  </button> -->
+      <!-- 	</div> -->
+	
+      <!-- 	<div class="scroll-step"> -->
+      <!-- 	  <div class="scroll-text"> -->
+      <!-- 	    <h2>Blend Repair Morphing: Step 1</h2> -->
+      <!-- 	    <p>Explanation and visual of the blend repair workflow.</p> -->
+      <!-- 	  </div> -->
+      <!-- 	  <div class="scroll-media"> -->
+      <!-- 	    <img src="figures/blender_pbs.png" alt="Blend Repair Step 1", class="active" /> -->
+      <!-- 	  </div> -->
+      <!-- 	</div> -->
+
+      <!-- 	<div class="scroll-step"> -->
+      <!-- 	  <div class="scroll-text"> -->
+      <!-- 	    <h2>Blend Repair Morphing: Step 2</h2> -->
+      <!-- 	    <p>Explanation and visual of the blend repair workflow.</p> -->
+      <!-- 	  </div> -->
+      <!-- 	  <div class="scroll-media"> -->
+      <!-- 	    <img src="figures/blender_pbs_2.png" alt="Blend Repair Step 2", class="active"/> -->
+      <!-- 	  </div> -->
+      <!-- 	</div> -->
+
+      <!-- 	<div class="scroll-step"> -->
+      <!-- 	  <div class="scroll-text"> -->
+      <!-- 	    <h2>Blend Repair Morphing: Step 3</h2> -->
+      <!-- 	    <p>Explanation and visual of the blend repair workflow.</p> -->
+      <!-- 	  </div> -->
+      <!-- 	  <div class="scroll-media"> -->
+      <!-- 	    <img src="figures/blender_pbs_3.png" alt="Blend Repair Step 3", class="active" /> -->
+      <!-- 	  </div> -->
+      <!-- 	</div> -->
+
+      <!-- </section> -->
+
+
+	<!-- Blend Repair: Sticky Back Bar (OUTSIDE the workflow section) -->
 	<div class="workflow-close">
 	  <button class="btn secondary close-workflow">
 	    ← Back to workflows
 	  </button>
 	</div>
 	
-	<div class="scroll-step">
-	  <div class="scroll-text">
-	    <h2>Blend Repair Morphing: Step 1</h2>
-	    <p>Explanation and visual of the blend repair workflow.</p>
+	<!-- Blend Repair Morphing Scroll -->
+	<section class="scroll-section morph-detail" id="blendRepair">
+	  
+	  <div class="scroll-step">
+	    <div class="scroll-text">
+	      <h2>Blend Repair Morphing: Step 1</h2>
+	      <p>Explanation and visual of the blend repair workflow.</p>
+	    </div>
+	    <div class="scroll-media">
+	      <img src="figures/blender_pbs.png" alt="Blend Repair Step 1" />
+	    </div>
 	  </div>
-	  <div class="scroll-media">
-	    <img src="figures/blender_pbs.png" alt="Blend Repair Step 1", class="active" />
+	  
+	  <div class="scroll-step">
+	    <div class="scroll-text">
+	      <h2>Blend Repair Morphing: Step 2</h2>
+	      <p>Explanation and visual of the blend repair workflow.</p>
+	    </div>
+	    <div class="scroll-media">
+	      <img src="figures/blender_pbs_2.png" alt="Blend Repair Step 2" />
+	    </div>
 	  </div>
-	</div>
-
-	<div class="scroll-step">
-	  <div class="scroll-text">
-	    <h2>Blend Repair Morphing: Step 2</h2>
-	    <p>Explanation and visual of the blend repair workflow.</p>
+	  
+	  <div class="scroll-step">
+	    <div class="scroll-text">
+	      <h2>Blend Repair Morphing: Step 3</h2>
+	      <p>Explanation and visual of the blend repair workflow.</p>
+	    </div>
+	    <div class="scroll-media">
+	      <img src="figures/blender_pbs_3.png" alt="Blend Repair Step 3" />
+	    </div>
 	  </div>
-	  <div class="scroll-media">
-	    <img src="figures/blender_pbs_2.png" alt="Blend Repair Step 2", class="active"/>
-	  </div>
-	</div>
-
-	<div class="scroll-step">
-	  <div class="scroll-text">
-	    <h2>Blend Repair Morphing: Step 3</h2>
-	    <p>Explanation and visual of the blend repair workflow.</p>
-	  </div>
-	  <div class="scroll-media">
-	    <img src="figures/blender_pbs_3.png" alt="Blend Repair Step 3", class="active" />
-	  </div>
-	</div>
-
-      </section>
+	  
+	</section>
+      
 
       <!-- Damaged Part Morphing Scroll -->
       <section class="scroll-section morph-detail" id="mrb">
 
 	<!-- Close / Back control (FIRST CHILD) -->
-	<div class="workflow-close">
-	  <button class="btn secondary close-workflow">
-	    ← Back to workflows
-	  </button>
-	</div>
+	<!-- <div class="workflow-close"> -->
+	<!--   <button class="btn secondary close-workflow"> -->
+	<!--     ← Back to workflows -->
+	<!--   </button> -->
+	<!-- </div> -->
 
 	<div class="scroll-step">
 	  <div class="scroll-text">
@@ -1864,11 +1962,11 @@ footer {
       <section class="scroll-section morph-detail" id="qc">
 
 	<!-- Close / Back control (FIRST CHILD) -->
-	<div class="workflow-close">
-	  <button class="btn secondary close-workflow">
-	    ← Back to workflows
-	  </button>
-	</div>
+	<!-- <div class="workflow-close"> -->
+	<!--   <button class="btn secondary close-workflow"> -->
+	<!--     ← Back to workflows -->
+	<!--   </button> -->
+	<!-- </div> -->
 
 	<div class="scroll-step">
 	  <div class="scroll-text">
@@ -1887,11 +1985,11 @@ footer {
       <section class="scroll-section morph-detail" id="opt">
 
 	<!-- Close / Back control (FIRST CHILD) -->
-	<div class="workflow-close">
-	  <button class="btn secondary close-workflow">
-	    ← Back to workflows
-	  </button>
-	</div>
+	<!-- <div class="workflow-close"> -->
+	<!--   <button class="btn secondary close-workflow"> -->
+	<!--     ← Back to workflows -->
+	<!--   </button> -->
+	<!-- </div> -->
 
 	<div class="scroll-step">
 	  <div class="scroll-text">
@@ -1910,11 +2008,11 @@ footer {
       <section class="scroll-section morph-detail" id="ai">
 
 	<!-- Close / Back control (FIRST CHILD) -->
-	<div class="workflow-close">
-	  <button class="btn secondary close-workflow">
-	    ← Back to workflows
-	  </button>
-	</div>
+	<!-- <div class="workflow-close"> -->
+	<!--   <button class="btn secondary close-workflow"> -->
+	<!--     ← Back to workflows -->
+	<!--   </button> -->
+	<!-- </div> -->
 
 	<div class="scroll-step">
 	  <div class="scroll-text">
@@ -1932,12 +2030,12 @@ footer {
       <!-- Addditive Morphing Scroll -->
       <section class="scroll-section morph-detail" id="additive">
 
-	<!-- Close / Back control (FIRST CHILD) -->
-	<div class="workflow-close">
-	  <button class="btn secondary close-workflow">
-	    ← Back to workflows
-	  </button>
-	</div>
+	<!-- <\!-- Close / Back control (FIRST CHILD) -\-> -->
+	<!-- <div class="workflow-close"> -->
+	<!--   <button class="btn secondary close-workflow"> -->
+	<!--     ← Back to workflows -->
+	<!--   </button> -->
+	<!-- </div> -->
 
 	<div class="scroll-step">
 	  <div class="scroll-text">
@@ -2151,191 +2249,233 @@ footer {
   <!-- </footer> -->
   
 
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // ----------------------
-  // Footer year
-  // ----------------------
+
+  /* ======================
+     Footer year
+  ====================== */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ----------------------
-  // Contact form
-  // ----------------------
+
+  /* ======================
+     Contact form
+  ====================== */
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
   const resetBtn = document.getElementById('resetBtn');
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', e => {
       e.preventDefault();
+      status.textContent = 'Submitting…';
+
       const email = form.email.value.trim();
       const message = form.message.value.trim();
+
       if (!email || !message) {
-        if (status) status.textContent = 'Please complete both fields.';
+        status.textContent = 'Please complete both fields.';
         return;
       }
-      if (status) status.textContent = 'Submitting…';
+
       setTimeout(() => {
-        if (status) status.textContent = 'Thanks — your message was sent. We will respond shortly.';
+        status.textContent = 'Thanks — your message was sent. We will respond shortly.';
         form.reset();
       }, 700);
     });
   }
 
-  if (resetBtn && form && status) {
+  if (resetBtn) {
     resetBtn.addEventListener('click', () => {
-      form.reset();
+      form?.reset();
       status.textContent = '';
     });
   }
 
-  const demoBtn = document.getElementById('requestDemo');
-  if (demoBtn) {
-    demoBtn.addEventListener('click', () => {
+  const requestDemo = document.getElementById('requestDemo');
+  if (requestDemo) {
+    requestDemo.addEventListener('click', () => {
       location.hash = '#contact';
-      const emailInput = document.getElementById('email');
-      if (emailInput) emailInput.focus();
+      document.getElementById('email')?.focus();
     });
   }
 
-  // ----------------------
-  // Scroll steps + slideshow
-  // ----------------------
-  const steps = document.querySelectorAll('.scroll-step');
 
+  /* ======================
+     Scroll fade-in
+  ====================== */
+  const steps = document.querySelectorAll('.scroll-step');
   if (steps.length) {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
     }, { threshold: 0.3 });
 
     steps.forEach(step => observer.observe(step));
-
-    steps.forEach(step => {
-      const images = step.querySelectorAll('.scroll-media img');
-      if (!images.length) return;
-
-      images.forEach(img => img.classList.remove('active'));
-      images[0].classList.add('active');
-
-      if (images.length > 1) {
-        let index = 0;
-        let interval = null;
-
-        const startShow = () => {
-          if (!interval) {
-            interval = setInterval(() => {
-              images[index].classList.remove('active');
-              index = (index + 1) % images.length;
-              images[index].classList.add('active');
-            }, 2500);
-          }
-        };
-
-        const stopShow = () => {
-          clearInterval(interval);
-          interval = null;
-        };
-
-        const visObserver = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) startShow();
-            else stopShow();
-          });
-        }, { threshold: 0.5 });
-
-        visObserver.observe(step);
-      }
-    });
   }
 
-  // ----------------------
-  // Workflow chooser
-  // ----------------------
-  const workflowCards = document.querySelectorAll('.workflow-card');
-  workflowCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const targetId = card.dataset.target;
-      const targetEl = document.getElementById(targetId);
-      if (!targetEl) return;
 
-      // Hide other sections
-      document.querySelectorAll('.morph-detail').forEach(s => s.classList.remove('active'));
-      targetEl.classList.add('active');
+  /* ======================
+     Scroll image slideshows
+  ====================== */
+  document.querySelectorAll('.scroll-step').forEach(step => {
+    const images = step.querySelectorAll('.scroll-media img');
+    if (!images.length) return;
 
-      // Scroll smoothly to workflow
-      requestAnimationFrame(() => {
-        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
+    images.forEach(img => img.classList.remove('active'));
+    images[0].classList.add('active');
+
+    if (images.length > 1) {
+      let index = 0;
+      let interval = null;
+
+      const startShow = () => {
+        if (!interval) {
+          interval = setInterval(() => {
+            images[index].classList.remove('active');
+            index = (index + 1) % images.length;
+            images[index].classList.add('active');
+          }, 2500);
+        }
+      };
+
+      const stopShow = () => {
+        clearInterval(interval);
+        interval = null;
+      };
+
+      const visObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          entry.isIntersecting ? startShow() : stopShow();
+        });
+      }, { threshold: 0.5 });
+
+      visObserver.observe(step);
+    }
   });
 
-  const closeBtns = document.querySelectorAll('.close-workflow');
-  closeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const section = btn.closest('.morph-detail');
-      if (section) section.classList.remove('active');
 
-      const chooser = document.querySelector('.workflow-chooser');
-      if (chooser) chooser.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-
-  // ----------------------
-  // Use-case tabs
-  // ----------------------
+  /* ======================
+     Use-case tabs
+  ====================== */
   document.querySelectorAll('.use-case-tabs button').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.use-case-tabs button').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.use-case-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.use-case-tabs button')
+        .forEach(b => b.classList.remove('active'));
+
+      document.querySelectorAll('.use-case-panel')
+        .forEach(p => p.classList.remove('active'));
+
       btn.classList.add('active');
-      const targetPanel = document.getElementById(btn.dataset.target);
-      if (targetPanel) targetPanel.classList.add('active');
+      document.getElementById(btn.dataset.target)?.classList.add('active');
     });
   });
 
-  // ----------------------
-  // FAQ
-  // ----------------------
-  const faqQuestions = document.querySelectorAll('.faq-question');
-  faqQuestions.forEach(button => {
+
+  /* ======================
+     FAQ accordion
+  ====================== */
+  document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', () => {
-      const item = button.closest('.faq-item');
-      if (!item) return;
+      const item = button.parentElement;
       item.classList.toggle('active');
 
-      // Optional: close others
-      document.querySelectorAll('.faq-item').forEach(otherItem => {
-        if (otherItem !== item) otherItem.classList.remove('active');
+      document.querySelectorAll('.faq-item').forEach(other => {
+        if (other !== item) other.classList.remove('active');
       });
     });
   });
 
+
+  /* ======================
+     FAQ submit form
+  ====================== */
   const faqForm = document.getElementById('faqForm');
   const faqStatus = document.getElementById('faqStatus');
+
   if (faqForm) {
     faqForm.addEventListener('submit', e => {
       e.preventDefault();
+
       const email = faqForm.email.value.trim();
       const question = faqForm.question.value.trim();
+
       if (!email || !question) {
-        if (faqStatus) faqStatus.textContent = 'Please complete both fields.';
+        faqStatus.textContent = 'Please complete both fields.';
         return;
       }
-      if (faqStatus) faqStatus.textContent = 'Submitting…';
+
+      faqStatus.textContent = 'Submitting…';
       setTimeout(() => {
-        if (faqStatus) faqStatus.textContent = 'Thanks! Your question has been submitted for review.';
+        faqStatus.textContent = 'Thanks! Your question has been submitted for review.';
         faqForm.reset();
       }, 800);
     });
   }
+
+
+// Workflow chooser + sticky close bar
+const workflowCards = document.querySelectorAll('.workflow-card');
+const closeBar = document.querySelector('.workflow-close');
+
+workflowCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const targetId = card.dataset.target;
+    const targetEl = document.getElementById(targetId);
+    if (!targetEl) return;
+
+    // Hide other workflow sections
+    document.querySelectorAll('.morph-detail')
+      .forEach(s => s.classList.remove('active'));
+
+    // Show the selected workflow
+    targetEl.classList.add('active');
+
+    // Show the sticky close bar
+    closeBar.classList.add('active');
+
+    // Scroll to the workflow
+    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+document.querySelectorAll('.close-workflow').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Hide all workflow sections
+    document.querySelectorAll('.morph-detail')
+      .forEach(s => s.classList.remove('active'));
+
+    // Hide the sticky close bar
+    closeBar.classList.remove('active');
+
+    // Scroll back to workflow chooser
+    document.querySelector('.workflow-chooser')
+      .scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+
+  /* ======================
+     Workflow close buttons
+  ====================== */
+  document.querySelectorAll('.close-workflow').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const section = btn.closest('.morph-detail');
+      section?.classList.remove('active');
+
+      document
+        .querySelector('.workflow-chooser')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
 });
 </script>
-
-
-
     
 </body>
 </html>
