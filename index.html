@@ -1018,6 +1018,62 @@ footer {
 /* end of this closes the blend workflow using a sticky bar */
 
 
+/* Developer info */
+.about-developers {
+    padding: 80px 20px;
+    background-color: #0b0b0b;
+    color: #fff;
+    text-align: center;
+}
+
+.about-developers h2 {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+}
+
+.developer-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.developer-card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.developer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+}
+
+.developer-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.developer-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.developer-card p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #ccc;
+}
+
+/* end Developer info */
+
 
 /* @ media for Blender and Freeform workflow chooser cards */
 @media (max-width: 768px) {
@@ -1128,8 +1184,17 @@ footer {
     }
 
     .scroll-media {
-	height: auto;        
-	max-height: 300px;   
+	width: 100%;
+	overflow: visible;   /* IMPORTANT for iOS */
+    }
+
+    .scroll-media img {
+	display: block;
+	width: 100%;
+	height: auto;
+	/* max-height: none; */
+	max-height: 60vh;  /* viewport-relative works better on iOS */
+	object-fit: contain;	
     }
 
     nav {
@@ -1197,6 +1262,17 @@ footer {
 	width: 100%;
 	max-width: 100%;
 	box-sizing: border-box;
+    }
+
+    .scroll-section {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+    }
+
+    .developer-cards {
+        grid-template-columns: 1fr; /* stack vertically */
+        gap: 30px;
     }
 
 }
@@ -1914,6 +1990,28 @@ footer {
       <!-- </section> -->
 
 
+
+      <section class="about-developers">
+	<h2>About the Developers</h2>
+	
+	<div class="developer-cards">
+	  <div class="developer-card">
+	    <img src="figures/alex_kaszynski.jpg" alt="Alex Kaszynski" class="developer-photo">
+	    <h3>Alex Kaszynski</h3>
+	    <p>Developer of FEMORPH with extensive experience in computational mechanics, digital twin creation, and mesh morphing workflows. Created the popular open source PyVista software for data visualization as well the original creator of PyANSYS. </p>
+	  </div>
+	  
+	  <div class="developer-card">
+	    <img src="figures/jeff_brown.jpg" alt="Dr. Jeffrey Brown" class="developer-photo">
+	    <h3>Dr. Jeffrey Brown</h3>
+	    <p>Principal Mechanical Engineer and Fellow at th Air Force Research Laboratory, specializing in DoD turbine engine design, manufacturing, and sustainment. Dr. Brown has been instrumental in pioneering FEMORPH’s development.</p>
+	  </div>
+	  
+	</div>
+      </section>
+      
+
+
       <section class="news-section">
 	<h2 class="news-title">Latest News</h2>
 	
@@ -1986,18 +2084,6 @@ footer {
 	</div>
       </section>
       
-      <!-- <\!-- USE CASES -\-> -->
-      <!-- <section id="use-cases"> -->
-      <!--   <h2>Example Use Cases</h2> -->
-      <!--   <p>Click bellow to further Explore how FEMORPH can be applied across different engineering workflows:</p> -->
-      <!--   <div class="use-case-buttons"> -->
-      <!--     <a href="mrb.html" class="btn">MRB</a> -->
-      <!--     <a href="quality-control.html" class="btn">Quality Control</a> -->
-      <!--     <a href="optimization.html" class="btn">Optimization</a> -->
-      <!--     <a href="training-data.html" class="btn">Training Data</a> -->
-      <!--   </div> -->
-      <!-- </section> -->
-
 
       <!-- CONTACT -->
       <section id="contact">
@@ -2057,10 +2143,6 @@ footer {
   </footer>
   
   
-  <style>
-  </style>
-  
-  
 
   <!-- <footer> -->
   <!--   <div class="wrap"> -->
@@ -2068,198 +2150,192 @@ footer {
   <!--   </div> -->
   <!-- </footer> -->
   
-  
-  <!-- <script> -->
-  <!-- document.getElementById('footerYear').textContent = new Date().getFullYear(); -->
-  <!-- </script> -->
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ----------------------
+  // Footer year
+  // ----------------------
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    const form = document.getElementById('contactForm');
-    const status = document.getElementById('formStatus');
-    const resetBtn = document.getElementById('resetBtn');
-    
+  // ----------------------
+  // Contact form
+  // ----------------------
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  const resetBtn = document.getElementById('resetBtn');
+
+  if (form) {
     form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    status.textContent = 'Submitting…';
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
-    if(!email || !message) { status.textContent = 'Please complete both fields.'; return; }
-    setTimeout(() => { status.textContent = 'Thanks — your message was sent. We will respond shortly.'; form.reset(); }, 700);
+      e.preventDefault();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if (!email || !message) {
+        if (status) status.textContent = 'Please complete both fields.';
+        return;
+      }
+      if (status) status.textContent = 'Submitting…';
+      setTimeout(() => {
+        if (status) status.textContent = 'Thanks — your message was sent. We will respond shortly.';
+        form.reset();
+      }, 700);
     });
-    
-    resetBtn.addEventListener('click', () => { form.reset(); status.textContent = ''; });
-    
-    document.getElementById('requestDemo').addEventListener('click', () => {
-    location.hash = '#contact';
-    document.getElementById('email').focus();
+  }
+
+  if (resetBtn && form && status) {
+    resetBtn.addEventListener('click', () => {
+      form.reset();
+      status.textContent = '';
     });
-  </script>
+  }
 
+  const demoBtn = document.getElementById('requestDemo');
+  if (demoBtn) {
+    demoBtn.addEventListener('click', () => {
+      location.hash = '#contact';
+      const emailInput = document.getElementById('email');
+      if (emailInput) emailInput.focus();
+    });
+  }
 
-  <script>
-    // Fade-in steps
-    const steps = document.querySelectorAll('.scroll-step');
+  // ----------------------
+  // Scroll steps + slideshow
+  // ----------------------
+  const steps = document.querySelectorAll('.scroll-step');
+
+  if (steps.length) {
     const observer = new IntersectionObserver(entries => {
-	entries.forEach(entry => {
-	    if (entry.isIntersecting) {
-		entry.target.classList.add('visible');
-	    }
-	});
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
     }, { threshold: 0.3 });
+
     steps.forEach(step => observer.observe(step));
-    
-    // Handle slideshows that cycle only when visible
-    document.querySelectorAll('.scroll-step').forEach(step => {
-	const images = step.querySelectorAll('.scroll-media img');
-	
-	// ✅ Only proceed if images exist
-	if (images.length > 0) {
-	    // Show the first image immediately
-	    images.forEach(img => img.classList.remove('active'));
-	    images[0].classList.add('active');
-	    
-	    // Only set up cycling if theres more than one image
-	    if (images.length > 1) {
-		let index = 0;
-		let interval = null;
-		
-		const startShow = () => {
-		    if (!interval) {
-			interval = setInterval(() => {
-			    images[index].classList.remove('active');
-			    index = (index + 1) % images.length;
-			    images[index].classList.add('active');
-			}, 2500);
-		    }
-		};
-		
-		const stopShow = () => {
-		    clearInterval(interval);
-		    interval = null;
-		};
-		
-		const visObserver = new IntersectionObserver(entries => {
-		    entries.forEach(entry => {
-			if (entry.isIntersecting) startShow();
-			else stopShow();
-		    });
-		}, { threshold: 0.5 });
-		
-		visObserver.observe(step);
-	    }
-	}
-    });
-    
 
-    
-    
-    document.getElementById('blendRepairBtn').addEventListener('click', () => {
-    document.querySelectorAll('.morph-detail').forEach(s => s.style.display = 'none');
-	document.getElementById('blendRepair').style.display = 'block';
-	document.getElementById('blendRepair').scrollIntoView({ behavior: 'smooth' });
-    });
-    
-    document.getElementById('freeFormBtn').addEventListener('click', () => {
-	document.querySelectorAll('.morph-detail').forEach(s => s.style.display = 'none');
-	document.getElementById('freeForm').style.display = 'block';
-	document.getElementById('freeForm').scrollIntoView({ behavior: 'smooth' });
-    });
-    
-    
-    // Add this in your existing <script> block
-    document.querySelectorAll('.use-case-tabs button').forEach(btn => {
-	btn.addEventListener('click', () => {
-	    document.querySelectorAll('.use-case-tabs button').forEach(b => b.classList.remove('active'));
-	    document.querySelectorAll('.use-case-panel').forEach(p => p.classList.remove('active'));
-	    btn.classList.add('active');
-	    document.getElementById(btn.dataset.target).classList.add('active');
-	});
-    });
+    steps.forEach(step => {
+      const images = step.querySelectorAll('.scroll-media img');
+      if (!images.length) return;
 
-    
-    
-    
-    document.querySelectorAll('.faq-question').forEach(button => {
-	button.addEventListener('click', () => {
-	    const item = button.parentElement;
-	    // Toggle the active state
-	    item.classList.toggle('active');
-	    
-	    // Optional: collapse other items when one is opened
-	    document.querySelectorAll('.faq-item').forEach(otherItem => {
-		if (otherItem !== item) otherItem.classList.remove('active');
-	    });
-	});
+      images.forEach(img => img.classList.remove('active'));
+      images[0].classList.add('active');
+
+      if (images.length > 1) {
+        let index = 0;
+        let interval = null;
+
+        const startShow = () => {
+          if (!interval) {
+            interval = setInterval(() => {
+              images[index].classList.remove('active');
+              index = (index + 1) % images.length;
+              images[index].classList.add('active');
+            }, 2500);
+          }
+        };
+
+        const stopShow = () => {
+          clearInterval(interval);
+          interval = null;
+        };
+
+        const visObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) startShow();
+            else stopShow();
+          });
+        }, { threshold: 0.5 });
+
+        visObserver.observe(step);
+      }
     });
-    
-    
-    const faqForm = document.getElementById('faqForm');
-    const faqStatus = document.getElementById('faqStatus');
-    
+  }
+
+  // ----------------------
+  // Workflow chooser
+  // ----------------------
+  const workflowCards = document.querySelectorAll('.workflow-card');
+  workflowCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const targetId = card.dataset.target;
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+
+      // Hide other sections
+      document.querySelectorAll('.morph-detail').forEach(s => s.classList.remove('active'));
+      targetEl.classList.add('active');
+
+      // Scroll smoothly to workflow
+      requestAnimationFrame(() => {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  });
+
+  const closeBtns = document.querySelectorAll('.close-workflow');
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const section = btn.closest('.morph-detail');
+      if (section) section.classList.remove('active');
+
+      const chooser = document.querySelector('.workflow-chooser');
+      if (chooser) chooser.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ----------------------
+  // Use-case tabs
+  // ----------------------
+  document.querySelectorAll('.use-case-tabs button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.use-case-tabs button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.use-case-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const targetPanel = document.getElementById(btn.dataset.target);
+      if (targetPanel) targetPanel.classList.add('active');
+    });
+  });
+
+  // ----------------------
+  // FAQ
+  // ----------------------
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.closest('.faq-item');
+      if (!item) return;
+      item.classList.toggle('active');
+
+      // Optional: close others
+      document.querySelectorAll('.faq-item').forEach(otherItem => {
+        if (otherItem !== item) otherItem.classList.remove('active');
+      });
+    });
+  });
+
+  const faqForm = document.getElementById('faqForm');
+  const faqStatus = document.getElementById('faqStatus');
+  if (faqForm) {
     faqForm.addEventListener('submit', e => {
-	e.preventDefault();
-	const email = faqForm.email.value.trim();
-	const question = faqForm.question.value.trim();
-	
-	if (!email || !question) {
-	    faqStatus.textContent = 'Please complete both fields.';
-	    return;
-	}
-	
-	// Example: simulate submission (replace with real backend/service)
-	faqStatus.textContent = 'Submitting…';
-	setTimeout(() => {
-	    faqStatus.textContent = 'Thanks! Your question has been submitted for review.';
-	    faqForm.reset();
-  }, 800);
-	
-	// Optional: send data to Formspree / backend
-	// fetch("YOUR_BACKEND_URL", {
-	//   method: "POST",
-	//   body: JSON.stringify({ email, question }),
-	//   headers: { "Content-Type": "application/json" }
-	// });
+      e.preventDefault();
+      const email = faqForm.email.value.trim();
+      const question = faqForm.question.value.trim();
+      if (!email || !question) {
+        if (faqStatus) faqStatus.textContent = 'Please complete both fields.';
+        return;
+      }
+      if (faqStatus) faqStatus.textContent = 'Submitting…';
+      setTimeout(() => {
+        if (faqStatus) faqStatus.textContent = 'Thanks! Your question has been submitted for review.';
+        faqForm.reset();
+      }, 800);
     });
-
-
-    </script>
-
-<!-- javascript for blender and freeform workflow chooser -->
-<script>
-  document.querySelectorAll('.workflow-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const targetId = card.dataset.target;
-    const targetEl = document.getElementById(targetId);
-
-    if (!targetEl) return;
-
-    targetEl.classList.add('active');
-
-    requestAnimationFrame(() => {
-      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
+  }
 });
 </script>
 
-<!-- this is for the blend repair workflow sticky close button -->
-<script>
-document.querySelectorAll('.close-workflow').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const section = btn.closest('.morph-detail');
-    section.classList.remove('active');
 
-    // Scroll back to chooser
-    document
-      .querySelector('.workflow-chooser')
-      .scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
-</script>
 
-  
+    
 </body>
 </html>
