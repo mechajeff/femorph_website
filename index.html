@@ -398,8 +398,8 @@ footer { padding: 40px 20px;
 
 /* First Heritage Slide */
 .heritage {
-    background: linear-gradient(to bottom, #0a0a0a, #111);
-    /* background: #000; */
+    /* background: linear-gradient(to bottom, #0a0a0a, #111); */
+    background: #000;
     color: #fff;
     text-align: center;
     padding: 100px 20px 80px;
@@ -483,7 +483,6 @@ footer { padding: 40px 20px;
     font-size: 2.2rem;
     color: #00b7ff;
 }
-
 
 .highlight-orange {
     color: #FF6F00;
@@ -996,6 +995,8 @@ footer {
   visibility: hidden;
   height: 0;
   overflow: hidden;
+  scroll-margin-top: 60px;
+  padding-bottom: 500px;  
 }
 
 .morph-detail.active {
@@ -1321,13 +1322,27 @@ footer {
     .scroll-section {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	gap: 30px;
     }
 
     .developer-cards {
         grid-template-columns: 1fr; /* stack vertically */
         gap: 30px;
     }
+
+    .close-workflow {
+	font-size: 1.0rem;
+    }
+    /* Make Back to Workflows button text orange */
+    .workflow-close .close-workflow {
+	color: #FFA500;   /* bright orange */
+    }
+
+    /* Optional: keep hover/active styling */
+    .workflow-close .close-workflow:hover {
+	color: #FFB733;  /* slightly lighter on hover */
+    }
+    
 
 }
     
@@ -1735,7 +1750,7 @@ footer {
 
 
       <section class="workflow-chooser">
-	<h2>See More Morphing Workflows</h2>
+	<h2 class="process-title">See More Morphing Workflows</h2>
 	
 	<div class="workflow-cards">
 	  <div class="workflow-card" data-target="blendRepair">
@@ -2090,7 +2105,7 @@ footer {
 
 
       <section class="about-developers">
-	<h2>About the Developers</h2>
+	<h2 class="process-title">About the Developers</h2>
 	
 	<div class="developer-cards">
 	  <div class="developer-card">
