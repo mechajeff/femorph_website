@@ -186,7 +186,8 @@ ul.features { list-style: none;
 ul.features li { margin: 14px 0;
 		 padding-left: 28px;
 		 position: relative;
-	       }
+}
+
 ul.features li::before {
     content:"";
     position:absolute;
@@ -286,17 +287,16 @@ ul.features li::before {
      text-align: center;        /* makes sure title is centered */
  }
 
- video {
+video {
      width: 100%;
      height: auto;
      border-radius: 12px;
      box-shadow: 0 4px 20px rgba(0, 174, 239, 0.3);
      object-fit: cover;
- }
+}
 
-
- /* ===== Media Grid (Images & Videos) ===== */
- .media-grid {
+/* ===== Media Grid (Images & Videos) ===== */
+.media-grid {
      display: grid;
      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
      gap: 20px;
@@ -920,90 +920,90 @@ footer {
 
 
 
-/* Blender and Freeform workflow chooser cards */
+/* /\* Blender and Freeform workflow chooser cards *\/ */
 
-.workflow-chooser {
-  padding: 80px 24px;
-  text-align: center;
-}
+/* .workflow-chooser { */
+/*   padding: 80px 24px; */
+/*   text-align: center; */
+/* } */
 
-.workflow-cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-  max-width: 1100px;
-  margin: 40px auto 0;
-}
+/* .workflow-cards { */
+/*   display: grid; */
+/*   grid-template-columns: repeat(2, 1fr); */
+/*   gap: 32px; */
+/*   max-width: 1100px; */
+/*   margin: 40px auto 0; */
+/* } */
 
-/* Card */
-.workflow-card {
-  position: relative;
-  height: 340px;
-  border-radius: 20px;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+/* /\* Card *\/ */
+/* .workflow-card { */
+/*   position: relative; */
+/*   height: 340px; */
+/*   border-radius: 20px; */
+/*   overflow: hidden; */
+/*   cursor: pointer; */
+/*   box-shadow: 0 20px 40px rgba(0,0,0,0.25); */
+/*   transition: transform 0.3s ease, box-shadow 0.3s ease; */
+/* } */
 
-.workflow-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
-}
+/* .workflow-card:hover { */
+/*   transform: translateY(-6px); */
+/*   box-shadow: 0 30px 60px rgba(0,0,0,0.35); */
+/* } */
 
-/* Background image */
-.workflow-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.95;
-}
+/* /\* Background image *\/ */
+/* .workflow-bg { */
+/*   width: 100%; */
+/*   height: 100%; */
+/*   object-fit: cover; */
+/*   opacity: 0.95; */
+/* } */
 
-/* Overlay content */
-.workflow-overlay {
-  position: absolute;
-  inset: 0;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.85),
-    rgba(0,0,0,0.25)
-  );
-  color: #fff;
-}
+/* /\* Overlay content *\/ */
+/* .workflow-overlay { */
+/*   position: absolute; */
+/*   inset: 0; */
+/*   padding: 32px; */
+/*   display: flex; */
+/*   flex-direction: column; */
+/*   justify-content: flex-end; */
+/*   background: linear-gradient( */
+/*     to top, */
+/*     rgba(0,0,0,0.85), */
+/*     rgba(0,0,0,0.25) */
+/*   ); */
+/*   color: #fff; */
+/* } */
 
-.workflow-overlay h3 {
-  margin-bottom: 8px;
-}
+/* .workflow-overlay h3 { */
+/*   margin-bottom: 8px; */
+/* } */
 
-.workflow-overlay p {
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
+/* .workflow-overlay p { */
+/*   font-size: 0.95rem; */
+/*   opacity: 0.85; */
+/* } */
 
-.explore-hint {
-  margin-top: 12px;
-  font-weight: 600;
-  color: var(--accent-color);
-}
+/* .explore-hint { */
+/*   margin-top: 12px; */
+/*   font-weight: 600; */
+/*   color: var(--accent-color); */
+/* } */
 
-.morph-detail {
-  display: none !important;
-  visibility: hidden;
-  height: 0;
-  overflow: hidden;
-  scroll-margin-top: 60px;
-  padding-bottom: 500px;  
-}
+/* .morph-detail { */
+/*   display: none !important; */
+/*   visibility: hidden; */
+/*   height: 0; */
+/*   overflow: hidden; */
+/*   scroll-margin-top: 60px; */
+/*   padding-bottom: 500px;   */
+/* } */
 
-.morph-detail.active {
-  display: block !important;
-  visibility: visible;
-  height: auto;
-}
+/* .morph-detail.active { */
+/*   display: block !important; */
+/*   visibility: visible; */
+/*   height: auto; */
+/* } */
 
 /* End Blender and Freeform workflow chooser cards */
 
@@ -1128,6 +1128,227 @@ footer {
 }
 
 /* end Developer info */
+
+/* Start Research-scroll */
+.research-panel {
+  max-width: 1100px;
+  margin: 120px auto;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.research-toggle {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 32px 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.toggle-title {
+  font-size: 1.6em;
+  color: #FFA500;
+}
+
+.toggle-subtitle {
+  color: #bbb;
+  font-size: 0.95em;
+}
+
+.toggle-icon {
+  margin-top: 8px;
+  font-size: 1.2em;
+  opacity: 0.7;
+}
+
+/* Collapsed */
+.research-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+}
+
+/* Expanded */
+.research-panel.active .research-content {
+  max-height: 6000px; /* safe large value */
+}
+
+/* Rotate arrow */
+.research-panel.active .toggle-icon {
+  transform: rotate(180deg);
+}
+
+
+/* End  Research-scroll */
+
+
+/* ========================= */
+/* WORKFLOW CHOOSER */
+/* ========================= */
+
+.workflow-chooser {
+  padding: 80px 20px 40px;
+  text-align: center;
+}
+
+.workflow-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 40px auto 0;
+  width: 100%;
+}
+
+/* .workflow-cards { */
+/*   display: grid; */
+/*   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); */
+/*   gap: 24px; */
+/*   max-width: 1100px; */
+/*   margin: 40px auto 0; */
+/* } */
+
+/* .workflow-cards { */
+/*   display: grid; */
+/*   gap: 24px; */
+/*   max-width: 1100px; */
+/*   margin: 40px auto 0; */
+/* } */
+
+
+
+.workflow-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: #081020;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+
+  height: 320px; /* ensures consistent card height */
+
+  border: 2px solid transparent;
+  transition: transform 0.25s ease, border 0.25s ease;
+
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Image container */
+.workflow-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+
+/* Text block pinned to bottom */
+.workflow-card h3 {
+  margin: 12px 16px 4px;
+  color: #00AEEF;
+}
+
+.workflow-card p {
+  margin: 0 16px 16px;
+  font-size: 0.95em;
+  color: #ccc;
+}
+
+.workflow-card.active {
+  border-color: #00AEEF;
+  transform: translateY(-4px);
+}
+
+
+/* ========================= */
+/* WORKFLOW STAGE */
+/* ========================= */
+
+.workflow-stage {
+  max-width: 1000px;
+  margin: 60px auto 120px;
+  padding: 40px 20px;
+  background: #050b16;
+  border-radius: 24px;
+  min-height: 420px; /* reserves space */
+}
+
+.workflow {
+  display: none;
+}
+
+.workflow.active {
+  display: block;
+}
+
+
+/* ========================= */
+/* SCROLL CONTENT */
+/* ========================= */
+
+.scroll-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.scroll-text {
+  max-width: 800px;
+  text-align: center;
+}
+
+.scroll-media {
+  width: 100%;
+  max-width: 800px;
+  height: 380px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.scroll-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .workflow-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-stage {
+    padding: 30px 16px;
+  }
+}
+
+
+
+
+
+ 
+
+/* Mobile */
+@media (max-width: 768px) {
+  .research-step {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 80px;
+  }
+}
+/* End Research Scroll */
 
 
 /* @ media for Blender and Freeform workflow chooser cards */
@@ -1345,6 +1566,85 @@ footer {
     
 
 }
+
+
+/* Card Overlay  */
+.card-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8,16,32,0.95);
+  display: none;
+  z-index: 999;
+  overflow: auto;
+}
+
+.overlay-content {
+  position: relative;
+  max-width: 800px;
+  margin: 60px auto;
+  background: #081020;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.overlay-content img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.overlay-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #ff8c00;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+
+/* Card Overlay  */
+
+
+@media (max-width: 768px) {
+  .workflow-chooser {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: #050b16;
+    padding: 12px 16px 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+
+  .workflow-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 0;
+  }
+
+  .workflow-card {
+    height: 96px;
+  }
+
+  .workflow-card img {
+    height: 60px;
+  }
+
+  .workflow-card h3,
+  .workflow-card p {
+    display: none; /* icons only on mobile */
+  }
+}
+
     
 
 }
@@ -1648,7 +1948,7 @@ footer {
       
 
       <section class="femorph-process">
-	<h2 class="process-title">Basic FEMORPH Target Surface Process</h2>
+	<h2 class="process-title">The FEMORPH Target Surface Morphing Process</h2>
 
 	<div class="scroll-section">
 
@@ -1996,6 +2296,8 @@ footer {
       </section>
 
 
+
+
       <!-- Optimization Morphing Scroll -->
       <section class="scroll-section morph-detail" id="opt">
 
@@ -2100,7 +2402,161 @@ footer {
       <!-- 	    <img src="figures/ai_example.jpg" alt="AI Training Example"> -->
       <!-- 	  </div> -->
       <!-- 	</div> -->
-      <!-- </section> -->
+	  <!-- </section> -->
+
+
+	
+	<!-- ========================= -->
+	<!-- WORKFLOW CHOOSER -->
+	<!-- ========================= -->
+	<!-- <section class="workflow-chooser"> -->
+	<!--   <h2>See More Morphing Workflows</h2> -->
+	  
+	<!--   <div class="workflow-cards"> -->
+	<!--     <div class="workflow-card active" data-workflow="target"> -->
+	<!--       <img src="figures/atos.jpg" alt="Target Surface Morphing"> -->
+	<!--       <h3>Target Surface Morphing</h3> -->
+	<!--       <p>Scan-driven nominal mesh alignment</p> -->
+	<!--     </div> -->
+	    
+	<!--     <div class="workflow-card" data-workflow="blend"> -->
+	<!--       <img src="figures/blender_pbs.png" alt="Blend Repair"> -->
+	<!--       <h3>Blend Repair</h3> -->
+	<!--       <p>Damage repair & MRB workflows</p> -->
+	<!--     </div> -->
+	    
+	<!--     <div class="workflow-card" data-workflow="freeform"> -->
+	<!--       <img src="figures/freeform_thumb.png" alt="Free Form Morphing"> -->
+	<!--       <h3>Free Form Morphing</h3> -->
+	<!--       <p>Localized geometry control</p> -->
+	<!--     </div> -->
+	<!--   </div> -->
+	    <!-- </section> -->
+
+	  <!--   <section class="workflow-chooser" id="workflows"> -->
+	  <!--     <h2>Blend Repair and Freeform Morphing Workflows</h2> -->
+	  <!--     <div class="workflow-cards"> -->
+	      
+	  <!-- 	<\!-- Blend Repair -\-> -->
+	  <!-- 	<a href="blend_workflow.html" class="workflow-card"> -->
+	  <!-- 	  <img src="figures/blender_pbs.png" alt="Blend Repair Morphing"> -->
+	  <!-- 	  <div class="workflow-card-text"> -->
+	  <!-- 	    <h3>Blend Repair Morphing</h3> -->
+	  <!-- 	    <p>Physics-based reconstruction of blend repairs from inspection data.</p> -->
+	  <!-- 	  </div> -->
+	  <!-- 	</a> -->
+		
+	  <!-- 	<\!-- Free Form -\-> -->
+	  <!-- 	<a href="freeform_workflow.html" class="workflow-card"> -->
+	  <!-- 	  <img src="figures/freeform_preview.png" alt="Free Form Morphing"> -->
+	  <!-- 	  <div class="workflow-card-text"> -->
+	  <!-- 	    <h3>Free Form Morphing</h3> -->
+	  <!-- 	    <p>General-purpose surface morphing for arbitrary geometry changes.</p> -->
+	  <!-- 	  </div> -->
+	  <!-- 	</a> -->
+
+	  <!--   </div> -->
+	  <!-- </section> -->
+	  
+
+
+	  <section class="workflow-chooser">
+	    <h2 class="process-title">Additional Morphing Workflows</h2>
+	    
+	    <div class="workflow-cards">
+	  
+	      <div class="workflow-card" data-title="Blend Repair" data-image="figures/blender_pbs.png"
+		   data-desc="THe Blender Module of FEMORPH allows creation of edge and surface blends. Blender is integrated into the FEMORPH GUI and is also scriptable with Python">
+		<img src="figures/blender_pbs.png" alt="Blend Repair">
+		<h3>Blend Repair</h3>
+		<p>The Blender module of FEMORPH allows creation of edge and surface blends.</p>
+	      </div>
+
+	      <div class="workflow-card" data-title="Free Form" data-image="figures/und_damage_1.png" data-desc=".">
+		<img src="figures/und_damage_1.png" alt="Free Form">
+		<h3>Damaged Airfoil Analysis</h3>
+		<p>FEMORPH's target surface morphing is robust and is able to handle Surface scans of defects, including large damage. THese as-damaged models can be used in root-cause analysis and repair assessments.</p>	    
+	      </div>
+	    </div>
+
+	      <div class="workflow-card" data-title="Free Form" data-image="figures/und_damage_1.png" data-desc=".">
+		<img src="figures/und_damage_1.png" alt="Free Form">
+		<h3>Damaged Airfoil Analysis</h3>
+		<p>FEMORPH's target surface morphing is robust and is able to handle Surface scans of defects, including large damage. THese as-damaged models can be used in root-cause analysis and repair assessments.</p>	    
+	      </div>
+	    </div>
+
+	    <div class="workflow-card" data-title="Free Form" data-image="figures/workflow.png" data-desc=".">
+	      <img src="figures/workflow.png" alt="Free Form">
+	      <h3>Physics-based Quality Control</h3>
+	      <p> Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.	    
+	    </div>
+    </div>
+    
+
+	
+	<!-- Overlay panel -->
+	<div id="card-overlay" class="card-overlay">
+	  <div class="overlay-content">
+	    <button id="overlay-close" class="overlay-close">✕</button>
+	    <img id="overlay-image" src="" alt="">
+	    <h3 id="overlay-title"></h3>
+	    <p id="overlay-desc"></p>
+	  </div>
+	</div>
+	
+
+
+
+	  <!-- Start Research Panel	 -->
+	  <section class="research-panel" id="research-validation">
+	    <button class="research-toggle">
+	      <span class="toggle-title">Experimental Validation</span>
+	      <span class="toggle-subtitle">
+		Correlation of morphed FE models with experimental modal data
+	      </span>
+	      <span class="toggle-icon">↓</span>
+	    </button>
+	    
+	    <div class="research-content">
+	      <!-- This is the scroll content from before -->
+	      <div class="research-step">
+		<div class="research-text">
+		  <h3>Problem Statement</h3>
+		  <p>
+		    This work evaluates whether morphed FE models preserve modal
+		    fidelity when validated against experimental data.
+		  </p>
+		</div>
+		<div class="research-media">
+		  <img src="figures/atos.jpg" alt="Problem overview" />
+		</div>
+	      </div>
+
+
+	    <div class="research-content">
+	      <!-- This is the scroll content from before -->
+	      <div class="research-step">
+		<div class="research-text">
+		  <h3>Problem Statement</h3>
+		  <p>
+		    This work evaluates whether morphed FE models preserve modal
+		    fidelity when validated against experimental data.
+		  </p>
+		</div>
+		<div class="research-media">
+		  <img src="figures/f22.jpg" alt="Problem overview" />
+		</div>
+	      </div>
+	      
+	      
+	      <!-- more steps -->
+	    </div>
+	  </section>
+	  <!-- End Research Panel	 -->
+
+	  
+	
 
 
 
@@ -2489,6 +2945,86 @@ document.querySelectorAll('.close-workflow').forEach(btn => {
     });
   });
 
+
+    // Research validation toggle
+    const researchPanel = document.querySelector('.research-panel');
+    const researchToggle = document.querySelector('.research-toggle');
+    
+    if (researchPanel && researchToggle) {
+	researchToggle.addEventListener('click', () => {
+	    researchPanel.classList.toggle('active');
+	    
+	    // Optional: scroll into view when opening
+	    if (researchPanel.classList.contains('active')) {
+		researchPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	    }
+	});
+    }
+
+
+
+
+// Workflow chooser
+document.querySelectorAll('.workflow-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const id = card.dataset.workflow;
+
+    // Activate card
+    document.querySelectorAll('.workflow-card')
+      .forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    // Activate workflow
+    document.querySelectorAll('.workflow')
+      .forEach(w => w.classList.remove('active'));
+
+    const workflowEl = document.getElementById('workflow-' + id);
+    workflowEl.classList.add('active');
+
+    // 📱 Mobile: scroll so selector stays visible
+    if (window.innerWidth <= 768) {
+      const chooser = document.querySelector('.workflow-chooser');
+      if (chooser) {
+        chooser.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  });
+});
+
+
+// Card Overlay
+
+const cards = document.querySelectorAll('.workflow-card');
+const overlay = document.getElementById('card-overlay');
+const overlayImage = document.getElementById('overlay-image');
+const overlayTitle = document.getElementById('overlay-title');
+const overlayDesc = document.getElementById('overlay-desc');
+const overlayClose = document.getElementById('overlay-close');
+
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    overlayImage.src = card.dataset.image;
+    overlayTitle.textContent = card.dataset.title;
+    overlayDesc.textContent = card.dataset.desc;
+    overlay.style.display = 'block';
+  });
+});
+
+// Close overlay
+overlayClose.addEventListener('click', () => {
+  overlay.style.display = 'none';
+});
+
+// Optional: click outside content to close
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) overlay.style.display = 'none';
+});
+
+
+			     
 });
 </script>
     
