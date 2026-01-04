@@ -459,7 +459,7 @@ footer { padding: 40px 20px;
     filter: brightness(1.2);
 }
 
-/* Second Heritage slide */
+/* Second Heritage slide with background*/
 .heritage-bg {
     position: relative;
     background-image: url('figures/f22.jpg');
@@ -483,6 +483,99 @@ footer { padding: 40px 20px;
     font-size: 2.2rem;
     color: #00b7ff;
 }
+
+/* ========================= */
+/* HERITAGE CONTENT SECTIONS */
+/* (paper-style, image-based) */
+/* ========================= */
+
+.heritage-content {
+  max-width: 1100px;
+  margin: 120px auto;
+  padding: 0 20px;
+  color: #cfd6e0;
+}
+
+.heritage-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  color: #ffffff;
+  text-align: center;
+  color: #00b7ff;  
+}
+
+.heritage-content p {
+  max-width: 820px;
+  margin-bottom: 32px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Image grid */
+.heritage-media {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Default: 1 image */
+.heritage-media {
+  grid-template-columns: 1fr;
+}
+
+/* 2 images */
+.heritage-media:has(figure:nth-child(2)) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 3 images */
+.heritage-media:has(figure:nth-child(3)) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Image styling */
+.heritage-media figure {
+  margin: 0;
+  text-align: center;
+}
+
+.heritage-media img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #0a1222;
+}
+
+/* Caption */
+.heritage-media figcaption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #9aa4b2;
+}
+
+.heritage-content::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #00AEEF, transparent);
+  margin-bottom: 60px;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .heritage-media {
+    grid-template-columns: 1fr;
+  }
+
+  .heritage-content {
+    margin: 80px auto;
+  }
+}
+
+
+
+
 
 .highlight-orange {
     color: #FF6F00;
@@ -920,158 +1013,6 @@ footer {
 
 
 
-/* /\* Blender and Freeform workflow chooser cards *\/ */
-
-/* .workflow-chooser { */
-/*   padding: 80px 24px; */
-/*   text-align: center; */
-/* } */
-
-/* .workflow-cards { */
-/*   display: grid; */
-/*   grid-template-columns: repeat(2, 1fr); */
-/*   gap: 32px; */
-/*   max-width: 1100px; */
-/*   margin: 40px auto 0; */
-/* } */
-
-/* /\* Card *\/ */
-/* .workflow-card { */
-/*   position: relative; */
-/*   height: 340px; */
-/*   border-radius: 20px; */
-/*   overflow: hidden; */
-/*   cursor: pointer; */
-/*   box-shadow: 0 20px 40px rgba(0,0,0,0.25); */
-/*   transition: transform 0.3s ease, box-shadow 0.3s ease; */
-/* } */
-
-/* .workflow-card:hover { */
-/*   transform: translateY(-6px); */
-/*   box-shadow: 0 30px 60px rgba(0,0,0,0.35); */
-/* } */
-
-/* /\* Background image *\/ */
-/* .workflow-bg { */
-/*   width: 100%; */
-/*   height: 100%; */
-/*   object-fit: cover; */
-/*   opacity: 0.95; */
-/* } */
-
-/* /\* Overlay content *\/ */
-/* .workflow-overlay { */
-/*   position: absolute; */
-/*   inset: 0; */
-/*   padding: 32px; */
-/*   display: flex; */
-/*   flex-direction: column; */
-/*   justify-content: flex-end; */
-/*   background: linear-gradient( */
-/*     to top, */
-/*     rgba(0,0,0,0.85), */
-/*     rgba(0,0,0,0.25) */
-/*   ); */
-/*   color: #fff; */
-/* } */
-
-/* .workflow-overlay h3 { */
-/*   margin-bottom: 8px; */
-/* } */
-
-/* .workflow-overlay p { */
-/*   font-size: 0.95rem; */
-/*   opacity: 0.85; */
-/* } */
-
-/* .explore-hint { */
-/*   margin-top: 12px; */
-/*   font-weight: 600; */
-/*   color: var(--accent-color); */
-/* } */
-
-/* .morph-detail { */
-/*   display: none !important; */
-/*   visibility: hidden; */
-/*   height: 0; */
-/*   overflow: hidden; */
-/*   scroll-margin-top: 60px; */
-/*   padding-bottom: 500px;   */
-/* } */
-
-/* .morph-detail.active { */
-/*   display: block !important; */
-/*   visibility: visible; */
-/*   height: auto; */
-/* } */
-
-/* End Blender and Freeform workflow chooser cards */
-
-
-
-
-/* this closes the blend workflow using a sticky bar */
-/* .workflow-close { */
-/*   position: sticky; */
-/*   top: 0; */
-/*   background: rgba(8, 16, 32, 0.9); */
-/*   backdrop-filter: blur(6px); */
-/*   padding: 12px 16px; */
-/*   z-index: 10; */
-/*   border-bottom: 1px solid rgba(255,255,255,0.1); */
-/* } */
-
-/* .workflow-close { */
-/*   position: sticky; */
-/*   top: 0; */
-/*   z-index: 100; */
-/*   padding: 12px 16px; */
-/*   background: rgba(8, 16, 32, 0.85); */
-/*   border-bottom: 1px solid rgba(255,255,255,0.1); */
-/* } */
-
-/* .workflow-close::before { */
-/*   content: ""; */
-/*   position: absolute; */
-/*   inset: 0; */
-/*   backdrop-filter: blur(6px); */
-/*   background: rgba(8, 16, 32, 0.4); */
-/*   z-index: -1; */
-/* } */
-
-
-/* .workflow-close { */
-/*   position: sticky; */
-/*   top: 0; */
-/*   z-index: 1000; */
-/*   background: rgba(8, 16, 32, 0.95); */
-/*   padding: 12px 16px; */
-/*   border-bottom: 1px solid rgba(255,255,255,0.1); */
-/* } */
-
-
-.workflow-close {
-  display: none;       /* hide initially */
-  position: sticky;
-  top: 0;
-  background: rgba(8, 16, 32, 0.9);
-  backdrop-filter: blur(6px);
-  padding: 12px 16px;
-  z-index: 10;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Show it when active */
-.workflow-close.active {
-  display: block;
-}
-
-
-.close-workflow {
-  font-size: 2.0rem;
-}
-/* end of this closes the blend workflow using a sticky bar */
-
 
 /* Developer info */
 .about-developers {
@@ -1186,156 +1127,6 @@ footer {
 /* End  Research-scroll */
 
 
-/* ========================= */
-/* WORKFLOW CHOOSER */
-/* ========================= */
-
-.workflow-chooser {
-  padding: 80px 20px 40px;
-  text-align: center;
-}
-
-.workflow-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1100px;
-  margin: 40px auto 0;
-  width: 100%;
-}
-
-/* .workflow-cards { */
-/*   display: grid; */
-/*   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); */
-/*   gap: 24px; */
-/*   max-width: 1100px; */
-/*   margin: 40px auto 0; */
-/* } */
-
-/* .workflow-cards { */
-/*   display: grid; */
-/*   gap: 24px; */
-/*   max-width: 1100px; */
-/*   margin: 40px auto 0; */
-/* } */
-
-
-
-.workflow-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  background: #081020;
-  border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
-
-  height: 320px; /* ensures consistent card height */
-
-  border: 2px solid transparent;
-  transition: transform 0.25s ease, border 0.25s ease;
-
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Image container */
-.workflow-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-
-/* Text block pinned to bottom */
-.workflow-card h3 {
-  margin: 12px 16px 4px;
-  color: #00AEEF;
-}
-
-.workflow-card p {
-  margin: 0 16px 16px;
-  font-size: 0.95em;
-  color: #ccc;
-}
-
-.workflow-card.active {
-  border-color: #00AEEF;
-  transform: translateY(-4px);
-}
-
-
-/* ========================= */
-/* WORKFLOW STAGE */
-/* ========================= */
-
-.workflow-stage {
-  max-width: 1000px;
-  margin: 60px auto 120px;
-  padding: 40px 20px;
-  background: #050b16;
-  border-radius: 24px;
-  min-height: 420px; /* reserves space */
-}
-
-.workflow {
-  display: none;
-}
-
-.workflow.active {
-  display: block;
-}
-
-
-/* ========================= */
-/* SCROLL CONTENT */
-/* ========================= */
-
-.scroll-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.scroll-text {
-  max-width: 800px;
-  text-align: center;
-}
-
-.scroll-media {
-  width: 100%;
-  max-width: 800px;
-  height: 380px;
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.scroll-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-
-/* ========================= */
-/* MOBILE */
-/* ========================= */
-
-@media (max-width: 768px) {
-  .workflow-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .workflow-stage {
-    padding: 30px 16px;
-  }
-}
-
-
-
 
 
  
@@ -1349,22 +1140,6 @@ footer {
   }
 }
 /* End Research Scroll */
-
-
-/* @ media for Blender and Freeform workflow chooser cards */
-@media (max-width: 768px) {
-  .workflow-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .workflow-card {
-    height: 280px;
-  }
-
-  .workflow-overlay {
-    padding: 24px;
-  }
-}
 
 
 @media (max-width: 600px) {
@@ -1612,40 +1387,6 @@ footer {
 
 
 
-/* Card Overlay  */
-
-
-@media (max-width: 768px) {
-  .workflow-chooser {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: #050b16;
-    padding: 12px 16px 8px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-  }
-
-  .workflow-cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-top: 0;
-  }
-
-  .workflow-card {
-    height: 96px;
-  }
-
-  .workflow-card img {
-    height: 60px;
-  }
-
-  .workflow-card h3,
-  .workflow-card p {
-    display: none; /* icons only on mobile */
-  }
-}
-
-    
 
 }
 
@@ -2015,523 +1756,169 @@ footer {
       </section>
 
 
-
-      <!-- <\!-- MORPH CHOICE -\-> -->
-      <!-- <section class="morph-choice"> -->
-      <!-- 	<h2>See More Morphing Workflows</h2> -->
-      <!-- 	<p>Learn more about specialized mesh morphing workflows:</p> -->
-      <!-- 	<div class="choice-buttons"> -->
-      <!-- 	  <button class="btn" id="blendRepairBtn">Blend Repair Morphing</button> -->
-      <!-- 	  <button class="btn" id="freeFormBtn">Free Form Morphing</button> -->
-      <!-- 	</div> -->
-      <!-- </section> -->
-
-
-      <!-- <section class="morph-choice"> -->
-      <!-- 	<h2>See More Morphing Workflows</h2> -->
-      <!-- 	<p class="choice-intro"> -->
-      <!-- 	  Explore how FEMORPH adapts to different engineering challenges. -->
-      <!-- 	</p> -->
-	
-      <!-- 	<div class="workflow-choices"> -->
-      <!-- 	  <div class="workflow-card" data-target="repair"> -->
-      <!-- 	    <h3>Repair & MRB</h3> -->
-      <!-- 	    <p>From scanned damage to repair-ready mesh</p> -->
-      <!-- 	    <span class="explore-hint">Explore workflow →</span> -->
-      <!-- 	  </div> -->
-
-      <!-- 	  <div class="workflow-card" data-target="quality"> -->
-      <!-- 	    <h3>Quality & Inspection</h3> -->
-      <!-- 	    <p>Nominal-to-as-built deviation at scale</p> -->
-      <!-- 	    <span class="explore-hint">Explore workflow →</span> -->
-      <!-- 	  </div> -->
-      <!-- 	</div> -->
-      <!-- </section> -->
-
-
-      <section class="workflow-chooser">
-	<h2 class="process-title">See More Morphing Workflows</h2>
-	
-	<div class="workflow-cards">
-	  <div class="workflow-card" data-target="blendRepair">
-	    <img
-              src="figures/blender_pbs.png"
-              alt="Repair and MRB workflow"
-              class="workflow-bg"
-	      >
-	    <div class="workflow-overlay">
-              <h3>Repair Analysis</h3>
-              <p>From scanned damage to repair-ready mesh</p>
-              <span class="explore-hint">Explore workflow →</span>
-	    </div>
-	  </div>
-	  
-	  <!-- <div class="workflow-card" data-target="blendRepair"> -->
-	  <!--   <img -->
-          <!--     src="figures/blender_pbs.png" -->
-          <!--     alt="Inspection and QC workflow" -->
-          <!--     class="workflow-bg" -->
-	  <!--     > -->
-	  <!--   <div class="workflow-overlay"> -->
-          <!--     <h3>Inspection & QC</h3> -->
-          <!--     <p>Quantifying as-built vs nominal geometry</p> -->
-          <!--     <span class="explore-hint">Explore workflow →</span> -->
-	  <!--   </div> -->
-	  <!-- </div> -->
-
-	  <div class="workflow-card" data-target="mrb">
-	    <img
-              src="figures/und_damage_1.png"
-              alt="Damage Analysis and MRB"
-              class="workflow-bg"
-	      >
-	    <div class="workflow-overlay">
-              <h3>Damaged Part analysis and MRB</h3>
-              <p>Speed part acceptance</p>
-              <span class="explore-hint">Explore workflow →</span>
-	    </div>
-	  </div>
-	  
-
-	  <div class="workflow-card" data-target="qc">
-	    <img
-              src="figures/workflow.png"
-              alt="Physics-based quality control"
-              class="workflow-bg"
-	      >
-	    <div class="workflow-overlay">
-              <h3>Physics-based Quality Control</h3>
-              <p>Expand manufacturing allowables</p>
-              <span class="explore-hint">Explore workflow →</span>
-	    </div>
-	  </div>
-
-
-	  <div class="workflow-card" data-target="opt">
-	    <img
-              src="figures/optimization_workflow.png"
-              alt="Optimization"
-              class="workflow-bg"
-	      >
-	    <div class="workflow-overlay">
-              <h3>Optimization</h3>
-              <p>Robust explortion of 3D geometry</p>
-              <span class="explore-hint">Explore workflow →</span>
-	    </div>
-	  </div>
-
-	  <div class="workflow-card" data-target="ai">
-	    <img
-              src="figures/ai_workflow.png"
-              alt="ai"
-              class="workflow-bg"
-	      >
-	    <div class="workflow-overlay">
-              <h3>AI/ML</h3>
-              <p>Robust generation of 3D geometry training data</p>
-              <span class="explore-hint">Explore workflow →</span>
-	    </div>
-	  </div>
-
-
-	  <div class="workflow-card" data-target="additive">
-	    <img
-              src="figures/additive_workflow.png"
-              alt="ai"
-              class="workflow-bg"
-	      >
-	    <div class="workflow-overlay">
-              <h3>Additive</h3>
-              <p>Accounting for variations in additive processing</p>
-              <span class="explore-hint">Explore workflow →</span>
-	    </div>
-	  </div>
-	  
-	  
-	  
+      <section class="heritage-bg">
+	<div class="overlay">
+	  <h2>Integrated with F-22 Maintenance, Repair, Overhaul Program</h2>
+	  <p><strong>FEMORPH</strong> is in operational use at <strong>Air Force Sustainment Center<strong> at Tinker Air Force Base.  It has been integral to the repair and maintenance of the Air Forces most advanced fighter aircraft.</p>
 	</div>
       </section>
-      
-
-      <!-- <\!-- Blend Repair Morphing Scroll -\-> -->
-      <!-- <section class="scroll-section morph-detail" id="blendRepair"> -->
-
-      <!-- 	<\!-- Close / Back control (FIRST CHILD) -\-> -->
-      <!-- 	<div class="workflow-close"> -->
-      <!-- 	  <button class="btn secondary close-workflow"> -->
-      <!-- 	    ← Back to workflows -->
-      <!-- 	  </button> -->
-      <!-- 	</div> -->
-	
-      <!-- 	<div class="scroll-step"> -->
-      <!-- 	  <div class="scroll-text"> -->
-      <!-- 	    <h2>Blend Repair Morphing: Step 1</h2> -->
-      <!-- 	    <p>Explanation and visual of the blend repair workflow.</p> -->
-      <!-- 	  </div> -->
-      <!-- 	  <div class="scroll-media"> -->
-      <!-- 	    <img src="figures/blender_pbs.png" alt="Blend Repair Step 1", class="active" /> -->
-      <!-- 	  </div> -->
-      <!-- 	</div> -->
-
-      <!-- 	<div class="scroll-step"> -->
-      <!-- 	  <div class="scroll-text"> -->
-      <!-- 	    <h2>Blend Repair Morphing: Step 2</h2> -->
-      <!-- 	    <p>Explanation and visual of the blend repair workflow.</p> -->
-      <!-- 	  </div> -->
-      <!-- 	  <div class="scroll-media"> -->
-      <!-- 	    <img src="figures/blender_pbs_2.png" alt="Blend Repair Step 2", class="active"/> -->
-      <!-- 	  </div> -->
-      <!-- 	</div> -->
-
-      <!-- 	<div class="scroll-step"> -->
-      <!-- 	  <div class="scroll-text"> -->
-      <!-- 	    <h2>Blend Repair Morphing: Step 3</h2> -->
-      <!-- 	    <p>Explanation and visual of the blend repair workflow.</p> -->
-      <!-- 	  </div> -->
-      <!-- 	  <div class="scroll-media"> -->
-      <!-- 	    <img src="figures/blender_pbs_3.png" alt="Blend Repair Step 3", class="active" /> -->
-      <!-- 	  </div> -->
-      <!-- 	</div> -->
-
-      <!-- </section> -->
-
-
-	<!-- Blend Repair: Sticky Back Bar (OUTSIDE the workflow section) -->
-	<div class="workflow-close">
-	  <button class="btn secondary close-workflow">
-	    ← Back to workflows
-	  </button>
-	</div>
-	
-	<!-- Blend Repair Morphing Scroll -->
-	<section class="scroll-section morph-detail" id="blendRepair">
-	  
-	  <div class="scroll-step">
-	    <div class="scroll-text">
-	      <h2>Blend Repair Morphing: Step 1</h2>
-	      <p>Explanation and visual of the blend repair workflow.</p>
-	    </div>
-	    <div class="scroll-media">
-	      <img src="figures/blender_pbs.png" alt="Blend Repair Step 1" />
-	    </div>
-	  </div>
-	  
-	  <div class="scroll-step">
-	    <div class="scroll-text">
-	      <h2>Blend Repair Morphing: Step 2</h2>
-	      <p>Explanation and visual of the blend repair workflow.</p>
-	    </div>
-	    <div class="scroll-media">
-	      <img src="figures/blender_pbs_2.png" alt="Blend Repair Step 2" />
-	    </div>
-	  </div>
-	  
-	  <div class="scroll-step">
-	    <div class="scroll-text">
-	      <h2>Blend Repair Morphing: Step 3</h2>
-	      <p>Explanation and visual of the blend repair workflow.</p>
-	    </div>
-	    <div class="scroll-media">
-	      <img src="figures/blender_pbs_3.png" alt="Blend Repair Step 3" />
-	    </div>
-	  </div>
-	  
-	</section>
-      
-
-      <!-- Damaged Part Morphing Scroll -->
-      <section class="scroll-section morph-detail" id="mrb">
-
-	<!-- Close / Back control (FIRST CHILD) -->
-	<!-- <div class="workflow-close"> -->
-	<!--   <button class="btn secondary close-workflow"> -->
-	<!--     ← Back to workflows -->
-	<!--   </button> -->
-	<!-- </div> -->
-
-	<div class="scroll-step">
-	  <div class="scroll-text">
-	    <h2>Damaged Part Morphing: Step 1</h2>
-	    <p>This blade foreign object damage event shows an extreme example of modeling damaged hardware.  The damaged airfoil geometry was measured and converted to an STL file.  The holes in this scan are indication of reference markers placed on the part during scanning that were removed from the scan data.  FEMORPH is able to recognize these gaps and interpolates a smooth mesh in these locations.  
-	  </div>
-	  <div class="scroll-media">
-	    <img src="figures/und_damage_1.png" alt="Step 1" />
-	  </div>
-	</div>
-
-	<div class="scroll-step">
-	  <div class="scroll-text">
-	    <h2>Damaged Part Morphing: Step 2</h2>
-	    <p>The mesh has been morphed and is superimposed on the damaged geometry.
-	  </div>
-	  <div class="scroll-media">
-	    <img src="figures/und_damage_morph.png" alt="Step 2" />
-	  </div>
-	</div>
-	
-	<!-- More steps as needed -->
-      </section>
-
-
-      <!-- Physics-Based Quality Control Morphing Scroll -->
-      <section class="scroll-section morph-detail" id="qc">
-
-	<!-- Close / Back control (FIRST CHILD) -->
-	<!-- <div class="workflow-close"> -->
-	<!--   <button class="btn secondary close-workflow"> -->
-	<!--     ← Back to workflows -->
-	<!--   </button> -->
-	<!-- </div> -->
-
-	<div class="scroll-step">
-	  <div class="scroll-text">
-	    <h2>Physics-based Quality Control Process</h2>
-	    <p> Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.
-	  </div>
-	  <div class="scroll-media">
-	    <img src="figures/workflow.png" alt="Step 1" />
-	  </div>
-	</div>
-	<!-- More steps as needed -->
-      </section>
-
-
-
-
-      <!-- Optimization Morphing Scroll -->
-      <section class="scroll-section morph-detail" id="opt">
-
-	<!-- Close / Back control (FIRST CHILD) -->
-	<!-- <div class="workflow-close"> -->
-	<!--   <button class="btn secondary close-workflow"> -->
-	<!--     ← Back to workflows -->
-	<!--   </button> -->
-	<!-- </div> -->
-
-	<div class="scroll-step">
-	  <div class="scroll-text">
-	    <h2>Optimization</h2>
-	    <p> Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.
-	  </div>
-	  <div class="scroll-media">
-	    <img src="figures/optimization_workflow.png" alt="Step 1" />
-	  </div>
-	</div>
-	<!-- More steps as needed -->
-      </section>
-
-
-      <!-- AI Morphing Scroll -->
-      <section class="scroll-section morph-detail" id="ai">
-
-	<!-- Close / Back control (FIRST CHILD) -->
-	<!-- <div class="workflow-close"> -->
-	<!--   <button class="btn secondary close-workflow"> -->
-	<!--     ← Back to workflows -->
-	<!--   </button> -->
-	<!-- </div> -->
-
-	<div class="scroll-step">
-	  <div class="scroll-text">
-	    <h2>AI/ML Training Data Generation</h2>
-	    <p> AI relies on large sets of training data and FEMORPH allows seemless generation of models that define the design space.
-	  </div>
-	  <div class="scroll-media">
-	    <img src="figures/ai_workflow.png" alt="Step 1" />
-	  </div>
-	</div>
-	<!-- More steps as needed -->
-      </section>
-      
-      
-      <!-- Addditive Morphing Scroll -->
-      <section class="scroll-section morph-detail" id="additive">
-
-	<!-- <\!-- Close / Back control (FIRST CHILD) -\-> -->
-	<!-- <div class="workflow-close"> -->
-	<!--   <button class="btn secondary close-workflow"> -->
-	<!--     ← Back to workflows -->
-	<!--   </button> -->
-	<!-- </div> -->
-
-	<div class="scroll-step">
-	  <div class="scroll-text">
-	    <h2>Additive Manufacturing Support</h2>
-	    <p> Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.
-	  </div>
-	  <div class="scroll-media">
-	    <img src="figures/additive_workflow.png" alt="Step 1" />
-	  </div>
-	</div>
-	<!-- More steps as needed -->
-      </section>
-      
-      
-
-      <!-- <\!-- USE CASES -\-> -->
-      <!-- <section id="use-cases" class="use-cases"> -->
-      <!-- 	<h2><center>Explore Key Use Cases</center></h2> -->
-      <!-- 	<div class="use-case-tabs"> -->
-      <!-- 	  <button data-target="mrb2">Material Review Board</button> -->
-      <!-- 	  <button data-target="qc2">Physics-Based Quality Control</button> -->
-      <!-- 	  <button data-target="opt2">Optimization</button> -->
-      <!-- 	  <button data-target="ai2">AI Training Data</button> -->
-      <!-- 	</div> -->
-
-      <!-- 	<div class="use-case-content"> -->
-      <!-- 	  <div id="mrb2" class="use-case-panel"> -->
-      <!-- 	    <h3>Material Review Board (MRB)</h3> -->
-      <!-- 	    <p>Create models of damaged or out-of-spec parts in minutes, not days.</p> -->
-      <!-- 	    <img src="figures/und_damage_1.png" alt="MRB Example"> -->
-      <!-- 	    <img src="figures/und_damage_morph.png" alt="MRB Example"> -->
-      <!-- 	  </div> -->
-      <!-- 	  <div id="qc2" class="use-case-panel"> -->
-      <!-- 	    <h3>Physics-Based Quality Control</h3> -->
-      <!-- 	    <p>Correlate as-manufactured geometry deviations with simulation accuracy.</p> -->
-      <!-- 	    <img src="figures/workflow.png" alt="Quality Control Example"> -->
-      <!-- 	    <img src="figures/workflow.png" alt="Quality Control Example"> -->
-      <!-- 	  </div> -->
-      <!-- 	  <div id="opt2" class="use-case-panel"> -->
-      <!-- 	    <h3>Optimization</h3> -->
-      <!-- 	    <p>Accelerate geometry-based design optimization using robust mesh morphing.</p> -->
-      <!-- 	    <img src="figures/optimization_example.jpg" alt="Optimization Example"> -->
-      <!-- 	  </div> -->
-      <!-- 	  <div id="ai2" class="use-case-panel"> -->
-      <!-- 	    <h3>AI Training Data</h3> -->
-      <!-- 	    <p>Generate consistent, physics-informed datasets for training ML models.</p> -->
-      <!-- 	    <img src="figures/ai_example.jpg" alt="AI Training Example"> -->
-      <!-- 	  </div> -->
-      <!-- 	</div> -->
-	  <!-- </section> -->
-
 
 	
-	<!-- ========================= -->
-	<!-- WORKFLOW CHOOSER -->
-	<!-- ========================= -->
-	<!-- <section class="workflow-chooser"> -->
-	<!--   <h2>See More Morphing Workflows</h2> -->
-	  
-	<!--   <div class="workflow-cards"> -->
-	<!--     <div class="workflow-card active" data-workflow="target"> -->
-	<!--       <img src="figures/atos.jpg" alt="Target Surface Morphing"> -->
-	<!--       <h3>Target Surface Morphing</h3> -->
-	<!--       <p>Scan-driven nominal mesh alignment</p> -->
-	<!--     </div> -->
-	    
-	<!--     <div class="workflow-card" data-workflow="blend"> -->
-	<!--       <img src="figures/blender_pbs.png" alt="Blend Repair"> -->
-	<!--       <h3>Blend Repair</h3> -->
-	<!--       <p>Damage repair & MRB workflows</p> -->
-	<!--     </div> -->
-	    
-	<!--     <div class="workflow-card" data-workflow="freeform"> -->
-	<!--       <img src="figures/freeform_thumb.png" alt="Free Form Morphing"> -->
-	<!--       <h3>Free Form Morphing</h3> -->
-	<!--       <p>Localized geometry control</p> -->
-	<!--     </div> -->
-	<!--   </div> -->
-	    <!-- </section> -->
-
-	  <!--   <section class="workflow-chooser" id="workflows"> -->
-	  <!--     <h2>Blend Repair and Freeform Morphing Workflows</h2> -->
-	  <!--     <div class="workflow-cards"> -->
-	      
-	  <!-- 	<\!-- Blend Repair -\-> -->
-	  <!-- 	<a href="blend_workflow.html" class="workflow-card"> -->
-	  <!-- 	  <img src="figures/blender_pbs.png" alt="Blend Repair Morphing"> -->
-	  <!-- 	  <div class="workflow-card-text"> -->
-	  <!-- 	    <h3>Blend Repair Morphing</h3> -->
-	  <!-- 	    <p>Physics-based reconstruction of blend repairs from inspection data.</p> -->
-	  <!-- 	  </div> -->
-	  <!-- 	</a> -->
-		
-	  <!-- 	<\!-- Free Form -\-> -->
-	  <!-- 	<a href="freeform_workflow.html" class="workflow-card"> -->
-	  <!-- 	  <img src="figures/freeform_preview.png" alt="Free Form Morphing"> -->
-	  <!-- 	  <div class="workflow-card-text"> -->
-	  <!-- 	    <h3>Free Form Morphing</h3> -->
-	  <!-- 	    <p>General-purpose surface morphing for arbitrary geometry changes.</p> -->
-	  <!-- 	  </div> -->
-	  <!-- 	</a> -->
-
-	  <!--   </div> -->
-	  <!-- </section> -->
-	  
 
 
-	  <section class="workflow-chooser">
-	    <h2 class="process-title">Additional Morphing Workflows</h2>
-	    
-	    <div class="workflow-cards">
-	  
-	      <div class="workflow-card" data-title="Blend Repair" data-image="figures/blender_pbs.png"
-		   data-desc="THe Blender Module of FEMORPH allows creation of edge and surface blends. Blender is integrated into the FEMORPH GUI and is also scriptable with Python">
-		<img src="figures/blender_pbs.png" alt="Blend Repair">
-		<h3>Blend Repair</h3>
-		<p>The Blender module of FEMORPH allows creation of edge and surface blends.</p>
-	      </div>
 
-	      <div class="workflow-card" data-title="Free Form" data-image="figures/und_damage_1.png" data-desc=".">
-		<img src="figures/und_damage_1.png" alt="Free Form">
-		<h3>Damaged Airfoil Analysis</h3>
-		<p>FEMORPH's target surface morphing is robust and is able to handle Surface scans of defects, including large damage. THese as-damaged models can be used in root-cause analysis and repair assessments.</p>	    
-	      </div>
-	    </div>
 
-	      <div class="workflow-card" data-title="Free Form" data-image="figures/und_damage_1.png" data-desc=".">
-		<img src="figures/und_damage_1.png" alt="Free Form">
-		<h3>Damaged Airfoil Analysis</h3>
-		<p>FEMORPH's target surface morphing is robust and is able to handle Surface scans of defects, including large damage. THese as-damaged models can be used in root-cause analysis and repair assessments.</p>	    
-	      </div>
-	    </div>
 
-	    <div class="workflow-card" data-title="Free Form" data-image="figures/workflow.png" data-desc=".">
-	      <img src="figures/workflow.png" alt="Free Form">
-	      <h3>Physics-based Quality Control</h3>
-	      <p> Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.	    
-	    </div>
+
+
+
+
+
+<section class="heritage-content">
+  <h2>BLEND REPAIR MORPHING</h2>
+
+
+  <p>
+    Blend repair morphing enables localized geometry correction while
+    preserving surrounding aerodynamic and structural intent.
+  </p>
+
+  <div class="heritage-media">
+    <!-- <figure> -->
+    <!--   <img src="figures/blender_pbs.png"> -->
+    <!--   <figcaption>GUI Interface to Blender</figcaption> -->
+    <!-- </figure> -->
+
+    <figure>
+      <img src="figures/blender_pbs_2.png">
+      <figcaption>GUI Interface to Blender</figcaption>
+    </figure>
+
+    <figure>
+      <img src="figures/blender_pbs_3.png">
+      <figcaption>Morphed result</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<section class="heritage-content">
+  <h2>DAMAGED PART ASSESMENTS</h2>
+
+  <p>
+    This blade foreign object damage event shows an extreme example of modeling damaged hardware.
+    The damaged airfoil geometry was measured and converted to an STL file.  The holes in this scan are indication of reference markers placed on the part during scanning that were removed from the scan data.
+    FEMORPH is able to recognize these gaps and interpolates a smooth mesh in these locations.    
+  </p>
+
+  <div class="heritage-media">
+    <figure>
+      <img src="figures/und_damage_1.png">
+      <figcaption>Damaged Airfoil Scan</figcaption>
+    </figure>
+
+    <figure>
+      <img src="figures/und_damage_morph.png">
+      <figcaption>Morphd Matches Damaged State</figcaption>b
+    </figure>
+
+  </div>
+</section>
+
+
+<section class="heritage-content">
+  <h2>Physics-based Quality Control Process</h2>
+
+  <p>
+    Manufacturing processes rely on advanced metrology
+    systems to ensure that parts meet geometric intent.
+  </p>
+
+  <div class="heritage-media">
+    <figure>
+      <img src="figures/workflow.png">
+      <figcaption>Steps in a Turbine Rotor As-manufactured Modeling Process</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<section class="heritage-content">
+  <h2>3D Optimization </h2>
+
+  <p>
+    FEMORPH is not limited to measurement data, it can morph meshes to CAD geometries in either
+    IGES or STL formats.  This allows the integration of FEMORPH and parametric CAD models within
+    an optimization framework to produce the highest performance parts that meet all design constraints.
+    FEMORPH ensures that the optimizer is not interupted by mesh generation errors.
+  </p>
+
+  <div class="heritage-media">
+    <figure>
+      <img src="figures/optimization_workflow.png">
+      <figcaption>Optimization of Turbine Disk Cross Section, Dovetail, Bolt Hole</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<section class="heritage-content">
+  <h2>ML/AI  raining Data Generation </h2>
+
+  <p>
+    AI/ML relies on large sets of training data and FEMORPH allows seemless
+    generation of models that define the design space.
+  </p>
+
+  <div class="heritage-media">
+    <figure>
+     <img src="figures/ai_workflow.png">
+     <figcaption>Random Sampling the Design Space for Training Data for Modern ML/AI Frameworks</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<section class="heritage-content">
+  <h2>Additively Manufactured Part Analysis</h2>
+  <p>
+    Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.    
+  </p>
+
+  <div class="heritage-media">
+    <figure>
+     <img src="figures/additive_workflow.png"
+     <figcaption>Example of Additively Manufactured Impeller Morphing</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+
+<!-- Start Research Panel	 -->
+<section class="research-panel" id="research-validation">
+  <button class="research-toggle">
+    <span class="toggle-title">Experimental Validation</span>
+    <span class="toggle-subtitle">
+      Correlation of morphed FE models with experimental modal data
+    </span>
+    <span class="toggle-icon">↓</span>
+  </button>
+
+  <div class="research-content">
+    <!-- This is the scroll content from before -->
+    <div class="research-step">
+      <div class="research-text">
+	<h3>Problem Statement</h3>
+	<p>
+	  This work evaluates whether morphed FE models preserve modal
+	  fidelity when validated against experimental data.
+	</p>
+      </div>
+      <div class="research-media">
+	<img src="figures/atos.jpg" alt="Problem overview" />
+      </div>
     </div>
-    
-
-	
-	<!-- Overlay panel -->
-	<div id="card-overlay" class="card-overlay">
-	  <div class="overlay-content">
-	    <button id="overlay-close" class="overlay-close">✕</button>
-	    <img id="overlay-image" src="" alt="">
-	    <h3 id="overlay-title"></h3>
-	    <p id="overlay-desc"></p>
-	  </div>
-	</div>
-	
-
-
-
-	  <!-- Start Research Panel	 -->
-	  <section class="research-panel" id="research-validation">
-	    <button class="research-toggle">
-	      <span class="toggle-title">Experimental Validation</span>
-	      <span class="toggle-subtitle">
-		Correlation of morphed FE models with experimental modal data
-	      </span>
-	      <span class="toggle-icon">↓</span>
-	    </button>
-	    
-	    <div class="research-content">
-	      <!-- This is the scroll content from before -->
-	      <div class="research-step">
-		<div class="research-text">
-		  <h3>Problem Statement</h3>
-		  <p>
-		    This work evaluates whether morphed FE models preserve modal
-		    fidelity when validated against experimental data.
-		  </p>
-		</div>
-		<div class="research-media">
-		  <img src="figures/atos.jpg" alt="Problem overview" />
-		</div>
-	      </div>
 
 
 	    <div class="research-content">
