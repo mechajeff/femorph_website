@@ -357,7 +357,7 @@ footer { padding: 40px 20px;
 }
 
 .problem-solution .content {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     text-align: left;
 }
@@ -377,8 +377,12 @@ footer { padding: 40px 20px;
 }
 
 .problem-solution p {
-    line-height: 1.6;
-    margin-bottom: 20px;
+line-height: 1.6;
+margin-bottom: 20px;
+max-width: 1000px;
+font-size: 1.2em;
+margin: 40px auto;
+padding: 0 100px;
 }
 
 .problem-solution-grid {
@@ -394,6 +398,42 @@ footer { padding: 40px 20px;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 174, 239, 0.35);
 }
+
+
+.problem-solution--bottom-media {
+  grid-template-columns: 1fr;
+}
+
+.problem-solution--bottom-media .problem-solution-media {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.problem-solution--bottom-media .problem-solution-media figure {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.problem-solution--bottom-media .problem-solution-media img {
+  height: 200px;          /* uniform height */
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* First Heritage Slide */
 .heritage {
@@ -435,6 +475,10 @@ footer { padding: 40px 20px;
     font-size: 1.1em;
     line-height: 1.6;
     color: #ddd;
+}
+
+.heritage-text p + p {
+  margin-top: 1em;
 }
 
 .heritage-logos {
@@ -503,13 +547,23 @@ footer { padding: 40px 20px;
   color: #00b7ff;  
 }
 
+/* .heritage-content p { */
+/* padding: 0 100px;     /\* ← indentation *\/ */
+/* max-width: 1000px; */
+/*   margin-bottom: 32px; */
+/*   font-size: 1.05rem; */
+/*   line-height: 1.6; */
+/*   color: lightgray; */
+/* } */
+
 .heritage-content p {
-  padding: 0 100px;     /* ← indentation */
-  max-width: 1000px;
-  margin-bottom: 32px;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: lightgray;
+    max-width: 850px;
+    margin: 0 auto 32px auto; /* top 0, left/right auto, bottom 32px */
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: lightgray;
+<!-- text-align: center;       /* optional if you want text itself centered */ -->
+    padding: 0;               /* remove padding */
 }
 
 
@@ -535,10 +589,16 @@ footer { padding: 40px 20px;
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* Image styling */
+<!-- /* Image styling */ -->
+<!-- .heritage-media figure { -->
+<!--   margin: 0; -->
+<!--   text-align: center; -->
+<!-- } -->
+
 .heritage-media figure {
-  margin: 0;
-  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .heritage-media img {
@@ -547,6 +607,15 @@ footer { padding: 40px 20px;
   border-radius: 12px;
   background: #0a1222;
 }
+
+.heritage-content.imgheight .heritage-media img {
+  height: 240px;          /* ← choose your visual target */
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 
 /* Caption */
 .heritage-media figcaption {
@@ -653,7 +722,7 @@ footer { padding: 40px 20px;
 
 
 .heritage-index a {
-    color: gray;
+    color: lightgray;
     /* color: #00AEEF; */    
   text-decoration: none;
   font-weight: 500;
@@ -1583,7 +1652,7 @@ footer {
       <section class="hero">
         <div class="hero-left">
           <!-- <h1>Redefining accuracy<br/>in digital twin creation</h1> -->
-	  <h1>Multipurpose mesh morphing<br/>to accelerate engineering analysis workflows</h1>
+	  <h1>Multipurpose computational mesh morphing<br/>to accelerate engineering analysis workflows</h1>
           <div class="lead">
             <!-- FEMORPH transforms raw 3D scans into exact replicas of as-manufactured components — enabling high-precision mesh comparison, digital twin validation, and simulation-ready integration. -->
 	    <!-- FEMORPH is a set of tools that can be used across your engineering enterprise -->
@@ -1602,7 +1671,21 @@ footer {
             <button class="btn" id="requestDemo">Request a 90 Day Demo</button>
             <!-- <a class="btn secondary" href="#contact">Get in Touch</a> -->
           </div>
-          </div>
+
+
+
+	  <!-- <div class="hero-images"> -->
+	  <!--   <figure class="hero-media"> -->
+	  <!--   <img src="figures/pyansys.png" alt="pyansys"> -->
+	  <!--   <\!-- <figcaption>Measured Surface (STL)</figcaption> -\-> -->
+	  <!--   </figure> -->
+	  <!--   <figure class="hero-media"> -->
+	  <!--   <img src="figures/pyvista_logo.png" alt="pyvista"> -->
+	  <!--   <\!-- <figcaption>Nomininal Mesh (FEM)</figcaption> -\-> -->
+	  <!--   </figure> -->
+	  <!-- </div>	   -->
+	
+        </div>	
 
 	  
         <div class="hero-right">
@@ -1643,19 +1726,59 @@ footer {
 <!---->
 <!--	    The difficulty stems from the <strong>non-robust nature of CAD-based meshing</strong>. Even small changes in geometry can cause meshing algorithms to fail, requiring engineers to spend significant time repairing and remeshing models.-->
 <!--	</div>-->
-<!--	</section>-->
+	<!--	</section>-->
+
+
+      
+    <section id="overview" class="problem-solution problem-solution--bottom-media">
+
+      <div class="problem-solution-content">
+	<h2>Engineering Analysis Relies on Computational Meshes </h2>	      
+
+	<p> Computer simulations of aero, thermal, and structural behavior of products is are relied on for advanced product development and are supported by the multi-billion dollar CAE industry.  These simulations use compuational meshes to discretized 3D objects into nodes and elements that allow description of the object with large sets of equations that are solved to give physical behavior.  These results are used in design, manufacturing, and sustainment of all advanced products.</p>
+	
+	<p>Whether they are meshes for computational fluid dynamics (CFD), heat transfer, or structurlal models, they all share one thing in common...Generating these meshes can be hard.</p>
+
+      </div>	
+
+      
+      <div class="problem-solution-media">
+        <figure>
+          <img src="figures/hpt_grid.png">
+          <figcaption>
+            CFD O- and H- Grid Mesh
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="figures/cooled_turbine_blade.jpg">
+          <figcaption>
+            Heat Transfer Tetrahedral Mesh
+          </figcaption>
+        </figure>
+
+	<figure>
+          <img src="figures/pbs_sector.png">
+          <figcaption>
+            Structural Hexahedral Mesh
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+
 
 <section class="problem-solution">
-<h2>The Challenge of Creating Finite Element Meshes</h2>	
+<h2>The Challenge of Creating Computational Meshes</h2>	
 	<div class="content problem-solution-grid">
 
 	<div class="problem-text">
 
-	<p class="lead">
-	    Creating high quality finite element models for an individual part that is defined with design intent CAD geometry can be a <strong>time-consuming, labor-intensive process</strong>.
+	  <p class="lead"> Creating high quality finite element models for an individual part that is defined with design intent CAD geometry can be a <strong>time-consuming, labor-intensive process</strong>.</p>
 
-	    The difficulty stems from the <strong>non-robust nature of CAD-based meshing</strong>. Even small changes in geometry can cause meshing algorithms to fail, requiring engineers to spend significant time repairing and remeshing models.
-	</p>
+	  <p class="lead">The difficulty stems from the <strong>non-robust nature of CAD-based meshing</strong>. Even small changes in geometry can cause meshing algorithms to fail, requiring engineers to spend significant time repairing and remeshing models.
+	  </p>
 
 	</div>
 	
@@ -1665,8 +1788,67 @@ footer {
 	
 	</div>
 </section>
+
+
+    <section id="overview" class="problem-solution problem-solution--bottom-media">
+
+      <div class="problem-solution-content">
+	<h2>FEMORPH Addresses Meshing Challengs with Mesh Morphing </h2>
+
+	<p>FEMORPH addresses mesh generation challenges by moving, rather than rebuilding computational meshes. It enables a particular approach, Target Surface morphing, that separates it from most competing commercial approaches. This morphing approach allows an existing computational model to be morphed to a wide range of measurement data or CAD geomries in a way that enables important engineering workflows. </p>
+
+	<p>In addition to target surface morphing, FEMORPH includes functionality that supports blend repair and Free Form morphing.  This webpage gives further detail on these workflows and FEMORPH's possible use cases.</p>
 	
-	    
+
+      </div>	
+
+      
+      <div class="problem-solution-media">
+
+        <figure>
+          <img src="figures/jetcat_turbine_surf.png">
+          <figcaption>
+            Target Surface 
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="figures/blended_transparent.png">
+          <figcaption>
+            Blend Repair
+          </figcaption>
+        </figure>
+
+	<figure>
+          <img src="figures/sculptormorph.jpg">
+          <figcaption>
+            Freeform 
+          </figcaption>
+        </figure>
+	
+
+      </div>
+    </section>
+
+
+
+    <!-- <section id="heritage-multidiscipline" class="heritage-content imgheight"> -->
+
+    <!--   <h2>FEMORPH Addresses Meshing Challengs with Mesh Morphing </h2>	       -->
+
+    <!--   <p>FEMORPH addresses mesh generation challenges by moving, rather than rebuilding computational meshes. It enables a particular approach, Target Surface morphing, that separates it from most competing commercial approaches. This morphing approach allows an existing computational model to be morphed to a wide range of measurement data or CAD geomries in a way that enables important engineering workflows. </p> -->
+
+    <!--   <p>In addition to target surface morphing, FEMORPH includes functionality that supports blend repair and Free Form morphing.  This webpage gives further detail on these workflows and FEMORPH's possible use cases.</p> -->
+
+
+      
+    <!--   <div class="heritage-media"> -->
+
+    <!--   </div> -->
+    <!-- </section> -->
+
+
+
 
 <!--       <p> -->
 <!-- 	    If this meshing process then needs adapted to deal with a single manufacturing non-conformance, it can be just as costly.  Now consider that there can be large numbers of non-conformances for a given part number over its life cycle, the costs can become prohibitive.     -->
@@ -1799,15 +1981,11 @@ footer {
 	  <div class="heritage-text">
 
 	    <p>
-              <strong>FEMORPH</strong> was conceived and developed at the
-              <strong>Air Force Research Laboratory (AFRL)</strong> to address the challenge of modeling
-              as-manufactured geometries with simulation-grade accuracy.
+              <strong>FEMORPH</strong> was conceived and developed at the <strong>Air Force Research Laboratory (AFRL)</strong> to address the challenge of modeling as-manufactured geometries with simulation-grade accuracy.
 	    </p>
 	    
 	    <p>
-              The technology has been <strong>industry-hardened in collaboration with Pratt & Whitney</strong>,
-              where it has demonstrated robust performance across industrial-scale use cases in
-              digital twin creation, mesh adaptation, and optimization workflows.
+              The technology has been <strong>industry-hardened in collaboration with Pratt & Whitney</strong>, where it has demonstrated robust performance across industrial-scale use cases in digital twin creation, mesh adaptation, and optimization workflows.
 	    </p>
 	    
 	    <p>
@@ -1858,9 +2036,9 @@ footer {
       <section class="heritage-split">
 	<div class="heritage-header">
 	  <h2>Integrated with F-22 Maintenance, Repair, Overhaul Program</h2>
-	  <p><strong>FEMORPH</strong> is in operational use at <strong>Air Force Sustainment
-	      Center<strong> at Tinker Air Force Base.  It has been integral to the repair
-		and maintenance of the Air Forces most advanced fighter aircraft.</p>
+	  
+	  <p><strong>FEMORPH</strong> is in operational use at <strong>Air Force Sustainment Center<strong> at Tinker Air Force Base.  It has been integral to the repair and maintenance of the Air Forces most advanced fighter aircraft.</p>
+	  
 	</div>
 	
 	<div class="heritage-image">
@@ -1882,9 +2060,7 @@ footer {
 	  <div class="scroll-step slideshow">
 	    <div class="scroll-text">
               <h3>1. Collect Geometry Data</h3>
-              <p>Geometry data is collected using high-precision tools such as coordinate
-		measuring machines (CMMs) and optical 3D scanners. These produce detailed
-		point clouds or surface meshes for each component.</p>
+              <p>Geometry data is collected using high-precision tools such as coordinate measuring machines (CMMs) and optical 3D scanners. These produce detailed point clouds or surface meshes for each component.</p>
 	    </div>
 	    <div class="scroll-media">
               <img src="figures/atos.jpg" alt="Optical scanner">	      
@@ -1897,8 +2073,7 @@ footer {
 	  <div class="scroll-step">
 	    <div class="scroll-text">
               <h3>2. Import into FEMORPH</h3>
-              <p>The measurement data is imported into FEMORPH, where it can be analyzed
-		alongside the baseline simulation model.</p>
+              <p>The measurement data is imported into FEMORPH, where it can be analyzed alongside the baseline simulation model.</p>
 	    </div>
 	    <div class="scroll-media">
               <img src="figures/gui_shiny.png" alt="Importing scan into FEMORPH" class="active">
@@ -1909,8 +2084,7 @@ footer {
 	  <div class="scroll-step">
 	    <div class="scroll-text">
               <h3>3. Align and Compare</h3>
-              <p>FEMORPH aligns the measured geometry and baseline model, producing a detailed
-		deviation map that quantifies local shape differences.</p>
+              <p>FEMORPH aligns the measured geometry and baseline model, producing a detailed deviation map that quantifies local shape differences.</p>
 	    </div>
 	    <div class="scroll-media">
               <img src="figures/pbs_deviation.png" alt="Alignment and deviation visualization", class="active">
@@ -1921,8 +2095,7 @@ footer {
 	  <div class="scroll-step">
 	    <div class="scroll-text">
               <h3>4. Morph the Mesh</h3>
-              <p>Robust mesh morphing transfers the measured geometric deviations to the
-		simulation model, eliminating the need for time-consuming remeshing.</p>
+              <p>Robust mesh morphing transfers the measured geometric deviations to the simulation model, eliminating the need for time-consuming remeshing.</p>
 	    </div>
 	    <div class="scroll-media">
               <video autoplay muted loop playsinline, class="active">
@@ -1935,8 +2108,7 @@ footer {
 	  <div class="scroll-step">
 	    <div class="scroll-text">
               <h3>5. Save the script for automated morphing next data set</h3>
-              <p>The steps performed in the GUI are implementing python function calls.  These are
-		recorded into a script for reuse.</p>
+              <p>The steps performed in the GUI are implementing python function calls.  These are recorded into a script for reuse.</p>
 	    </div>
 	    <div class="scroll-media">
               <img src="figures/tmp.png" alt="Final morphed model and analysis results", class="active">
@@ -1961,7 +2133,8 @@ footer {
 <section class="heritage-intro">
   <div class="heritage-intro-content">
     <h2>Workflow and Use Case Examples</h2>
-    <p></p>
+    
+    <p>(Click links or scroll downward)</p>
     <nav class="heritage-index">
       <a href="#heritage-blend">Blender: the Blend Repair Morphing tool</a>
       <a href="#heritage-damage">Damaged Airfoil Assessment </a>
@@ -1980,19 +2153,11 @@ footer {
     <section id="heritage-blend" class="heritage-content">
       <h2>BLENDER: the Blend Repair Morphing Tool </h2>
 
-	<p>FEMPORPH has capabilities beyond target surface morphing.  It's Blender module streamlines
-	the workflow to design blend repairs, a subtractive manufaturing approach that grinds and
-	polishes damaged regions.  These repairs are common in the rotating machinery industries and
-	are valued for the low-cost return to service capability.</p>
+	<p>FEMPORPH has capabilities beyond target surface morphing.  It's Blender module streamlines the workflow to design blend repairs, a subtractive manufaturing approach that grinds and polishes damaged regions.  These repairs are common in the rotating machinery industries and are valued for the low-cost return to service capability.</p>
 	
-	<p>Blender contains a library of repair geometries, applies these to user-defined locations,
-	and morphs the model to the intended repaired shape. The library includes both edge and
-	and surface geometries.  Repaired models can be based on the nominal models or, when available,
-	the as-measured models that have been generated from FEMORPH's target surface capability.</p>
+	<p>Blender contains a library of repair geometries, applies these to user-defined locations, and morphs the model to the intended repaired shape. The library includes both edge and and surface geometries.  Repaired models can be based on the nominal models or, when available, the as-measured models that have been generated from FEMORPH's target surface capability.</p>
 
-	<p>Blender can be utiliezed through the GUI interface or through conveinient python scripting.
-	This scripting allows for easy integration into automated workflows and allows optimization of
-	repair designs to extract the most return on investment.</p>
+	<p>Blender can be utiliezed through the GUI interface or through conveinient python scripting. This scripting allows for easy integration into automated workflows and allows optimization of repair designs to extract the most return on investment.</p>
 
       <div class="heritage-media">
         <figure>
@@ -2006,6 +2171,30 @@ footer {
         </figure>
       </div>
     </section>
+
+
+    <section id="heritage-damage" class="heritage-content">
+      <h2>Material Review Board (MRB) Analysis</h2>
+      
+      <p>At production and during operation, parts are subject to manufacturing deviations and damage. It is common that a MRB is responsible for the determination of acceptablitly of such parts that exceed quality control standards.
+      </p>
+	
+      <p>MRB analysis is often the gateway to industry's interest in FEMORPH. There may be
+      established groups that address this area and clear ROI's on expanding and streamlining capabilities.</p>
+
+      <div class="heritage-media">
+        <figure>
+          <img src="figures/und_damage_1.png">
+          <figcaption>Damaged Airfoil Scan</figcaption>
+        </figure>
+
+        <figure>
+          <img src="figures/und_damage_morph.png">
+          <figcaption>Morphed Matches Damaged State</figcaption>
+        </figure>
+      </div>
+    </section>
+    
 
 
     <section id="heritage-damage" class="heritage-content">
@@ -2035,8 +2224,7 @@ footer {
       <h2>Physics-based Quality Control Process</h2>
 
       <p>
-        Manufacturing processes rely on advanced metrology
-        systems to ensure that parts meet geometric intent.
+        Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.
       </p>
 
       <div class="heritage-media">
@@ -2051,16 +2239,17 @@ footer {
 
 
     <section id="heritage-optimization" class="heritage-content">
-      <h2>3D Optimization</h2>
+      <h2>3D Optimization Workflows and Rapid Design Updates</h2>
 
-      <p>
-	FEMORPH is not limited to measurement data, it can morph meshes to CAD geometries in either
-	IGES or STL formats.  This allows the integration of FEMORPH and parametric CAD models within
-	an optimization framework to produce the highest performance parts that meet all design constraints.
-	FEMORPH ensures that the optimizer is not interupted by mesh generation errors.
-	FEMORPH integrates with CAD geometries (IGES or STL) and parametric models
-        to enable optimization without mesh generation failures.
-      </p>
+      
+      <p>FEMORPH is not limited to measurement data, it can morph meshes to CAD geometries in either IGES or STL formats.  This allows the integration of FEMORPH and parametric CAD models within an optimization framework to produce the high performance parts that meet design constraints. FEMORPH ensures that the optimizer is not interupted by mesh generation errors. FEMORPH integrates with CAD geometries (IGES or STL) and parametric models to enable optimization without mesh generation failures. </p>
+
+      <p>While optimization workflows are one use of FEMORPH, it is also notable that in many casesanalysis groups get design updates that come from other teams involved with designing the system.  In these cases, FEMORPH can morph the existing model to the new CAD definition to rapidly determine sutability of changes.</p>
+
+      <p>The images below demonstrate the flexibility of FEMORPH and it's ability to adapt to large changes in geometry.  On the left is an inital model, or source mesh, of a rotor with a bolt hole and dovetail. The dovetail starts as a rectangular notch to increase the difficulty of the mesh morphing. Next to this image is the defined target CAD surface that represents a large step in an optimization workflow, or an improved design delivered to a structures engineer by the design team.  The target CAD has a realistic dovetail, a resized bolt hole, a larger inner and outer diameter, and a large inner bore area.  To highlight the differences betweeen the source and target, the third image shows an overlay for comparison.</p>
+
+      <p>The last image shows the source mesh after morphing, showing that it matches the defined target surface and has notably good element quality in the dovetail and bolt hole geometries.</p>
+
 
       <div class="heritage-media">
         <figure>
@@ -2073,12 +2262,46 @@ footer {
     </section>
 
 
+    <section id="heritage-multidiscipline" class="heritage-content imgheight">
+      <h2>Integrated Multi-disciplinary Analysis Workflows</h2>
+
+      <p>Improving the integrated design processes is necessary to reduce design time and produce products that optimize mission potential.  One challenge faced in this process is the integration of aero, thermal, structures, and lifing groups workflows into an automated process.  A reason for this challenge is that each group often uses different computational meshes and software in there operations that require their own expert and specialized users.  This has contributed to a partially stovepiped, rather than truly integrated teams.</p>
+
+      <p> FEMORPH addresses this challenge by allowing different groups to interact with another's mesh using mesh morphing. For example, as a CFD group modifies their aerodynamic shape defined by "O" grids, "H" grids, or polyhedral elements, they can see the impact on heat transfer tetrahedral models and structural hexahedral models by using FEMORPH on the each source mesh</p>
+
+
+      <div class="heritage-media">
+        <figure>
+          <img src="figures/hpt_grid.png">
+          <figcaption>
+            CFD O- and H- Grid Mesh
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="figures/cooled_turbine_blade.jpg">
+          <figcaption>
+            Heat Transfer Tetrahedral Mesh
+          </figcaption>
+        </figure>
+
+	<figure>
+          <img src="figures/pbs_sector.png">
+          <figcaption>
+            Structural Hexahedral Mesh
+          </figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+
+
     <section id="heritage-ai" class="heritage-content">
       <h2>ML/AI Training Data Generation</h2>
 
       <p>
-	   AI/ML relies on large sets of training data and FEMORPH allows seemless
-	   generation of models that define the design space.
+	   AI/ML relies on large sets of training data and FEMORPH allows seemless generation of models that define the design space.
       </p>
 
       <div class="heritage-media">
@@ -2096,16 +2319,14 @@ footer {
       <h2>Additively Manufactured Part Analysis</h2>
 
       <p>
-        Advanced metrology and morphing techniques enable accurate
-        analysis of additively manufactured hardware.
+        Advanced metrology and morphing techniques enable accurate analysis of additively manufactured hardware.
       </p>
 
       <div class="heritage-media">
         <figure>
           <img src="figures/additive_workflow.png">
           <figcaption>
-	    Manufacturing processes rely on advanced metrology
-	    systems to ensure that parts meet geometric intent.    
+	    Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.    
           </figcaption>
         </figure>
       </div>
@@ -2115,30 +2336,17 @@ footer {
     <section id="heritage-validation" class="heritage-content">
       <h2>Experimental Validation</h2>
 
-      <p>
-	FEMORPH and the as-manufactured modeling process, including structured light scanning,
-	has been validated on numerous case studies. Many of these studies have centered on
-	predicting the mistuned behavior of integrally bladed rotors (IBRs). The modal dynamic
-	response of these critical compoents is extremely sensitive to small variations in
-	geometry, therefore making it at challenging test case for FEMORPH.</p>
+      
+	<p>FEMORPH and the as-manufactured modeling process, including structured light scanning, has been validated on numerous case studies. Many of these studies have centered on predicting the mistuned behavior of integrally bladed rotors (IBRs). The modal dynamic response of these critical compoents is extremely sensitive to small variations in geometry, therefore making it at challenging test case for FEMORPH.</p>
 
-	<p>As part of 2025 validation efforts, an extensive study was performed the AFRL PBS
-	Stage 5 Research Rotor.  An iterative structured light measurement process was conducted
-	to establish scan-to-scan measurement error less than 0.003 in.  This measured surface
-	was aligned with FEMORPH to an available PBS Stage 4 finite element model and morphed into
-	an the as-manufactured PBS 5 model.</p>
+	<p>As part of 2025 validation efforts, an extensive study was performed the AFRL PBS Stage 5 Research Rotor.  An iterative structured light measurement process was conducted to establish scan-to-scan measurement error less than 0.003 in.  This measured surface was aligned with FEMORPH to an available PBS Stage 4 finite element model and morphed into an the as-manufactured PBS 5 model.</p>
 
-	<p>This models frequencies and mode shapes were compared to experimental vibration data
-	collected on a traveling wave excitation system, with an array of speakers exciting each airfoil.
-	A dense set of measurement points were collected with a Polytec laser vibrometer.</p>
+        <p>This models frequencies and mode shapes were compared to experimental vibration data
+	collected on a traveling wave excitation system, with an array of speakers exciting each airfoil. A dense set of measurement points were collected with a Polytec laser vibrometer.</p>
 
-	<p>This dataset represents one of the highest fidelity measurements of rotor vibration response,
-	and the figure on the left below shows a high frequency mistuned mode, showing archetypical
-	mode localization.  The figure on the right, shows that the as-manufactured model created
-	with FEMORPH matches the prediction of this complex mode.</p>
+	<p>This dataset represents one of the highest fidelity measurements of rotor vibration response, and the figure on the left below shows a high frequency mistuned mode, showing archetypical mode localization.  The figure on the right, shows that the as-manufactured model created with FEMORPH matches the prediction of this complex mode.</p>
 
-	<p>Validations such as this give FEMORPH customers the confidence to use the software on a wide
-	range of failure critical parts. </p>
+	<p>Validations such as this give FEMORPH customers the confidence to use the software on a wide range of failure critical parts. </p>
 
       <div class="heritage-media">
         <figure>
@@ -2160,7 +2368,6 @@ footer {
     </section>
 
 
-
 <!--  <\!-- Heritage Intro Section -\-> -->
 <!-- <section class="heritage-intro"> -->
 <!--   <div class="heritage-intro-content"> -->
@@ -2175,13 +2382,6 @@ footer {
 <!-- </section> -->
 
 
-
-
-	  
-	
-
-
-
       <section class="about-developers">
 	<h2 class="process-title">About the Developers</h2>
 	
@@ -2189,7 +2389,9 @@ footer {
 	  <div class="developer-card">
 	    <img src="figures/alex_kaszynski.jpg" alt="Alex Kaszynski" class="developer-photo">
 	    <h3>Alex Kaszynski</h3>
-	    <p>Developer of FEMORPH with extensive experience in computational mechanics, digital twin creation, and mesh morphing workflows. Created the popular open source PyVista software for data visualization as well the original creator of PyANSYS. </p>
+	    <p>Developer of FEMORPH with extensive experience in computational mechanics, digital twin creation, and mesh morphing workflows. Created the popular open source PyVista software for data visualization as well the original creator of PyANSYS.
+
+	    FEMORPH has been licensed to Advanced Engineering Analysis LLC. the for further commercial sales and distribution. </p>
 	  </div>
 	  
 	  <div class="developer-card">
