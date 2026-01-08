@@ -2136,8 +2136,8 @@ footer {
     
     <p>(Click links or scroll downward)</p>
     <nav class="heritage-index">
+      <a href="#heritage-damage">Material Review Board (MRB) Analysis </a>
       <a href="#heritage-blend">Blender: the Blend Repair Morphing tool</a>
-      <a href="#heritage-damage">Damaged Airfoil Assessment </a>
       <a href="#heritage-quality">Physics-based Quality Control </a>
       <a href="#heritage-optimization">3D Optimization </a>
       <a href="#heritage-ai">ML/AI Training Data Generation </a>
@@ -2148,16 +2148,37 @@ footer {
   <!-- <img src="figures/heritage_intro.png" alt="Heritage Overview"> -->
 </section>
 
+<section id="heritage-damage" class="heritage-content">
+      <h2>Material Review Board (MRB) Analysis</h2>
+      
+      <p>A Material Review Boards determine the fate of newly manufactured parts that are beyond specified geometric tolerances or have been damaged.  These boards often rely on part-specific FEM and CFD models that have been updated to account for these quality escapes, and the results are used to deterimne if the part is acceptable, can be repaired, or should be scrapped.  These are important analysis proceses which are closely related to cost, schedule, and risk.</p>
+
+      <p>Creating part-specific models that represent these quality escapes can require significant engineering resources and expertise.  Each instance of a part-specific model may require new strategies to create meshable CAD, or basic mesh morphing approaches may be applied to approximate the geometric deviations.  Today's drive for cost reduction and large scale production of high performance systems increases the value of a mesh morphing approach that automatically and precisely creates part-specific models.</p>
+
+      <p>FEMORPH is such and approach, and  MRB analysis is often the gateway to industry's interest in the software. The figures bellow demonstrate FEMORPH's use on an exceedingly large quality escape.  On the left, surface data has been captured with a structured light scanner and shows an airfoil that experience signficant leading edge damage.  The surface shows several holes in the data from reference marker deletion, which FEMORPH is able to account for with surface interpolations. The figure on the right shows that even in this extreme case, FEMORPH is able to create the part-specific model of large damage case. While this is an extreme case for an MRB, it also is relevant to battle damage assessment and continuing operation studies as another possible use case.</p>
+
+      <div class="heritage-media">
+        <figure>
+          <img src="figures/und_damage_1.png">
+          <figcaption>Damaged Airfoil Scan</figcaption>
+        </figure>
+
+        <figure>
+          <img src="figures/und_damage_morph.png">
+          <figcaption>Morphed Matches Damaged State</figcaption>
+        </figure>
+      </div>
+    </section>
 	
 
     <section id="heritage-blend" class="heritage-content">
       <h2>BLENDER: the Blend Repair Morphing Tool </h2>
 
-	<p>FEMPORPH has capabilities beyond target surface morphing.  It's Blender module streamlines the workflow to design blend repairs, a subtractive manufaturing approach that grinds and polishes damaged regions.  These repairs are common in the rotating machinery industries and are valued for the low-cost return to service capability.</p>
-	
-	<p>Blender contains a library of repair geometries, applies these to user-defined locations, and morphs the model to the intended repaired shape. The library includes both edge and and surface geometries.  Repaired models can be based on the nominal models or, when available, the as-measured models that have been generated from FEMORPH's target surface capability.</p>
+      <p>An outcomes of the MRB may be the decision that the part should be repaired. Blending is a common repair method and involves machining away the damage and leaving a contoured surface that allows the part to maintain its structural and aerodynamic performance.  Creating these repaired models can require signficant time and engineering resources, and even more so if a bespoke repair is required on a part-specific model from the MRB process.</p> 
 
-	<p>Blender can be utiliezed through the GUI interface or through conveinient python scripting. This scripting allows for easy integration into automated workflows and allows optimization of repair designs to extract the most return on investment.</p>
+      <p>FEMORPH was designed to address this challenge and has a blend geometry morphing module called Blender thatstreamlines the workflow to design blend repairs,  Blender contains a library of parametric repair geometries, applies these to user-defined locations, and morphs the model to the intended repaired shape. The library includes both edge and and surface geometries.  Repaired models can be based on the nominal models or, when available, the as-measured models that have been generated from FEMORPH's target surface capability.</p>
+
+      <p>Blender can be utiliezed through the FEMORPH GUI interface or through python scripting that allows for easy integration into automated workflows and allows optimization of repair designs to extract the most return on investment.</p>
 
       <div class="heritage-media">
         <figure>
@@ -2173,58 +2194,37 @@ footer {
     </section>
 
 
-    <section id="heritage-damage" class="heritage-content">
-      <h2>Material Review Board (MRB) Analysis</h2>
-      
-      <p>At production and during operation, parts are subject to manufacturing deviations and damage. It is common that a MRB is responsible for the determination of acceptablitly of such parts that exceed quality control standards.
-      </p>
-	
-      <p>MRB analysis is often the gateway to industry's interest in FEMORPH. There may be
-      established groups that address this area and clear ROI's on expanding and streamlining capabilities.</p>
-
-      <div class="heritage-media">
-        <figure>
-          <img src="figures/und_damage_1.png">
-          <figcaption>Damaged Airfoil Scan</figcaption>
-        </figure>
-
-        <figure>
-          <img src="figures/und_damage_morph.png">
-          <figcaption>Morphed Matches Damaged State</figcaption>
-        </figure>
-      </div>
-    </section>
     
 
+    <!-- <section id="heritage-damage" class="heritage-content"> -->
+    <!--   <h2>DAMAGED PART ASSESSMENTS</h2> -->
 
-    <section id="heritage-damage" class="heritage-content">
-      <h2>DAMAGED PART ASSESSMENTS</h2>
+    <!--   <p> -->
+    <!--     This blade foreign object damage event shows an extreme example of modeling damaged hardware. -->
+    <!--     The damaged airfoil geometry was measured and converted to an STL file. -->
+    <!--     FEMORPH recognizes gaps from reference markers and interpolates a smooth mesh. -->
+    <!--   </p> -->
 
-      <p>
-        This blade foreign object damage event shows an extreme example of modeling damaged hardware.
-        The damaged airfoil geometry was measured and converted to an STL file.
-        FEMORPH recognizes gaps from reference markers and interpolates a smooth mesh.
-      </p>
+    <!--   <div class="heritage-media"> -->
+    <!--     <figure> -->
+    <!--       <img src="figures/und_damage_1.png"> -->
+    <!--       <figcaption>Damaged Airfoil Scan</figcaption> -->
+    <!--     </figure> -->
 
-      <div class="heritage-media">
-        <figure>
-          <img src="figures/und_damage_1.png">
-          <figcaption>Damaged Airfoil Scan</figcaption>
-        </figure>
-
-        <figure>
-          <img src="figures/und_damage_morph.png">
-          <figcaption>Morphed Matches Damaged State</figcaption>
-        </figure>
-      </div>
-    </section>
+    <!--     <figure> -->
+    <!--       <img src="figures/und_damage_morph.png"> -->
+    <!--       <figcaption>Morphed Matches Damaged State</figcaption> -->
+    <!--     </figure> -->
+    <!--   </div> -->
+    <!-- </section> -->
 
 
     <section id="heritage-quality" class="heritage-content">
-      <h2>Physics-based Quality Control Process</h2>
+      <h2>FEMORPH for Industry 4.0</h2>
 
       <p>
-        Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.
+        The part-specific modeling process that FEMORPH enables can be further expanded to generate models of all manufactured parts, not just those that go to MRB.  This allows quantification of the variation operational temperatures, stresses, and aerodynamic performace at the manufacturing stage.  This informaion can be critical to Industry 4.0 concepts and the ongoing digitization of manufacturing that saves cost and increases production rate.  It can be valuable to both in-situ improvement of process and also providing important data that can be included in AI/ML models that provide predictive insights, automate decision making, and process optimization. 
+	
       </p>
 
       <div class="heritage-media">
@@ -2238,13 +2238,31 @@ footer {
     </section>
 
 
+    <section id="heritage-quality" class="heritage-content">
+      <h2>FEMORPH for the Digital Twin and Digital Thread</h2>
+
+      <p>
+        The part-specific models from manufacturing can continue into operational use for products that use Digital Twin management.  FEMORPH enabled Digital Twins would have the understanding of part-specific models as well as part-specific operational usage, providing a detailed quantificationn of operationalstresses, fatigue behavior, and performance. This part-specific data can be used for predictive maintenance, enhanced safety, optimized performance while the collection of the entire fleet of data can be assessed in ML/AI for furhter decision making and optimization.  As these twins move through the life cycle and data is continually monitored, Digital Thread managagement can further add value.
+      </p>
+
+      <div class="heritage-media">
+        <figure>
+          <img src="figures/workflow.png">
+          <figcaption>
+            Steps in a Turbine Rotor As-manufactured Modeling Process
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+    
+
+
     <section id="heritage-optimization" class="heritage-content">
       <h2>3D Optimization Workflows and Rapid Design Updates</h2>
 
-      
-      <p>FEMORPH is not limited to measurement data, it can morph meshes to CAD geometries in either IGES or STL formats.  This allows the integration of FEMORPH and parametric CAD models within an optimization framework to produce the high performance parts that meet design constraints. FEMORPH ensures that the optimizer is not interupted by mesh generation errors. FEMORPH integrates with CAD geometries (IGES or STL) and parametric models to enable optimization without mesh generation failures. </p>
+      <p> FEMORPH is not limited to use at manufacturing and during operation, its use can also accelerate design and analysis workflows.  This is because FEMORPH is not limited to creating as-measured models, it can morph meshes to CAD geometries in either IGES or STL formats.  This allows the integration of FEMORPH and parametric CAD models within an optimization framework, with the optimization algorithm determining design iteration parameters, the CAD generating the surface, FEMORPH updating the mesh, and a solver predicts the responses that feed back to the optimizer.</p>
 
-      <p>While optimization workflows are one use of FEMORPH, it is also notable that in many casesanalysis groups get design updates that come from other teams involved with designing the system.  In these cases, FEMORPH can morph the existing model to the new CAD definition to rapidly determine sutability of changes.</p>
+      <p>FEMORPH is also useful in uncoupled design processes that aren't amenable to numerical optimization.  In many cases, one team get design updates that come from another discipline group and the goal is a fast analysis of the new configration.  In these cases, FEMORPH can morph the existing model to the new CAD definition to rapidly determine sutability of changes.</p>  
 
       <p>The images below demonstrate the flexibility of FEMORPH and it's ability to adapt to large changes in geometry.  On the left is an inital model, or source mesh, of a rotor with a bolt hole and dovetail. The dovetail starts as a rectangular notch to increase the difficulty of the mesh morphing. Next to this image is the defined target CAD surface that represents a large step in an optimization workflow, or an improved design delivered to a structures engineer by the design team.  The target CAD has a realistic dovetail, a resized bolt hole, a larger inner and outer diameter, and a large inner bore area.  To highlight the differences betweeen the source and target, the third image shows an overlay for comparison.</p>
 
@@ -2298,11 +2316,11 @@ footer {
 
 
     <section id="heritage-ai" class="heritage-content">
-      <h2>ML/AI Training Data Generation</h2>
+      <h2>Training AI for Physics and Design</h2>
 
-      <p>
-	   AI/ML relies on large sets of training data and FEMORPH allows seemless generation of models that define the design space.
-      </p>
+      <p>AI relies on large sets of training data and FEMORPH allows seemless generation of models that define the design space. The training data model parameters could be selected by Latin Hypercube Sampling (LHS), which could be used in a parametric CAD to generate geometry, and FEMORPH would morph a source mesh to each new configuration.</p>
+
+      <p>The figures below show an example of this, where the image on the left represents an LHS sample of airfoil blend geometry with blend depth and span location are the parameters.  The center figure shows the morphed geometries that result from each training point.  This data can be used in a variety of supervised and unsupervised AI/ML methods and FEMORPHs python interface makes PyTorch and sci-kit learn attractive frameworks.</p>
 
       <div class="heritage-media">
         <figure>
@@ -2318,9 +2336,9 @@ footer {
     <section id="heritage-additive" class="heritage-content">
       <h2>Additively Manufactured Part Analysis</h2>
 
-      <p>
-        Advanced metrology and morphing techniques enable accurate analysis of additively manufactured hardware.
-      </p>
+      <p> This use case can be considered and application of its Industry 4.0 part-specific modeling capabilities.  Additive parts are highlighted because of its large community of interest, the continued expansion of its applications, and that thes parts generatlly have more as-manufactured deviation compared to traditional methods. </p>
+
+      <p> The image on the left shows the measured surface data on a impeller manufactured using bound metal deposition (BMD). Both the  airfoil surfacesa and rim of the impeller disk have a series of noticible ridges that stem from the manufacturing process. The central image below shows the nominal FEM of this impeller that was used as the source mesh for FEMORPH.  The right hand image shows the morphed mesh where the finite element edges have been hidden to allow visualization of the ridged structure in the model that matches the as-manufactured surface.  This capability allows detailed assessemnt of additive parts at various stages in the processing.
 
       <div class="heritage-media">
         <figure>
@@ -2331,6 +2349,23 @@ footer {
         </figure>
       </div>
     </section>
+
+
+        <section id="heritage-additive" class="heritage-content">
+      <h2>Free Form Mesh Morphing</h2>
+
+      <p>In some use cases, designer can benefit from mesh morphing that is not defined by surface data.  Instead, an alternative approach is based on a bounding box defined by control points.  The movement of these control points then modifies the interior according to predefined interpolation functions. This reduce the contrainsts associated with parametric CAD design, and can lead to improved optimzation results, or it can allow quick modifications to model in a design study. </p>
+
+      <div class="heritage-media">
+        <figure>
+          <img src="figures/sculptormorph.jpg">
+          <figcaption>
+	    Free Form Mesh Morphing
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
 
 
     <section id="heritage-validation" class="heritage-content">
