@@ -595,10 +595,23 @@ padding: 0 100px;
 <!--   text-align: center; -->
 <!-- } -->
 
+<!-- .heritage-media figure { -->
+<!--   display: inline-flex; -->
+<!--   flex-direction: column; -->
+<!--   align-items: center; -->
+<!-- } -->
+
+<!-- .heritage-media img { -->
+<!--   width: 100%; -->
+<!--   height: auto; -->
+<!--   border-radius: 12px; -->
+<!--   background: #0a1222; -->
+<!-- } -->
+
 .heritage-media figure {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
+  width: var(--figure-width, 100%);
+margin: 0 auto; /* centers narrower figures */
+text-align: center;   /* ← this centers figcaption text */
 }
 
 .heritage-media img {
@@ -607,6 +620,9 @@ padding: 0 100px;
   border-radius: 12px;
   background: #0a1222;
 }
+
+
+
 
 .heritage-content.imgheight .heritage-media img {
   height: 240px;          /* ← choose your visual target */
@@ -2219,41 +2235,93 @@ footer {
     <!-- </section> -->
 
 
-    <section id="heritage-quality" class="heritage-content">
-      <h2>FEMORPH for Industry 4.0</h2>
+    <!-- <section id="heritage-quality" class="heritage-content"> -->
+    <!--   <h2>FEMORPH for Industry 4.0</h2> -->
 
-      <p>
-        The part-specific modeling process that FEMORPH enables can be further expanded to generate models of all manufactured parts, not just those that go to MRB.  This allows quantification of the variation operational temperatures, stresses, and aerodynamic performace at the manufacturing stage.  This informaion can be critical to Industry 4.0 concepts and the ongoing digitization of manufacturing that saves cost and increases production rate.  It can be valuable to both in-situ improvement of process and also providing important data that can be included in AI/ML models that provide predictive insights, automate decision making, and process optimization. 
+    <!--   <p> -->
+    <!--     The part-specific modeling process that FEMORPH enables can be further expanded to generate models of all manufactured parts, not just those that go to MRB.  This allows quantification of the variation operational temperatures, stresses, and aerodynamic performace at the manufacturing stage.  This informaion can be critical to Industry 4.0 concepts and the ongoing digitization of manufacturing that saves cost and increases production rate.  It can be valuable to both in-situ improvement of process and also providing important data that can be included in AI/ML models that provide predictive insights, automate decision making, and process optimization.  -->
 	
-      </p>
+    <!--   </p> -->
+
+    <!--   <div class="heritage-media"> -->
+    <!--     <figure> -->
+    <!--       <img src="figures/workflow.png"> -->
+    <!--       <figcaption> -->
+    <!--         Steps in a Turbine Rotor As-manufactured Modeling Process -->
+    <!--       </figcaption> -->
+    <!--     </figure> -->
+    <!--   </div> -->
+    <!-- </section> -->
+
+
+
+    <section id="heritage-quality" class="heritage-content">
+      <h2>Ready for Industry 4.0 Initiatives</h2>
+      
+      <p>FEMorph enables Industry 4.0 by transforming inspection data into actionable, physics-based insight. By directly morphing finite element models to match as-measured part geometry, FEMorph creates high-fidelity digital twins of real, manufactured components rather than relying solely on nominal CAD. This allows manufacturers to move beyond tolerance-based pass/fail decisions and instead evaluate parts based on predicted functional performance, closing the gap between inspection, simulation, and quality decision-making.</p>
+
+      <p>By integrating metrology, simulation, and automation into a unified workflow, FEMorph supports data-driven, scalable manufacturing intelligence. As-built finite element models can be automatically generated, analyzed, and linked to acceptance criteria, enabling predictive quality, reduced scrap, and faster disposition decisions. This tight coupling of shop-floor data with engineering physics models exemplifies the core principles of Industry 4.0: cyber-physical systems, digital twins, and vertically integrated, model-based manufacturing processes.</p>
 
       <div class="heritage-media">
-        <figure>
-          <img src="figures/workflow.png">
+
+	<figure>
+          <img src="figures/industry40_1.jpg">
           <figcaption>
-            Steps in a Turbine Rotor As-manufactured Modeling Process
+            Digitially Measure All Parts
           </figcaption>
         </figure>
+
+	<figure>
+          <img src="figures/industry40_2.jpg">
+          <figcaption>
+            Physics-based acceptance criteria
+          </figcaption>
+        </figure>
+
       </div>
     </section>
+
+
+    <!-- <section id="heritage-quality" class="heritage-content"> -->
+    <!--   <h2>FEMORPH for the Digital Twin and Digital Thread</h2> -->
+
+    <!--   <p> -->
+    <!--     The part-specific models from manufacturing can continue into operational use for products that use Digital Twin management.  FEMORPH enabled Digital Twins would have the understanding of part-specific models as well as part-specific operational usage, providing a detailed quantificationn of operationalstresses, fatigue behavior, and performance. This part-specific data can be used for predictive maintenance, enhanced safety, optimized performance while the collection of the entire fleet of data can be assessed in ML/AI for furhter decision making and optimization.  As these twins move through the life cycle and data is continually monitored, Digital Thread managagement can further add value. -->
+    <!--   </p> -->
+
+    <!--   <div class="heritage-media"> -->
+    <!--     <figure> -->
+    <!--       <img src="figures/workflow.png"> -->
+    <!--       <figcaption> -->
+    <!--         Steps in a Turbine Rotor As-manufactured Modeling Process -->
+    <!--       </figcaption> -->
+    <!--     </figure> -->
+    <!--   </div> -->
+    <!-- </section> -->
 
 
     <section id="heritage-quality" class="heritage-content">
       <h2>FEMORPH for the Digital Twin and Digital Thread</h2>
 
-      <p>
-        The part-specific models from manufacturing can continue into operational use for products that use Digital Twin management.  FEMORPH enabled Digital Twins would have the understanding of part-specific models as well as part-specific operational usage, providing a detailed quantificationn of operationalstresses, fatigue behavior, and performance. This part-specific data can be used for predictive maintenance, enhanced safety, optimized performance while the collection of the entire fleet of data can be assessed in ML/AI for furhter decision making and optimization.  As these twins move through the life cycle and data is continually monitored, Digital Thread managagement can further add value.
-      </p>
+      <p>FEMorph plays a critical role in enabling high-fidelity digital twin initiatives by bridging the gap between nominal design models and real, manufactured parts. By morphing finite element models to match as-measured geometry from inspection systems, FEMorph creates physics-capable digital twins that reflect the true as-built condition of each component. This allows engineers to evaluate structural and functional performance at the individual part level, supporting more accurate prediction, validation, and lifecycle analysis than is possible with idealized CAD-based models.</p>
+
+      <p>In digital thread architectures, FEMorph extends inspection data beyond quality reporting and into engineering analytics and decision-making. Geometry measurement data, simulation results, and acceptance decisions remain connected and traceable throughout the product lifecycle, from manufacturing through operation. By linking inspection results directly to simulation-driven performance assessments, FEMorph strengthens continuity across design, manufacturing, and quality systems, enabling a closed, traceable loop between physical products and their digital representations.</p>
+	
 
       <div class="heritage-media">
-        <figure>
-          <img src="figures/workflow.png">
+	<figure style="--figure-width: 25%">
+          <img src="figures/digital_twin.jpg">
           <figcaption>
             Steps in a Turbine Rotor As-manufactured Modeling Process
           </figcaption>
         </figure>
+
+
       </div>
+
     </section>
+
+    
     
 
 
