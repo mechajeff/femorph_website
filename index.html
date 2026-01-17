@@ -1,1724 +1,1131 @@
  <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FEMORPH — Precision Digital Twin Creation</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>FEMORPH — Precision Digital Twin Creation</title>
 
-  <! <link rel="stylesheet" href="css/legacy.css"> >
+    <! <link rel="stylesheet" href="css/legacy.css"> >
 
-<style>
-:root{
-    --bg: #000;
-    --white: #fff;
-    --blue: #00aeef;
-    /* --muted: rgba(255,255,255,0.72); */
-    --muted: white;    
-    --container: 1300px;
-}
+    <style>
+      :root{
+	  --bg: #000;
+	  --white: #fff;
+	  --blue: #00aeef;
+	  /* --muted: rgba(255,255,255,0.72); */
+	  --muted: white;    
+	  --container: 1300px;
+      }
 
-/* Reset / base */
-* { box-sizing: border-box;
-    margin:0;
-    padding:0;
-  }
+      /* Reset / base */
+      * { box-sizing: border-box;
+	  margin:0;
+	  padding:0;
+	}
 
-html,
-body { height: 100%;
-       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-       background: var(--bg);
-       color: var(--white);
-       -webkit-font-smoothing: antialiased;
-       -moz-osx-font-smoothing: grayscale;
-     }
-
-a { color: var(--blue);
-    text-decoration: none;
-  }
-
-.wrap { max-width: var(--container);
-	margin: 0 auto;
-	padding: 28px; }
-
-
-/* =========================
+      html,
+      body { height: 100%;
+	     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	     background: var(--bg);
+	     color: var(--white);
+	     -webkit-font-smoothing: antialiased;
+	     -moz-osx-font-smoothing: grayscale;
+	   }
+      
+      a { color: var(--blue);
+	  text-decoration: none;
+	}
+      
+      .wrap { max-width: var(--container);
+	      margin: 0 auto;
+	      padding: 28px; }
+      
+      
+   /* =========================
    Heritage Section Styling
    ========================= */
 
-.heritage-content h2 {
-  font-size: 2rem;
-  color: #00b7ff; /* FEMORPH blue */
-  text-align: center;
-  margin-bottom: 32px;
-}
+      .heritage-content h2 {
+	  font-size: 2rem;
+	  color: #00b7ff; /* FEMORPH blue */
+	  text-align: center;
+	  margin-bottom: 32px;
+      }
+      
+      /* Bang Box */
+      .bang-box {
+	  background: rgba(255, 183, 0, 0.1); /* subtle highlight */
+	  border-left: 5px solid #ff8c00;     /* bold accent line */
+	  padding: 14px 28px 1px 28px; /* top 14px, bottom 10px */
+	  margin: 0 auto 16px auto;
+	  border-radius: 12px;
+	  max-width: 900px;                    /* constrain width */
+	  color: #f0f0f0;
+	  font-size: 1.1rem;
+	  line-height: 1.6;
+	  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      }
 
-/* Bang Box */
-.bang-box {
-  background: rgba(255, 183, 0, 0.1); /* subtle highlight */
-  border-left: 5px solid #ff8c00;     /* bold accent line */
-  padding: 14px 28px 1px 28px; /* top 14px, bottom 10px */
-  margin: 0 auto 16px auto;
-  border-radius: 12px;
-  max-width: 900px;                    /* constrain width */
-  color: #f0f0f0;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-}
-
-.bang-box p {
-margin: 0;           /* no extra paragraph spacing */
-  margin-bottom: -2px; /* removes extra font descent space */
-
-}
-
-
-/* Bullets under bang box */
-.heritage-bullets {
-  list-style: disc;
-  padding-left: 1.5rem;
-  max-width: 900px;        /* match bang box width */
-  margin: 0 auto 40px auto;
-}
-
-.heritage-bullets li {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  margin-bottom: 18px;
-  color: #cfd6e0;
-}
-
-/* Optional: last bullet no margin */
-.heritage-bullets li:last-child {
-  margin-bottom: 0;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .bang-box,
-  .heritage-bullets {
-    max-width: 100%;
-    padding: 20px;
-  }
-
-  .heritage-content h2 {
-    font-size: 1.75rem;
-    margin-bottom: 24px;
-  }
-}
-
-
-
-/* /\* ========================= */
-/*    GLOBAL CONTENT BULLETS */
-/*    ========================= *\/ */
-
-/* /\* Apply only to content areas *\/ */
-/* .content ul, */
-/* .content ol { */
-/*   margin: 0 0 1.5rem 0; */
-/*   padding-left: 1.4rem; */
-/* } */
-
-/* /\* Remove default bullets for top-level lists *\/ */
-/* .content ul { */
-/*   list-style: none; */
-/* } */
-
-/* /\* Top-level bullet blocks *\/ */
-/* /\* .content ul > li { *\/ */
-/* /\*   background: rgba(255, 255, 255, 0.03); *\/ */
-/* /\*   border-radius: 14px; *\/ */
-/* /\*   /\\* padding: 24px 28px; *\\/ *\/ */
-/* /\*   margin-bottom: 20px; *\/ */
-/* /\*   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); *\/ */
-/* /\*   font-size: 1.25rem; *\/ */
-/* /\* } *\/ */
-
-/* .content ul > li { */
-/*   display: block; */
-/*   width: 100%; */
-/*   box-sizing: border-box; */
-/*   padding: 24px 20px; */
-/*   margin-bottom: 20px; */
-/* } */
-
-/* /\* Headline inside a bullet *\/ */
-/* .content ul > li > strong { */
-/*   display: block; */
-/*   font-size: 1.5rem; */
-/*   margin-bottom: 12px; */
-/*   color: #ffffff; */
-/* } */
-
-/* /\* Nested bullets *\/ */
-/* .content ul ul { */
-/*   list-style: disc; */
-/*   padding-left: 1.25rem; */
-/*   margin: 0; */
-/* } */
-
-/* .content ul ul li { */
-/*   background: none; */
-/*   box-shadow: none; */
-/*   padding: 0; */
-/*   margin-bottom: 8px; */
-/*   font-size: 1.25rem; */
-/*   line-height: 1.6; */
-/*   color: #cfd6e0; */
-/* } */
-
-/* /\* Prevent last-child spacing issues *\/ */
-/* .content ul > li:last-child { */
-/*   margin-bottom: 0; */
-/* } */
-
-/* /\* Responsive tuning *\/ */
-/* @media (max-width: 768px) { */
-/*   .content ul > li { */
-/*     padding: 20px 22px; */
-/*   } */
-
-/*   .content ul > li > strong { */
-/*     font-size: 1.1rem; */
-/*   } */
-}
-
-
-
-
-
-
-
-
-
-
-
-/* HEADER / NAV */
-header { padding: 28px 20px;
-	 position: relative;
-       }
-nav { display: flex;
+      .bang-box p {
+	  margin: 0;           /* no extra paragraph spacing */
+	  margin-bottom: -2px; /* removes extra font descent space */
+	  
+      }
+      
+      
+      /* Bullets under bang box */
+      .heritage-bullets {
+	  list-style: disc;
+	  padding-left: 1.5rem;
+	  max-width: 900px;        /* match bang box width */
+	  margin: 0 auto 40px auto;
+      }
+      
+      .heritage-bullets li {
+	  font-size: 1.2rem;
+	  line-height: 1.7;
+	  margin-bottom: 18px;
+	  color: #cfd6e0;
+      }
+      
+      /* Optional: last bullet no margin */
+      .heritage-bullets li:last-child {
+	  margin-bottom: 0;
+      }
+      
+      /* Responsive */
+      @media (max-width: 768px) {
+	  .bang-box,
+	  .heritage-bullets {
+	      max-width: 100%;
+	      padding: 20px;
+	  }
+	  
+	  .heritage-content h2 {
+	      font-size: 1.75rem;
+	      margin-bottom: 24px;
+	  }
+      }
+      
+      
+      /* HEADER / NAV */
+      header { padding: 28px 20px;
+	       position: relative;
+	     }
+      nav { display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px; }
-.nav-left { display: flex;
-	    align-items: center;
-	  }
-.nav-right { display: flex;
-	     gap: 28px;
-	     align-items: center;
-	     font-weight: 600;
-	     color: var(--muted);
-	   }
-.nav-right a:hover { color: var(--white);
-		   }
-
-/* LOGO */
-.logo {
-  display: inline-block;
-  font-weight: 800;
-  font-size: 28px;
-  line-height: 1;
-  user-select: none;
-}
-.logo .fe { color: var(--white); }
-.logo .morph { color: var(--blue); }
-
-/* HERO */
-.hero {
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 48px;
-    align-items: center;
-    padding: 64px 20px 60px;
-    min-height: 60vh;
-}
-
-.hero-left { max-width: 720px; }
-
-h1 { font-size: 56px;
-     margin-bottom: 18px;
-     line-height: 1.02;
-     font-weight: 800;
-     letter-spacing: -0.5px;
-   }
-.lead { color: var(--muted);
-	font-size: 20px;
-	margin-bottom: 28px;
-	max-width: 56ch;
+      .nav-left { display: flex;
+		  align-items: center;
+		}
+      .nav-right { display: flex;
+		   gap: 28px;
+		   align-items: center;
+		   font-weight: 600;
+		   color: var(--muted);
+		 }
+      .nav-right a:hover { color: var(--white);
+			 }
+      /* LOGO */
+      .logo {
+	  display: inline-block;
+	  font-weight: 800;
+	  font-size: 28px;
+	  line-height: 1;
+	  user-select: none;
       }
-.cta-row { display: flex;
-	   gap: 16px;
-	   align-items: center;
-	   flex-wrap: wrap;
+      .logo .fe { color: var(--white); }
+      .logo .morph { color: var(--blue); }
+      
+      /* HERO */
+      .hero {
+	  display: grid;
+	  grid-template-columns: 1fr 420px;
+	  gap: 48px;
+	  align-items: center;
+	  padding: 64px 20px 60px;
+	  min-height: 60vh;
+      }
+      
+      .hero-left { max-width: 720px; }
+      
+      h1 { font-size: 56px;
+	   margin-bottom: 18px;
+	   line-height: 1.02;
+	   font-weight: 800;
+	   letter-spacing: -0.5px;
 	 }
-.btn { background: var(--blue);
-       color: #001;
-       border: none;
-       padding: 14px 22px;
-       border-radius: 10px;
-       font-weight: 700;
-       cursor: pointer;
-       box-shadow: 0 6px 18px rgba(0,174,239,0.12);
-       text-align: center;
-     }
-.btn.secondary { background: transparent;
-		 border: 1px solid rgba(255,255,255,0.06);
-		 color: var(--white);
+      .lead { color: var(--muted);
+	      font-size: 20px;
+	      margin-bottom: 28px;
+	      max-width: 56ch;
+	    }
+      .cta-row { display: flex;
+		 gap: 16px;
+		 align-items: center;
+		 flex-wrap: wrap;
+	       }
+      .btn { background: var(--blue);
+	     color: #001;
+	     border: none;
+	     padding: 14px 22px;
+	     border-radius: 10px;
+	     font-weight: 700;
+	     cursor: pointer;
+	     box-shadow: 0 6px 18px rgba(0,174,239,0.12);
+	     text-align: center;
+	   }
+      .btn.secondary { background: transparent;
+		       border: 1px solid rgba(255,255,255,0.06);
+		       color: var(--white);
 		 padding: 12px 18px;
 		 font-weight: 600;
 		 border-radius: 10px;
+		     }
+      
+      .hero-right {
+	  display: flex;
+	  flex-direction: column;
+	  gap: 20px;
+	  align-items: center;
+      }
+      
+      .hero-images {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr;
+	  gap: 16px;
+	  width: 100%;
+	  max-width: 420px;
+      }
+      
+      .hero-images img {
+	  width: 100%;
+	  height: auto;
+	  border-radius: 12px;
+	  box-shadow: 0 6px 20px rgba(0, 174, 239, 0.3);
+	  object-fit: cover;
+      }
+      
+      .hero-media {
+	  display: flex;
+	  flex-direction: column;
+	  gap: 8px;
+	  text-align: center;
+      }
+      
+      .hero-media figcaption {
+	  font-size: 0.85rem;
+	  font-weight: 600;
+	  color: var(--muted);
+	  letter-spacing: 0.3px;
+      }
+
+      .hero-video-wrap {
+	  width: 100%;
+	  max-width: 420px;
+      }
+      
+      
+      /* CONTENT SECTIONS */
+      section { padding: 40px 20px;
+	      }
+      .two-col { display: grid;
+		 grid-template-columns: 1fr 1fr;
+		 gap: 36px;
+		 align-items: start;
 	       }
-
-.hero-right {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-}
-
-.hero-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  width: 100%;
-  max-width: 420px;
-}
-
-.hero-images img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 174, 239, 0.3);
-  object-fit: cover;
-}
-
-.hero-media {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  text-align: center;
-}
-
-.hero-media figcaption {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.3px;
-}
-
-.hero-video-wrap {
-  width: 100%;
-  max-width: 420px;
-}
-
-/* ----------------------------
-   Single-column hero override
-   ---------------------------- */
-
-.single-column-hero {
-  display: block !important;
-}
-
-.single-column-hero h1,
-.single-column-hero ul {
-  width: 100% !important;
-  float: none !important;
-  margin: 0 auto 32px auto;
-}
-
-/* Optional spacing */
-.single-column-hero ul {
-  margin-top: 16px;
-}
-
-
-
-
-
-
-/* CONTENT SECTIONS */
-section { padding: 40px 20px;
-	}
-.two-col { display: grid;
-	   grid-template-columns: 1fr 1fr;
-	   gap: 36px;
-	   align-items: start;
+      h2 {color: var(--muted);
+	  margin: 0 0 18px 0;
+	  font-size: 28px;
 	 }
-h2 {color: var(--muted);
-    margin: 0 0 18px 0;
-    font-size: 28px;
-   }
-p { color: var(--muted);
-    line-height: 1.6;
-  }
-ul.features { list-style: none;
-	      padding: 0;
-	      margin: 0;
-	      color: var(--muted);
-	    }
-ul.features li { margin: 14px 0;
-		 padding-left: 28px;
-		 position: relative;
-}
-
-ul.features li::before {
-    content:"";
-    position:absolute;
-    left:0; top:7px;
-    width:14px; height:14px;
-    border-radius:3px;
-    background: var(--blue);
-    box-shadow: 0 2px 8px rgba(0,174,239,0.12);
-}
-
-/* USE CASES SECTION */
-.use-case-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 16px;
-}
-.use-case-buttons .btn {
-    min-width: 140px;
+      p { color: var(--muted);
+	  line-height: 1.6;
+	}
+      ul.features { list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    color: var(--muted);
+		  }
+      ul.features li { margin: 14px 0;
+		       padding-left: 28px;
+		       position: relative;
+		     }
+      
+      ul.features li::before {
+	  content:"";
+	  position:absolute;
+	  left:0; top:7px;
+	  width:14px; height:14px;
+	  border-radius:3px;
+	  background: var(--blue);
+	  box-shadow: 0 2px 8px rgba(0,174,239,0.12);
+      }
+      
+      
+      .full-figure {
+	  text-align: center;
+	  margin: 40px 0;    
+      }
+      
+      .full-figure img {
+	  width: 100%;     /* fills container width */
+	  height: 100%;    /* fills container height */
+	  object-fit: cover; /* crops image if needed to fill container */
+	  display: block;
+      }
+      
+      }
+       
+       .full-figure h2 {
+	   margin-top: 15px;          /* space between image and title */
+	   font-size: 1.8em;
+	   color: #333;
+	   text-align: center;        /* makes sure title is centered */
+       }
+       
+       video {
+	   width: 100%;
+	   height: auto;
+	   border-radius: 12px;
+	   box-shadow: 0 4px 20px rgba(0, 174, 239, 0.3);
+	   object-fit: cover;
+       }
+       
+       
+       
+       /* CONTACT FORM */
+       .contact-card {
+	   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+	   border-radius: 14px;
+	   padding: 28px;
+	   box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+       }
+       label { display: block; font-weight: 700; margin-bottom: 8px; }
+       .field { margin-bottom: 18px; }
+       input[type="email"], textarea {
+	   width: 100%;
+	   padding: 16px;
+	   border-radius: 10px;
+	   border: 1px solid rgba(255,255,255,0.06);
+	   background: rgba(255,255,255,0.02);
+	   color: var(--white);
+	   font-size: 15px;
+	   resize: vertical;
+       }
+       textarea { min-height: 140px; }
+       
+       
+       /* FOOTER */
+       footer { padding: 40px 20px;
+		color: var(--muted);
+		text-align: center;
+	      }
+       
+       
+       
+       .problem-solution {
+	   background: linear-gradient(to bottom, #0a0a0a, #111);
+	   color: #fff;
+	   padding: 80px 20px;
+	   text-align: left;
+	   border-top: 1px solid #00AEEF;
+	   border-bottom: 1px solid #00AEEF;
+       }
+       
+       /* Center container with flexible width */
+       .problem-solution .problem-solution-content {
+	   max-width: 900px;
+	   margin: 0 auto;
+	   text-align: left;
+       }
+       
+       /* Headings */
+       .problem-solution h2 {
+	   color: #00AEEF;
+	   font-size: 2em;
+    margin-bottom: 20px;
     text-align: center;
-}
-
-.use-case-img {
-    width: 100%;
-    max-width: 300px;   /* Reduce this from 450px to a smaller value */
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 174, 239, 0.3);
-    object-fit: contain;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.images-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;  /* two equal columns */
-    gap: 20px;                        /* space between columns */
-    align-items: start;
-    margin-bottom: 40px;
-}
-
-.image-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 174, 239, 0.3);
-    object-fit: contain;
-}
-
-
-
-
-.sphere-wrap {
-    width: 50vw;       /* 50% of viewport width */
-    max-width: 480px;  /* but no bigger than desktop size */
-    height: 50vw;
-    max-height: 480px;
-    margin: 0 auto;
-}
-
-.sphere-iframe {
-    width: 100%;
-    height: 100%;
-}
-
-.full-figure {
-    text-align: center;
-    margin: 40px 0;    
-}
-
-.full-figure img {
-    width: 100%;     /* fills container width */
-    height: 100%;    /* fills container height */
-    object-fit: cover; /* crops image if needed to fill container */
-    display: block;
-}
-
-}
-
- .full-figure h2 {
-     margin-top: 15px;          /* space between image and title */
-     font-size: 1.8em;
-     color: #333;
-     text-align: center;        /* makes sure title is centered */
- }
-
-video {
-     width: 100%;
-     height: auto;
-     border-radius: 12px;
-     box-shadow: 0 4px 20px rgba(0, 174, 239, 0.3);
-     object-fit: cover;
-}
-
-/* ===== Media Grid (Images & Videos) ===== */
-.media-grid {
-     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-     gap: 20px;
-     justify-items: center;
-     margin-top: 40px;
- }
-
- .media-grid img,
- .media-grid video {
-     width: 100%;
-     max-width: 400px;
-     border-radius: 8px;
-     cursor: pointer;
-     transition: transform 0.3s ease;
-     background: #111;
- }
- 
- .media-grid img:hover,
- .media-grid video:hover {
-     transform: scale(1.05);
- }
- 
- 
- /* CONTACT FORM */
- .contact-card {
-     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-     border-radius: 14px;
-     padding: 28px;
-     box-shadow: 0 6px 20px rgba(0,0,0,0.6);
- }
- label { display: block; font-weight: 700; margin-bottom: 8px; }
- .field { margin-bottom: 18px; }
- input[type="email"], textarea {
-     width: 100%;
-     padding: 16px;
-     border-radius: 10px;
-     border: 1px solid rgba(255,255,255,0.06);
-     background: rgba(255,255,255,0.02);
-     color: var(--white);
-     font-size: 15px;
-     resize: vertical;
- }
-textarea { min-height: 140px; }
-
-
-/* FOOTER */
-footer { padding: 40px 20px;
-	 color: var(--muted);
-	 text-align: center;
+       }
+       
+       /* Paragraphs / text */
+       .problem-solution p {
+	   line-height: 1.6;
+	   margin-bottom: 20px;
+	   font-size: 1.2em;
+	   max-width: 100%;       /* allow full width */
+	   margin-left: auto;
+	   margin-right: auto;
+	   padding: 0 1rem;       /* small horizontal padding on mobile */
+       }
+       
+       /* Grid layout for content/media */
+       .problem-solution-grid {
+	   display: grid;
+	   grid-template-columns: 1fr 420px;
+	   gap: 40px;
+	   align-items: center;
+       }
+       
+       /* Images */
+       .problem-media img {
+	   width: 100%;
+	   height: auto;
+	   border-radius: 12px;
+	   box-shadow: 0 8px 30px rgba(0, 174, 239, 0.35);
+       }
+       
+       /* Bottom media variant */
+       .problem-solution--bottom-media {
+	   display: grid;
+	   grid-template-columns: 1fr; /* single column by default */
+       }
+       
+       .problem-solution--bottom-media .problem-solution-media {
+	   display: flex;
+	   flex-wrap: wrap;
+	   gap: 1.5rem;
+	   justify-content: center;
+	   margin-top: 2rem;
+       }
+       
+       .problem-solution--bottom-media .problem-solution-media figure {
+	   display: flex;
+	   flex-direction: column;
+	   align-items: center;
+	   flex: 1 1 150px; /* allow images to shrink/grow */
+       }
+       
+       .problem-solution--bottom-media .problem-solution-media img {
+	   height: 200px;
+	   width: auto;
+	   max-width: 100%;
+	   object-fit: cover;
+	   display: block;
+       }
+       
+       /* Responsive tweaks for mobile */
+       @media screen and (max-width: 768px) {
+	   .problem-solution-grid {
+               grid-template-columns: 1fr; /* stack content and media */
+	   }
+	   
+	   .problem-solution p {
+               padding: 0 1rem;  /* reduce padding on small screens */
+               font-size: 1.1em;
+	   }
+	   
+	   .problem-solution--bottom-media .problem-solution-media {
+               flex-direction: column;
+               align-items: center;
+	   }
+       }
+       
+       
+       
+       
+       /* First Heritage Slide */
+       .heritage {
+	   /* background: linear-gradient(to bottom, #0a0a0a, #111); */
+	   background: #000;
+	   color: #fff;
+	   text-align: center;
+	   padding: 100px 20px 80px;
+	   border-top: 1px solid #00AEEF;
+	   border-bottom: 2px solid #00AEEF;    
+       }
+       
+       .dynamic-title h2 {
+	   font-size: 2em;
+	   color: #00AEEF;
+	   opacity: 0;
+	   animation: fadeIn 3s ease forwards;
+       }
+       
+       @keyframes fadeIn {
+	   from { opacity: 0; transform: translateY(20px); }
+	   to { opacity: 1; transform: translateY(0); }
+       }
+       
+       /* Description and logos section */
+       .heritage-details {
+	   display: flex;
+	   flex-wrap: wrap;
+	   align-items: center;
+	   justify-content: center;
+	   max-width: 1000px;
+	   margin: 60px auto 0;
+	   gap: 40px;
+	   text-align: left;
        }
 
-
-
-<!-- .problem-solution { -->
-<!--     background: linear-gradient(to bottom, #0a0a0a, #111); -->
-<!--     color: #fff; -->
-<!--     padding: 80px 20px; -->
-<!--     /* text-align: center; */ -->
-<!--     text-align: left; -->
-<!--     border-top: 1px solid #00AEEF; -->
-<!--     border-bottom: 1px solid #00AEEF; -->
-<!-- } -->
-
-<!-- .problem-solution .content { -->
-<!--     max-width: 1100px; -->
-<!--     margin: 0 auto; -->
-<!--     text-align: left; -->
-<!-- } -->
-
-<!-- .problem-solution h2 { -->
-<!--     color: #00AEEF; -->
-<!--     font-size: 2em; -->
-<!--     margin-bottom: 20px; -->
-<!--     text-align: center; -->
-<!-- } -->
-
-<!-- .problem-solution .lead { -->
-<!--     font-size: 1.2em; -->
-<!--     font-weight: 500; -->
-<!--     margin-bottom: 20px; -->
-<!--     color: white; -->
-<!-- } -->
-
-<!-- .problem-solution p { -->
-<!-- line-height: 1.6; -->
-<!-- margin-bottom: 20px; -->
-<!-- max-width: 1000px; -->
-<!-- font-size: 1.2em; -->
-<!-- margin: 40px auto; -->
-<!-- padding: 0 100px; -->
-<!-- } -->
-
-<!-- .problem-solution-grid { -->
-<!--   display: grid; -->
-<!--   grid-template-columns: 1fr 420px; -->
-<!--   gap: 40px; -->
-<!--   align-items: center; -->
-<!-- } -->
-
-<!-- .problem-media img { -->
-<!--   width: 100%; -->
-<!--   height: auto; -->
-<!--   border-radius: 12px; -->
-<!--   box-shadow: 0 8px 30px rgba(0, 174, 239, 0.35); -->
-<!-- } -->
-
-
-<!-- .problem-solution--bottom-media { -->
-<!--   grid-template-columns: 1fr; -->
-<!-- } -->
-
-<!-- .problem-solution--bottom-media .problem-solution-media { -->
-<!--   display: flex; -->
-<!--   gap: 1.5rem; -->
-<!--   justify-content: center; -->
-<!--   margin-top: 2rem; -->
-<!-- } -->
-
-<!-- .problem-solution--bottom-media .problem-solution-media figure { -->
-<!--   display: inline-flex; -->
-<!--   flex-direction: column; -->
-<!--   align-items: center; -->
-<!-- } -->
-
-<!-- .problem-solution--bottom-media .problem-solution-media img { -->
-<!--   height: 200px;          /* uniform height */ -->
-<!--   width: auto; -->
-<!--   max-width: 100%; -->
-<!--   object-fit: cover; -->
-<!--   display: block; -->
-<!-- } -->
-
-
-.problem-solution {
-    background: linear-gradient(to bottom, #0a0a0a, #111);
-    color: #fff;
-    padding: 80px 20px;
-    text-align: left;
-    border-top: 1px solid #00AEEF;
-    border-bottom: 1px solid #00AEEF;
-}
-
-/* Center container with flexible width */
-.problem-solution .problem-solution-content {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-/* Headings */
-.problem-solution h2 {
-    color: #00AEEF;
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Paragraphs / text */
-.problem-solution p {
-    line-height: 1.6;
-    margin-bottom: 20px;
-    font-size: 1.2em;
-    max-width: 100%;       /* allow full width */
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 1rem;       /* small horizontal padding on mobile */
-}
-
-/* Grid layout for content/media */
-.problem-solution-grid {
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 40px;
-    align-items: center;
-}
-
-/* Images */
-.problem-media img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 174, 239, 0.35);
-}
-
-/* Bottom media variant */
-.problem-solution--bottom-media {
-    display: grid;
-    grid-template-columns: 1fr; /* single column by default */
-}
-
-.problem-solution--bottom-media .problem-solution-media {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.problem-solution--bottom-media .problem-solution-media figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1 1 150px; /* allow images to shrink/grow */
-}
-
-.problem-solution--bottom-media .problem-solution-media img {
-    height: 200px;
-    width: auto;
-    max-width: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Responsive tweaks for mobile */
-@media screen and (max-width: 768px) {
-    .problem-solution-grid {
-        grid-template-columns: 1fr; /* stack content and media */
-    }
-
-    .problem-solution p {
-        padding: 0 1rem;  /* reduce padding on small screens */
-        font-size: 1.1em;
-    }
-
-    .problem-solution--bottom-media .problem-solution-media {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-
-
-
-
-/* First Heritage Slide */
-.heritage {
-    /* background: linear-gradient(to bottom, #0a0a0a, #111); */
-    background: #000;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px 80px;
-    border-top: 1px solid #00AEEF;
-    border-bottom: 2px solid #00AEEF;    
-}
-
-.dynamic-title h2 {
-    font-size: 2em;
-    color: #00AEEF;
-    opacity: 0;
-    animation: fadeIn 3s ease forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Description and logos section */
-.heritage-details {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    max-width: 1000px;
-    margin: 60px auto 0;
-    gap: 40px;
-    text-align: left;
-}
-
-.heritage-text {
-    flex: 1 1 400px;
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #ddd;
-}
-
-.heritage-text p + p {
-  margin-top: 1em;
-}
-
-.heritage-logos {
-    flex: 1 1 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.heritage-logo {
-    max-width: 180px;
-    height: auto;
-    filter: brightness(0.95);
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.heritage-logo:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
-}
-/* Second Heritage slide with background*/
-.heritage-bg {
-    position: relative;
-    background-image: url('figures/f22.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* color: white; */
-    border-top: 2px solid #00AEEF;	
-}
-
-.overlay {
-    background: linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,30,50,0.6));
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    max-width: 1000px;
-}
-.heritage-bg h2 {
-    font-size: 2.2rem;
-    color: #00b7ff;
-}
-
-/* ========================= */
-/* HERITAGE CONTENT SECTIONS */
-/* (paper-style, image-based) */
-/* ========================= */
-
-.heritage-content {
-  max-width: 1100px;
-  margin: 120px auto;
-  padding: 0 20px;
-  color: #cfd6e0;
-}
-
-.heritage-content h2 {
-  font-size: 2.2rem;
-  margin-bottom: 16px;
-  color: #ffffff;
-  text-align: center;
-  color: #00b7ff;  
-}
-
-/* .heritage-content p { */
-/* padding: 0 100px;     /\* ← indentation *\/ */
-/* max-width: 1000px; */
-/*   margin-bottom: 32px; */
-/*   font-size: 1.05rem; */
-/*   line-height: 1.6; */
-/*   color: lightgray; */
-/* } */
-
-.heritage-content p {
-    max-width: 850px;
-    margin: 0 auto 32px auto; /* top 0, left/right auto, bottom 32px */
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: lightgray;
-<!-- text-align: center;       /* optional if you want text itself centered */ -->
-    padding: 0;               /* remove padding */
-}
-
-
-/* Image grid */
-.heritage-media {
-  display: grid;
-  gap: 24px;
-  align-items: start;
-}
-
-/* Default: 1 image */
-.heritage-media {
-  grid-template-columns: 1fr;
-}
-
-/* 2 images */
-.heritage-media:has(figure:nth-child(2)) {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-/* 3 images */
-.heritage-media:has(figure:nth-child(3)) {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-<!-- /* Image styling */ -->
-<!-- .heritage-media figure { -->
-<!--   margin: 0; -->
-<!--   text-align: center; -->
-<!-- } -->
-
-<!-- .heritage-media figure { -->
-<!--   display: inline-flex; -->
-<!--   flex-direction: column; -->
-<!--   align-items: center; -->
-<!-- } -->
-
-<!-- .heritage-media img { -->
-<!--   width: 100%; -->
-<!--   height: auto; -->
-<!--   border-radius: 12px; -->
-<!--   background: #0a1222; -->
-<!-- } -->
-
-.heritage-media figure {
-  width: var(--figure-width, 100%);
-margin: 0 auto; /* centers narrower figures */
-text-align: center;   /* ← this centers figcaption text */
-}
-
-.heritage-media img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  background: #0a1222;
-}
-
-
-
-
-.heritage-content.imgheight .heritage-media img {
-  height: 240px;          /* ← choose your visual target */
-  width: auto;
-  max-width: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-
-/* Caption */
-.heritage-media figcaption {
-  margin-top: 10px;
-  font-size: 0.85rem;
-  color: #9aa4b2;
-}
-
-.heritage-content::before {
-  content: "";
-  display: block;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #00AEEF, transparent);
-  margin-bottom: 60px;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .heritage-content {
-    width: 100%;
-    max-width: 100%;
-    padding: 0 22px;
-  }
-
-  .heritage-content p {
-    padding: 0;              /* 🔑 REMOVE desktop indentation */
-    max-width: 680px;
-    margin: 0 auto 1.2em;
-  }
-
-  .heritage-media {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-/* Heritage Intro Section */
-.heritage-intro {
-  padding: 100px 20px 5px;   /* slightly heavier top */
-  text-align: center;
-  display: flow-root;       /* prevents margin collapse */
-  color: #00AEEF;
-  /* border-top: 1px solid rgba(0,174,239,0.6); */
-  /* border-top: 2px solid #00AEEF; */
-  
-}
-
-.heritage-intro::before {
-  content: "";
-  display: block;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #00AEEF, transparent);
-  margin-bottom: 60px;
-}
-
-
-/* Paragraph styling */
-.heritage-intro p {
-  margin: 0;
-  max-width: 800px;
-  margin-inline: auto;
-  line-height: 1.6;
-  color: #ddd;
-}
-
-.heritage-intro h2 {
-  color: #00AEEF;
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
-
-/* Spacing between paragraphs */
-.heritage-intro p + p {
-  margin-top: 14px;
-}
-
-
-/* .heritage-index { */
-/*   margin-top: 22px; */
-/*   display: flex; */
-/*   justify-content: center; */
-/*   flex-wrap: wrap; */
-/*   gap: 16px 28px; */
-/* } */
-
-/* .heritage-index a { */
-/*   color: #00AEEF; */
-/*   text-decoration: none; */
-/*   font-weight: 500; */
-/*   font-size: 1.05em; */
-/*   position: relative; */
-/* } */
-
-.heritage-index {
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-}
-
-
-.heritage-index a {
-    color: lightgray;
-    /* color: #00AEEF; */    
-  text-decoration: none;
-  font-weight: 500;
-  position: relative;
-}
-
-/* subtle underline on hover */
-.heritage-index a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 1px;
-  background: #00AEEF;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
-}
-
-.heritage-index a:hover::after {
-  transform: scaleX(1);
-}
-
-
-
-/* ========================= */
-/* HERITAGE SPLIT SECTION */
-/* ========================= */
-
-.heritage-split {
-  background: #000;
-  color: #fff;
-  padding: 100px 0 120px;
-  border-top: 1px solid #00AEEF;
-  border-bottom: 2px solid #00AEEF;
-}
-
-/* Header text block */
-.heritage-header {
-  max-width: 1000px;
-  margin: 0 auto 60px;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.heritage-header h2 {
-  font-size: 2.2rem;
-  color: #00AEEF;
-  margin-bottom: 20px;
-}
-
-.heritage-header p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #d6dbe5;
-}
-
-/* Full-width image */
-.heritage-image {
-width: 100%;
-display: flex;
-justify-content: center;
-}
-
-.heritage-image img {
-  width: 80%;
-  height: auto;
-display: block;
-  border-radius: 14px; /* optional, matches your heritage-media style */
-}
-
-
-
-
-
-
-
-
-.highlight-orange {
-    color: #FF6F00;
-}
-
-.femorph-process {
-    background-color: #000;
-    color: #fff;
-    padding: 80px 0;
-    overflow: hidden;
-    text-align: center;
-}
-
-.process-title {
-    color: #00AEEF;
-    font-size: 2.2em;
-    margin-bottom: 60px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.scroll-section {
-    display: flex;
-    flex-direction: column;
-    gap: 120px;
-}
-
-.scroll-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.75s ease-out;
-}
-
-.scroll-step.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.scroll-text {
-    text-align: center;
-    max-width: 800px;
-    margin-bottom: 20px;
-}
-
-.scroll-text h3 {
-    color: #FFA500;
-    font-size: 1.6em;
-    margin-bottom: 10px;
-}
-
-.scroll-text p {
-    color: #ddd;
-    line-height: 1.6;
-}
-
-.scroll-media {
-    position: relative;
-    height: 400px;
-    width: 100%;
-    max-width: 800px;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-.scroll-media img,
-.scroll-media video {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    /* object-fit: cover; */
-    object-fit: contain;      
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-.scroll-media img.active,
-.scroll-media video.active {
-    opacity: 1;
-}
-
-.morph-choice {
-    text-align: center;
-    padding: 80px 20px;
-    background: #111;
-    color: #fff;
-}
-.choice-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 24px;
-}
-.choice-buttons .btn {
-    min-width: 180px;
-    font-size: 18px;
-}
-
-
-.use-case-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 24px;
-}
-
-.use-case-tabs button {
-    background: none;
-    border: 1px solid var(--blue);
-    color: var(--blue);
-    padding: 10px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Hover only changes background if not active */
-.use-case-tabs button:hover:not(.active) {
-    background: rgba(0, 174, 239, 0.1);
-}
-
-/* Active tab has filled color */
-.use-case-tabs button.active {
-    background: var(--blue);
-    color: #000;
-    border-color: var(--blue);
-}
-
-.use-case-panel {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.use-case-panel.active {
-    display: block;
-    opacity: 1;
-}
-
-
-.use-case-panel { display: none;
-		  text-align: center;
-		  animation: fadeIn 0.5s;
-		}
-
-.use-case-panel.active { display: block; }
-.use-case-panel img { max-width: 80%;
-		      margin-top: 16px;
-		      border-radius: 10px;
-		    }
-@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-
-#faq {
-    padding: 60px 20px;
-    background: #111;
-    color: #fff;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.faq-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.faq-question {
-    background: #000;
-    color: #00AEEF;
-    padding: 16px 20px;
-    font-weight: 600;
-    text-align: left;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    transition: background 0.2s ease;
-}
-
-.faq-question:hover {
-    background: #111;
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    background: #111;
-    padding: 0 20px;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-    border-left: 3px solid #00AEEF;
-}
-
-.faq-item.active .faq-answer {
-    max-height: 500px; /* enough to fit content */
-    padding: 12px 20px;
-}
-
-.faq-submit {
-    margin-top: 40px;
-    padding: 20px;
-    background: #111;
-    border-radius: 12px;
-}
-
-.faq-submit h3 {
-    color: #00AEEF;
-    margin-bottom: 16px;
-}
-
-.faq-submit .field {
-    margin-bottom: 16px;
-}
-
-.faq-submit input,
-.faq-submit textarea {
-    width: 100%;
-    padding: 14px;
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.06);
-    background: rgba(255,255,255,0.02);
-    color: #fff;
-    font-size: 14px;
-    resize: vertical;
-}
-
-.faq-submit button {
-    margin-top: 8px;
-}
-
-.blue-underline {
-    border-bottom: 3px solid #00AEEF;
-    padding-bottom: 80px; /* optional: gives some spacing before the line */
-    margin-bottom: 40px;  /* optional: spacing after the section */
-}
-
-footer {
-    background: #000;
-    color: #fff;
-    padding: 40px 20px 20px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-
-.footer-wrap {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-}
-
-.footer-column {
-    flex: 1 1 200px;
-    min-width: 200px;
-}
-
-.footer-left .footer-logo {
-    width: 140px;
-    margin-bottom: 12px;
-}
-
-.footer-left .footer-tagline {
-    color: rgba(255,255,255,0.7);
-    font-size: 0.9em;
-}
-
-.footer-center h3,
-.footer-right h3 {
-    margin-bottom: 12px;
-    color: #00AEEF;
-}
-
-.footer-nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-nav li {
-    margin: 6px 0;
-}
-
-.footer-nav a {
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-nav a:hover {
-    color: #00AEEF;
-}
-
-.footer-right p {
-    margin: 6px 0;
-    line-height: 1.4;
-    color: rgba(255,255,255,0.8);
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 24px;
-    color: rgba(255,255,255,0.6);
-    font-size: 0.85em;
-}
-
-.opportunities {
-    text-align: center;
-    padding: 80px 20px;
-    background: #0a0a0a;
-    border-top: 1px solid #00AEEF;
-    border-bottom: 1px solid #00AEEF;
-}
-
-.opportunities h2 {
-    color: #00AEEF;
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.opportunities .intro {
-    /* text-align: left; */
-    max-width: 800px;
-    margin: 0 auto 40px auto;
-    font-size: 1.1em;
-    opacity: 0.85;
-    line-height: 1.6;
-}
-
-.opportunity-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-items: space-between;
-}
-
-.opportunity-grid .card {
-    flex: 1 1 calc(33.3% - 30px);
-    max-width: calc(52.0% - 30px);
-}
-
-.card {
-    background: #11 1;
-    border: 1px solid #00AEEF;
-    border-radius: 10px;
-    padding: 25px 20px;
-    max-width: 340px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(0,174,239,0.5);
-}
-
-.card h3 {
-    color: #00AEEF;
-    font-size: 1.3em;
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: white;
-    line-height: 1.6;
-    font-size: 0.95em;
-}
-
-
-/* Section */
-.news-section {
-    padding: 60px 20px;
-    /* background: #f7f9fc; */
-    background: black;    
-}
-
-.news-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #003b5c;
-}
-
-/* Horizontal Scroll Container */
-.news-scroller {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 20px;
-
-    /* Smooth scrolling on iPhone */
-    -webkit-overflow-scrolling: touch;
-}
-
-/* Hide scrollbar (optional) */
-.news-scroller::-webkit-scrollbar {
-    display: none;
-}
-
-/* Cards */
-.news-card {
-    min-width: 280px;
-    max-width: 320px;
-    flex-shrink: 0;
-    background: white;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    scroll-snap-align: start;
-    border-top: 4px solid #00AEEF; /* accent line */
-}
-
-.news-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-    color: #003b5c;
-}
-
-.news-card p {
-    font-size: 0.95rem;
-    line-height: 1.45;
-    margin-bottom: 15px;
-}
-
-.news-date {
-    font-size: 0.85rem;
-    color: #888;
-}
-
-
-/* Developer info */
-.about-developers {
-    padding: 80px 20px;
-    margin-top: 60px; /* adds space above the section */
-    /* background-color: #0b0b0b; */
-    color: #fff;
-    text-align: center;
-}
-
-.about-developers h2 {
-    font-size: 2.2em;
-    margin-bottom: 40px;
-}
-
-.developer-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.developer-card {
-    background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.developer-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
-}
-
-.developer-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-}
-
-.developer-card h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.developer-card p {
-    font-size: 1em;
-    line-height: 1.5;
-    color: #ccc;
-}
-
-/* end Developer info */
-
-
-
-/* Start Research-scroll */
-.research-panel {
-  max-width: 1100px;
-  margin: 120px auto;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-
-.research-toggle {
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  color: #fff;
-  padding: 32px 20px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.toggle-title {
-  font-size: 1.6em;
-  color: #FFA500;
-}
-
-.toggle-subtitle {
-  color: #bbb;
-  font-size: 0.95em;
-}
-
-.toggle-icon {
-  margin-top: 8px;
-  font-size: 1.2em;
-  opacity: 0.7;
-}
-
-/* Collapsed */
-.research-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease;
-}
-
-/* Expanded */
-.research-panel.active .research-content {
-  max-height: 6000px; /* safe large value */
-}
-
-/* Rotate arrow */
-.research-panel.active .toggle-icon {
-  transform: rotate(180deg);
-}
-
-
-/* End  Research-scroll */
-
-
-/* =========================
+       .heritage-text {
+	   flex: 1 1 400px;
+	   font-size: 1.1em;
+	   line-height: 1.6;
+	   color: #ddd;
+       }
+       
+       .heritage-text p + p {
+	   margin-top: 1em;
+       }
+       
+       .heritage-logos {
+	   flex: 1 1 300px;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   gap: 40px;
+	   flex-wrap: wrap;
+       }
+
+       .heritage-logo {
+	   max-width: 180px;
+	   height: auto;
+	   filter: brightness(0.95);
+	   transition: transform 0.3s ease, filter 0.3s ease;
+       }
+
+       .heritage-logo:hover {
+	   transform: scale(1.05);
+	   filter: brightness(1.2);
+       }
+       /* Second Heritage slide with background*/
+       .heritage-bg {
+	   position: relative;
+	   background-image: url('figures/f22.jpg');
+	   background-size: cover;
+	   background-position: center;
+	   height: 60vh;
+	   display: flex;
+	   align-items: center;
+	   justify-content: center;
+	   /* color: white; */
+	   border-top: 2px solid #00AEEF;	
+       }
+       
+       .overlay {
+	   background: linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,30,50,0.6));
+	   padding: 30px;
+	   border-radius: 10px;
+	   text-align: center;
+	   max-width: 1000px;
+       }
+       .heritage-bg h2 {
+	   font-size: 2.2rem;
+	   color: #00b7ff;
+       }
+       
+       /* ========================= */
+       /* HERITAGE CONTENT SECTIONS */
+       /* (paper-style, image-based) */
+       /* ========================= */
+       
+       .heritage-content {
+	   max-width: 1100px;
+	   margin: 120px auto;
+	   padding: 0 20px;
+	   color: #cfd6e0;
+       }
+       
+       .heritage-content h2 {
+	   font-size: 2.2rem;
+	   margin-bottom: 16px;
+	   color: #ffffff;
+	   text-align: center;
+	   color: #00b7ff;  
+       }
+       
+       .heritage-content p {
+	   max-width: 850px;
+	   margin: 0 auto 32px auto; /* top 0, left/right auto, bottom 32px */
+	   font-size: 1.25rem;
+	   line-height: 1.6;
+	   color: lightgray;
+	   <!-- text-align: center;       /* optional if you want text itself centered */ -->
+					  padding: 0;               /* remove padding */
+       }
+       
+
+       /* Image grid */
+       .heritage-media {
+	   display: grid;
+	   gap: 24px;
+	   align-items: start;
+       }
+       
+       /* Default: 1 image */
+       .heritage-media {
+	   grid-template-columns: 1fr;
+       }
+       
+       /* 2 images */
+       .heritage-media:has(figure:nth-child(2)) {
+	   grid-template-columns: repeat(2, 1fr);
+       }
+       
+       /* 3 images */
+       .heritage-media:has(figure:nth-child(3)) {
+	   grid-template-columns: repeat(3, 1fr);
+       }
+       
+       
+       .heritage-media figure {
+	   width: var(--figure-width, 100%);
+	   margin: 0 auto; /* centers narrower figures */
+	   text-align: center;   /* ← this centers figcaption text */
+       }
+       
+       .heritage-media img {
+	   width: 100%;
+	   height: auto;
+	   border-radius: 12px;
+	   background: #0a1222;
+       }
+       
+       
+       .heritage-content.imgheight .heritage-media img {
+	   height: 240px;          /* ← choose your visual target */
+	   width: auto;
+	   max-width: 100%;
+	   object-fit: cover;
+	   display: block;
+       }
+       
+       
+       /* Caption */
+       .heritage-media figcaption {
+	   margin-top: 10px;
+	   font-size: 0.85rem;
+	   color: #9aa4b2;
+       }
+       
+       .heritage-content::before {
+	   content: "";
+	   display: block;
+	   height: 1px;
+	   background: linear-gradient(to right, transparent, #00AEEF, transparent);
+	   margin-bottom: 60px;
+       }
+       
+       /* Mobile */
+       @media (max-width: 768px) {
+	   .heritage-content {
+	       width: 100%;
+	       max-width: 100%;
+	       padding: 0 22px;
+	   }
+	   
+	   .heritage-content p {
+	       padding: 0;              /* 🔑 REMOVE desktop indentation */
+	       max-width: 680px;
+	       margin: 0 auto 1.2em;
+	   }
+	   
+	   .heritage-media {
+	       grid-template-columns: 1fr;
+	   }
+       }
+       
+       
+
+       /* Heritage Intro Section */
+       .heritage-intro {
+	   padding: 100px 20px 5px;   /* slightly heavier top */
+	   text-align: center;
+	   display: flow-root;       /* prevents margin collapse */
+	   color: #00AEEF;
+	   /* border-top: 1px solid rgba(0,174,239,0.6); */
+	   /* border-top: 2px solid #00AEEF; */
+	   
+       }
+       
+       .heritage-intro::before {
+	   content: "";
+	   display: block;
+	   height: 1px;
+	   background: linear-gradient(to right, transparent, #00AEEF, transparent);
+	   margin-bottom: 60px;
+       }
+       
+       
+       /* Paragraph styling */
+       .heritage-intro p {
+	   margin: 0;
+	   max-width: 800px;
+	   margin-inline: auto;
+	   line-height: 1.6;
+	   color: #ddd;
+       }
+       
+       .heritage-intro h2 {
+	   color: #00AEEF;
+	   font-size: 2.2rem;
+	   font-weight: 600;
+	   margin-bottom: 16px;
+       }
+       
+       
+       /* Spacing between paragraphs */
+       .heritage-intro p + p {
+	   margin-top: 14px;
+       }
+       
+       
+       .heritage-index {
+	   margin-top: 24px;
+	   display: flex;
+	   flex-direction: column;
+	   align-items: center;
+	   gap: 14px;
+       }
+       
+       
+       .heritage-index a {
+	   color: lightgray;
+	   /* color: #00AEEF; */    
+	   text-decoration: none;
+	   font-weight: 500;
+	   position: relative;
+       }
+       
+       /* subtle underline on hover */
+       .heritage-index a::after {
+	   content: "";
+	   position: absolute;
+	   left: 0;
+	   bottom: -4px;
+	   width: 100%;
+	   height: 1px;
+	   background: #00AEEF;
+	   transform: scaleX(0);
+	   transform-origin: left;
+	   transition: transform 0.25s ease;
+       }
+       
+       .heritage-index a:hover::after {
+	   transform: scaleX(1);
+       }
+       
+       
+       /* ========================= */
+       /* HERITAGE SPLIT SECTION - F22 */
+       /* ========================= */
+       
+       .heritage-split {
+	   background: #000;
+	   color: #fff;
+	   padding: 100px 0 120px;
+	   border-top: 1px solid #00AEEF;
+	   border-bottom: 2px solid #00AEEF;
+       }
+       
+       /* Header text block */
+       .heritage-header {
+	   max-width: 1000px;
+	   margin: 0 auto 60px;
+	   padding: 0 20px;
+	   text-align: center;
+       }
+       
+       .heritage-header h2 {
+	   font-size: 2.2rem;
+	   color: #00AEEF;
+	   margin-bottom: 20px;
+       }
+       
+       .heritage-header p {
+	   max-width: 800px;
+	   margin: 0 auto;
+	   font-size: 1.1rem;
+	   line-height: 1.6;
+	   color: #d6dbe5;
+       }
+       
+       /* Full-width image */
+       .heritage-image {
+	   width: 100%;
+	   display: flex;
+	   justify-content: center;
+       }
+       
+       .heritage-image img {
+	   width: 80%;
+	   height: auto;
+	   display: block;
+	   border-radius: 14px; /* optional, matches your heritage-media style */
+       }
+       
+       
+       
+       
+       .highlight-orange {
+	   color: #FF6F00;
+       }
+
+       .femorph-process {
+	   background-color: #000;
+	   color: #fff;
+	   padding: 80px 0;
+	   overflow: hidden;
+	   text-align: center;
+       }
+       
+       .process-title {
+	   color: #00AEEF;
+	   font-size: 2.2em;
+	   margin-bottom: 60px;
+	   text-transform: uppercase;
+	   letter-spacing: 1px;
+       }
+       
+       .scroll-section {
+	   display: flex;
+	   flex-direction: column;
+	   gap: 120px;
+       }
+       
+       .scroll-step {
+	   display: flex;
+	   flex-direction: column;
+	   align-items: center;
+	   opacity: 0;
+	   transform: translateY(50px);
+	   transition: all 0.75s ease-out;
+       }
+       
+       .scroll-step.visible {
+	   opacity: 1;
+	   transform: translateY(0);
+       }
+       
+       .scroll-text {
+	   text-align: center;
+	   max-width: 800px;
+	   margin-bottom: 20px;
+       }
+       
+       .scroll-text h3 {
+	   color: #FFA500;
+	   font-size: 1.6em;
+	   margin-bottom: 10px;
+       }
+       
+       .scroll-text p {
+	   color: #ddd;
+	   line-height: 1.6;
+       }
+       
+       .scroll-media {
+	   position: relative;
+	   height: 400px;
+	   width: 100%;
+	   max-width: 800px;
+	   overflow: hidden;
+	   border-radius: 12px;
+       }
+       
+       .scroll-media img,
+       .scroll-media video {
+	   position: absolute;
+	   left: 0;
+	   top: 0;
+	   width: 100%;
+	   height: 100%;
+	   /* object-fit: cover; */
+	   object-fit: contain;      
+	   opacity: 0;
+	   transition: opacity 1s ease;
+       }
+       
+       .scroll-media img.active,
+       .scroll-media video.active {
+	   opacity: 1;
+       }
+       
+       
+       #faq {
+	   padding: 60px 20px;
+	   background: #111;
+	   color: #fff;
+	   max-width: 900px;
+	   margin: 0 auto;
+       }
+       
+       .faq-container {
+	   display: flex;
+	   flex-direction: column;
+	   gap: 12px;
+       }
+       
+       .faq-question {
+	   background: #000;
+	   color: #00AEEF;
+	   padding: 16px 20px;
+	   font-weight: 600;
+	   text-align: left;
+	   border: none;
+	   border-radius: 8px;
+	   cursor: pointer;
+	   width: 100%;
+	   transition: background 0.2s ease;
+       }
+       
+       .faq-question:hover {
+	   background: #111;
+       }
+       
+       .faq-answer {
+	   max-height: 0;
+	   overflow: hidden;
+	   background: #111;
+	   padding: 0 20px;
+	   transition: max-height 0.4s ease, padding 0.4s ease;
+	   border-left: 3px solid #00AEEF;
+       }
+       
+       .faq-item.active .faq-answer {
+	   max-height: 500px; /* enough to fit content */
+	   padding: 12px 20px;
+       }
+       
+       .faq-submit {
+	   margin-top: 40px;
+	   padding: 20px;
+	   background: #111;
+	   border-radius: 12px;
+       }
+       
+       .faq-submit h3 {
+	   color: #00AEEF;
+	   margin-bottom: 16px;
+       }
+       
+       .faq-submit .field {
+	   margin-bottom: 16px;
+       }
+       
+       .faq-submit input,
+       .faq-submit textarea {
+	   width: 100%;
+	   padding: 14px;
+	   border-radius: 8px;
+	   border: 1px solid rgba(255,255,255,0.06);
+	   background: rgba(255,255,255,0.02);
+	   color: #fff;
+	   font-size: 14px;
+	   resize: vertical;
+       }
+       
+       .faq-submit button {
+	   margin-top: 8px;
+       }
+       
+       .blue-underline {
+	   border-bottom: 3px solid #00AEEF;
+	   padding-bottom: 80px; /* optional: gives some spacing before the line */
+	   margin-bottom: 40px;  /* optional: spacing after the section */
+       }
+       
+       footer {
+	   background: #000;
+	   color: #fff;
+	   padding: 40px 20px 20px;
+	   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+       }
+       
+       .footer-wrap {
+	   display: flex;
+	   justify-content: space-between;
+	   gap: 40px;
+	   max-width: 1100px;
+	   margin: 0 auto;
+	   flex-wrap: wrap;
+       }
+       
+       .footer-column {
+	   flex: 1 1 200px;
+	   min-width: 200px;
+       }
+       
+       .footer-left .footer-logo {
+	   width: 140px;
+	   margin-bottom: 12px;
+       }
+       
+       .footer-left .footer-tagline {
+	   color: rgba(255,255,255,0.7);
+	   font-size: 0.9em;
+       }
+       
+       .footer-center h3,
+       .footer-right h3 {
+	   margin-bottom: 12px;
+	   color: #00AEEF;
+       }
+       
+       .footer-nav {
+	   list-style: none;
+	   padding: 0;
+	   margin: 0;
+       }
+       
+       .footer-nav li {
+	   margin: 6px 0;
+       }
+       
+       .footer-nav a {
+	   color: rgba(255,255,255,0.8);
+	   text-decoration: none;
+	   transition: color 0.2s;
+       }
+       
+       .footer-nav a:hover {
+	   color: #00AEEF;
+       }
+       
+       .footer-right p {
+	   margin: 6px 0;
+	   line-height: 1.4;
+	   color: rgba(255,255,255,0.8);
+       }
+       
+       .footer-bottom {
+	   text-align: center;
+	   margin-top: 24px;
+	   color: rgba(255,255,255,0.6);
+	   font-size: 0.85em;
+       }
+       
+       
+       
+       /* Developer info */
+       .about-developers {
+	   padding: 80px 20px;
+	   margin-top: 60px; /* adds space above the section */
+	   /* background-color: #0b0b0b; */
+	   color: #fff;
+	   text-align: center;
+       }
+       
+       .about-developers h2 {
+	   font-size: 2.2em;
+	   margin-bottom: 40px;
+       }
+
+       .developer-cards {
+	   display: grid;
+	   grid-template-columns: repeat(2, 1fr);
+	   gap: 40px;
+	   max-width: 1000px;
+	   margin: 0 auto;
+       }
+       
+       .developer-card {
+	   background-color: #1a1a1a;
+	   padding: 20px;
+	   border-radius: 12px;
+	   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+	   text-align: center;
+	   transition: transform 0.3s ease, box-shadow 0.3s ease;
+       }
+
+       .developer-card:hover {
+	   transform: translateY(-5px);
+	   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+       }
+       
+       .developer-photo {
+	   width: 150px;
+	   height: 150px;
+	   border-radius: 50%;
+	   object-fit: cover;
+	   margin-bottom: 20px;
+       }
+       
+       .developer-card h3 {
+	   font-size: 1.5em;
+	   margin-bottom: 10px;
+       }
+       
+       .developer-card p {
+	   font-size: 1em;
+	   line-height: 1.5;
+	   color: #ccc;
+       }
+       
+       /* end Developer info */
+       
+   /* =========================
    FEMORPH Example Group  Images and Text
    ========================= */
 
-.femorph-example-group {
-  display: block !important;   /* REQUIRED to defeat display: contents */
-  position: relative;
+       .femorph-example-group {
+	   display: block !important;   /* REQUIRED to defeat display: contents */
+	   position: relative;
 
-  width: 100%;
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 24px;
+	   width: 100%;
+	   max-width: 900px;
+	   margin: 40px auto;
+	   padding: 24px;
+	   
+	   border: 3px solid #00b7ff;
+	   border-radius: 16px;
+	   background-color: rgba(11, 18, 32, 0.35);
+	   
+	   overflow: visible;
+       }
 
-  border: 3px solid #00b7ff;
-  border-radius: 16px;
-  background-color: rgba(11, 18, 32, 0.35);
-
-  overflow: visible;
-}
-
-/* Grid supports 1–4 figures */
-.example-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-  margin-bottom: 20px;
-}
-
-/* Localize figure behavior */
-.femorph-example-group figure {
-  display: block;
-  margin: 0;
-  text-align: center;
-}
-
-/* Images */
-.femorph-example-group img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  display: block;
-  margin-bottom: 8px;
-}
-
-/* Captions */
-.femorph-example-group figcaption {
-  font-size: 0.95rem;
-  color: #00b7ff;
-  line-height: 1.4;
-}
-
-/* Shared description */
-.example-description {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #cfd6e0;
-  text-align: center;
-}
-
-.femorph-example-group::before {
-  content: "FEMORPH Example";
-  position: absolute;
-  top: -12px;
-  left: 24px;
-  background: #0b1220;
-  color: #00b7ff;
-  font-size: 1.25rem;
-  padding: 2px 10px;
-  border-radius: 999px;
-  letter-spacing: 0.04em;
-}
+       .example-grid {
+	   display: flex;
+	   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	   gap: 24px;
+	   margin-bottom: 20px;
+       }
 
 
+       .femorph-example-group figure {
+	   display: block;
+	   margin: 0;
+	   text-align: center;
+       }
+       
 
-
-
-
-
- 
-
-/* Mobile */
-@media (max-width: 768px) {
-  .research-step {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-bottom: 80px;
-  }
-}
-/* End Research Scroll */
+       .femorph-example-group img {
+	   width: 100%;
+	   height: auto;
+	   border-radius: 10px;
+	   display: block;
+	   margin-bottom: 8px;
+       }
+       
+       .femorph-example-group figcaption {
+	   font-size: 0.95rem;
+	   color: #00b7ff;
+	   line-height: 1.4;
+       }
+       
+    
+       .example-description {
+	   margin: 0;
+	   font-size: 1rem;
+	   line-height: 1.6;
+	   color: #cfd6e0;
+	   text-align: center;
+       }
+       
+       .femorph-example-group::before {
+	   content: "FEMORPH Example";
+	   position: absolute;
+	   top: -12px;
+	   left: 24px;
+	   background: #0b1220;
+	   color: #00b7ff;
+	   font-size: 1.25rem;
+	   padding: 2px 10px;
+	   border-radius: 999px;
+	   letter-spacing: 0.04em;
+       }
 
 
 @media (max-width: 600px) {
@@ -1880,19 +1287,6 @@ footer {
 	text-align: left;
     }
 
-    .opportunity-grid {
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
-	width: 100%;
-    }
-
-    .opportunity-grid .card {
-	flex: 0 0 auto;
-	width: 100%;
-	max-width: 100%;
-	box-sizing: border-box;
-    }
 
     .scroll-section {
 	display: flex;
@@ -1920,49 +1314,6 @@ footer {
     
 
 }
-
-
-/* Card Overlay  */
-.card-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(8,16,32,0.95);
-  display: none;
-  z-index: 999;
-  overflow: auto;
-}
-
-.overlay-content {
-  position: relative;
-  max-width: 800px;
-  margin: 60px auto;
-  background: #081020;
-  border-radius: 16px;
-  padding: 20px;
-  text-align: center;
-  color: #fff;
-}
-
-.overlay-content img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 12px;
-}
-
-.overlay-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: transparent;
-  border: none;
-  color: #ff8c00;
-  font-size: 24px;
-  cursor: pointer;
-}
-
 
 
 
@@ -2003,17 +1354,13 @@ footer {
     }
 }
 
+</style>
 
-
-</style>  
-  
- 
 </head>
-
 
 <body>
 
-  <header>
+<header>
     <div class="wrap">
       <nav>
         <div class="nav-left">
@@ -2058,18 +1405,6 @@ footer {
           </div>
 
 
-
-	  <!-- <div class="hero-images"> -->
-	  <!--   <figure class="hero-media"> -->
-	  <!--   <img src="figures/pyansys.png" alt="pyansys"> -->
-	  <!--   <\!-- <figcaption>Measured Surface (STL)</figcaption> -\-> -->
-	  <!--   </figure> -->
-	  <!--   <figure class="hero-media"> -->
-	  <!--   <img src="figures/pyvista_logo.png" alt="pyvista"> -->
-	  <!--   <\!-- <figcaption>Nomininal Mesh (FEM)</figcaption> -\-> -->
-	  <!--   </figure> -->
-	  <!-- </div>	   -->
-	
         </div>	
 
 	  
@@ -2103,16 +1438,6 @@ footer {
         </div>
       </section>
       
-    <!--  <section class="problem-solution">-->
-<!--	<div class="content">-->
-<!--	  <h2>The Challenge of Creating Finite Element Meshes</h2>-->
-<!--	  <p class="lead">-->
-<!--	    Creating high quality finite element models for an individual part that is defined with design intent CAD geometry can be a <strong>time-consuming, labor-intensive process</strong>.-->
-<!---->
-<!--	    The difficulty stems from the <strong>non-robust nature of CAD-based meshing</strong>. Even small changes in geometry can cause meshing algorithms to fail, requiring engineers to spend significant time repairing and remeshing models.-->
-<!--	</div>-->
-	<!--	</section>-->
-
 
       
     <section id="overview" class="problem-solution problem-solution--bottom-media">
@@ -2165,7 +1490,6 @@ footer {
 	  <p class="lead"> Traditional meshing limits engineers ability to look at design, manufacturing, and sustainement <strong>opportunities</strong>.
 	  </p>
 
-
 	</div>
 	
 	<div class="problem-media">
@@ -2210,7 +1534,7 @@ footer {
         </figure>
 
 	<figure>
-          <img src="figures/sculptormorph.jpg">
+          <img src="figures/arbitrary_morph_bend.png">
           <figcaption>
             Freeform 
           </figcaption>
@@ -2219,97 +1543,6 @@ footer {
 
       </div>
     </section>
-
-
-
-    <!-- <section id="heritage-multidiscipline" class="heritage-content imgheight"> -->
-
-    <!--   <h2>FEMORPH Addresses Meshing Challengs with Mesh Morphing </h2>	       -->
-
-    <!--   <p>FEMORPH addresses mesh generation challenges by moving, rather than rebuilding computational meshes. It enables a particular approach, Target Surface morphing, that separates it from most competing commercial approaches. This morphing approach allows an existing computational model to be morphed to a wide range of measurement data or CAD geomries in a way that enables important engineering workflows. </p> -->
-
-    <!--   <p>In addition to target surface morphing, FEMORPH includes functionality that supports blend repair and Free Form morphing.  This webpage gives further detail on these workflows and FEMORPHs possible use cases.</p> -->
-
-
-      
-    <!--   <div class="heritage-media"> -->
-
-    <!--   </div> -->
-    <!-- </section> -->
-
-
-
-
-<!--       <p> -->
-<!-- 	    If this meshing process then needs adapted to deal with a single manufacturing non-conformance, it can be just as costly.  Now consider that there can be large numbers of non-conformances for a given part number over its life cycle, the costs can become prohibitive.     -->
-<!-- 	  </p> -->
-<!-- 	  <p> -->
-<!-- 	  Today's nonconformance limits may also be based on relatively standard geometry measurement limits.  But industry is changing this with it's expanding used of Digital Twin / Digital Thread approaches that more precisely determine part usage.  Another level of rigor would include part-specific geometry effects that consider manufacturing variations. Such an approach would require modeling every manuractured part, which with conventional methods is impractical.  -->
-<!-- 	  </p> -->
-	  
-<!-- 	  <p> -->
-<!-- 	    Once a part has been determined to be non-conforming, considerable effort can then undertaken to apply a repair process to the part.  Designing geometry blending subtractive repairs requires repeated remeshing of new geometries which adds cost and leads to fewer repairable parts. -->
-<!-- 	  </p> -->
-<!-- 	  <p> -->
-<!-- 	  This challenge is also faced during the design process where  iteratiively ceating meshed configurations as part of a design study may require excessive time.  Design teams either settle for suboptimal configurations or extend the time and cost of the design program. -->
-<!-- 	  </p>	     -->
-<!-- 	  <p> -->
-<!-- 	   These iteratively generated geometric meshes also underpin the use of Machine Learning and Artifical Intelligence, by providing the array of models that provide training data. -->
-<!-- 	  </p> -->
-<!-- 	  <p> -->
-<!-- 	   These challenges span a products life cycle, from design, to manufacturing, to operational usage.  In order to achieve these goals, an tool is needed that seemlessly creates computational meshes from a varietry of geometric measurement systems.  FEMORPH is that tool and has been proven in industry and government products. -->
-<!-- 	  </p> -->
-<!-- 	  <p> -->
-<!-- 	    <strong>FEMORPH</strong> solves this problem with <strong>robust mesh morphing</strong> — eliminating the need for remeshing altogether. By adapting existing meshes directly to new geometries, FEMORPH enables fast, reliable, and automated model updates that power optimization loops, digital twins, and AI workflows. -->
-<!-- 	  </p> -->
-<!-- 	</div> -->
-<!-- </section> -->
-
-<!-- <section class="opportunities"> -->
-<!--   <h2>Opportunities with FEMORPH</h2> -->
-<!--   <p class="intro"> -->
-<!--     Through design, manufacturing, and sustainment, FEMORPH addresses major challenges in engineering analysis across the entire product lifecycle. -->
-
-<!--   </p> -->
-
-<!--   <div class="opportunity-grid"> -->
-<!--     <div class="card"> -->
-<!--       <h3>1. Material Review Board (MRB)</h3> -->
-<!--       <p> -->
-<!--         Handling non-conforming parts often demands new meshes and extensive rework. FEMORPH creates models of damaged or out-of-spec parts in minutes, cutting cost and engineering effort. -->
-<!--       </p> -->
-<!--     </div> -->
-
-<!--     <div class="card"> -->
-<!--       <h3>2. Physics-Based Quality Control</h3> -->
-<!--       <p> -->
-<!--         Traditional tolerance-based assessments are giving way to Digital Twin–driven evaluations. FEMORPH allows part-specific geometry variations to be analyzed efficiently and consistently. -->
-<!--       </p> -->
-<!--     </div> -->
-
-<!--     <div class="card"> -->
-<!--       <h3>3. Repair Design & Blending</h3> -->
-<!--       <p> -->
-<!--         Subtractive repair design typically requires repeated remeshing of modified geometries. FEMORPH’s morphing technology applies geometry repairs directly to existing meshes. -->
-<!--       </p> -->
-<!--     </div> -->
-
-<!--     <div class="card"> -->
-<!--       <h3>4. Design Optimization</h3> -->
-<!--       <p> -->
-<!--         Iterative meshing during design studies slows down optimization and increases cost. FEMORPH enables rapid morphing of baseline meshes, accelerating design iteration cycles. -->
-<!--       </p> -->
-<!--     </div> -->
-
-<!--     <div class="card"> -->
-<!--       <h3>5. AI & Machine Learning Training Data</h3> -->
-<!--       <p> -->
-<!--         Generating large, consistent datasets for AI models requires hundreds of geometric variants. FEMORPH produces those efficiently, enabling high-fidelity, physics-based learning. -->
-<!--       </p> -->
-<!--     </div> -->
-<!--   </div> -->
-<!-- </section> -->
-
 
 
       <!-- ABOUT / SOFTWARE -->
@@ -2321,9 +1554,6 @@ footer {
 	    <p>FEMORPH is a system of tools that enable automated analysis workflows.</p>
 
             <ul class="features">
-              <!-- <li>High-precision mesh comparison</li> -->
-              <!-- <li>Digital twin validation & QA</li> -->
-              <!-- <li>Simulation-ready integration workflows</li> -->
 	      <li>Surface Data Reading (STL, CMM)</li>
 	      <li>Hole Filling</li>
 	      <li>FEM & CFD Model Reading (CDB, )</li>
@@ -2341,9 +1571,6 @@ footer {
           <div>
             <h2 id="software">Software Highlights</h2>
             <ul class="features">
-              <!-- <li>High-precision mesh comparison</li> -->
-              <!-- <li>Digital twin validation & QA</li> -->
-              <!-- <li>Simulation-ready integration workflows</li> -->
 	      Developed over 10+ years and deployed with Industry and Government customers
 	      <li>Windows, Linux, Mac compatible</li>
 	      <li>Python scripting interface</li>
@@ -2390,36 +1617,6 @@ footer {
 	</div>
       </section>
 
-      <!-- <section class="heritage blue-underline"> -->
-      <!-- 	<div class="dynamic-title"> -->
-      <!-- 	  <h2 id="dynamicText">Integrated with F-22 Maintenance, Repair, Overhaul Program</h2> -->
-      <!-- 	</div> -->
-	
-      <!-- 	<div class="heritage-details"> -->
-      <!-- 	  <div class="heritage-text"> -->
-      <!-- 	    <p> -->
-      <!--         <strong>FEMORPH</strong> is in operational use at <strong>Air Force Sustainment Center<strong> at -->
-      <!-- 		  Tinker Air Force Base.  It has been integral to the repair and maintenance of the Air Forces most -->
-      <!-- 		  advanced fighter aircraft. -->
-      <!-- 	    </p> -->
-      <!-- 	  </div> -->
-	  
-      <!-- 	  <div class="heritage-logos"> -->
-      <!-- 	    <img src="figures/f22.jpg" alt="AFRL Logo" class="heritage-logo"> -->
-      <!-- 	    <\!-- <img src="figures/pw_logo.png" alt="Pratt & Whitney Logo" class="heritage-logo"> -\-> -->
-      <!-- 	  </div> -->
-      <!-- 	</div> -->
-      <!-- </section> -->
-
-
-      <!-- <section class="heritage-bg"> -->
-      <!-- 	<div class="overlay"> -->
-      <!-- 	  <h2>Integrated with F-22 Maintenance, Repair, Overhaul Program</h2> -->
-      <!-- 	  <p><strong>FEMORPH</strong> is in operational use at <strong>Air Force Sustainment -->
-      <!-- 	      Center<strong> at Tinker Air Force Base.  It has been integral to the repair -->
-      <!-- 		and maintenance of the Air Forces most advanced fighter aircraft.</p> -->
-      <!-- 	</div> -->
-      <!-- </section> -->
 
 
       <section class="heritage-split">
@@ -2436,9 +1633,6 @@ footer {
       </section>
       
 
-
-      
-      
 
       <section class="femorph-process">
 	<h2 class="process-title">The FEMORPH Target Surface Morphing Process</h2>
@@ -2507,12 +1701,6 @@ footer {
 	</div>
       </section>
 
-      <!-- <section class="heritage-bg"> -->
-      <!-- 	<div class="overlay"> -->
-      <!-- 	  <h2>Integrated with F-22 Maintenance, Repair, Overhaul Program</h2> -->
-      <!-- 	  <p><strong>FEMORPH</strong> is in operational use at <strong>Air Force Sustainment Center<strong> at Tinker Air Force Base.  It has been integral to the repair and maintenance of the Air Forces most advanced fighter aircraft.</p> -->
-      <!-- 	</div> -->
-      <!-- </section> -->
 
 
 <!-- Heritage Intro Section -->
@@ -2534,28 +1722,6 @@ footer {
   <!-- <img src="figures/heritage_intro.png" alt="Heritage Overview"> -->
 </section>
 
-<!-- <section id="heritage-damage" class="heritage-content"> -->
-<!--       <h2>Material Review Board (MRB) Analysis</h2> -->
-      
-<!--       <p>A Material Review Boards determine the fate of newly manufactured parts that are beyond specified geometric tolerances or have been damaged.  These boards often rely on part-specific FEM and CFD models that have been updated to account for these quality escapes, and the results are used to deterimne if the part is acceptable, can be repaired, or should be scrapped.  These are important analysis proceses which are closely related to cost, schedule, and risk.</p> -->
-
-<!--       <p>Creating part-specific models that represent these quality escapes can require significant engineering resources and expertise.  Each instance of a part-specific model may require new strategies to create meshable CAD, or basic mesh morphing approaches may be applied to approximate the geometric deviations.  Todays drive for cost reduction and large scale production of high performance systems increases the value of a mesh morphing approach that automatically and precisely creates part-specific models.</p> -->
-
-<!--       <p>FEMORPH is such and approach, and  MRB analysis is often the gateway to industrys interest in the software. The figures bellow demonstrate FEMORPHs use on an exceedingly large quality escape.  On the left, surface data has been captured with a structured light scanner and shows an airfoil that experience signficant leading edge damage.  The surface shows several holes in the data from reference marker deletion, which FEMORPH is able to account for with surface interpolations. The figure on the right shows that even in this extreme case, FEMORPH is able to create the part-specific model of large damage case. While this is an extreme case for an MRB, it also is relevant to battle damage assessment and continuing operation studies as another possible use case.</p> -->
-
-<!-- 	<div class="heritage-media"> -->
-<!--           <figure> -->
-<!--             <img src="figures/und_damage_1.png"> -->
-<!--             <figcaption>Damaged Airfoil Scan</figcaption> -->
-<!--           </figure> -->
-	  
-<!--           <figure> -->
-<!--             <img src="figures/und_damage_morph.png"> -->
-<!--             <figcaption>Morphed Matches Damaged State</figcaption> -->
-<!--           </figure> -->
-<!-- 	</div> -->
-	
-<!-- </section> -->
 
 
 <section id="heritage-damage" class="heritage-content content">
@@ -2624,101 +1790,11 @@ footer {
 
 </section>
 
-      
-    <!-- <section id="heritage-blend" class="heritage-content"> -->
-    <!--   <h2>BLENDER: the Blend Repair Morphing Tool </h2> -->
-
-    <!--   <p>An outcomes of the MRB may be the decision that the part should be repaired. Blending is a common repair method and involves machining away the damage and leaving a contoured surface that allows the part to maintain its structural and aerodynamic performance.  Creating these repaired models can require signficant time and engineering resources, and even more so if a bespoke repair is required on a part-specific model from the MRB process.</p>  -->
-
-    <!--   <p>FEMORPH was designed to address this challenge and has a blend geometry morphing module called Blender thatstreamlines the workflow to design blend repairs,  Blender contains a library of parametric repair geometries, applies these to user-defined locations, and morphs the model to the intended repaired shape. The library includes both edge and and surface geometries.  Repaired models can be based on the nominal models or, when available, the as-measured models that have been generated from FEMORPH's target surface capability.</p> -->
-
-    <!--   <p>Blender can be utiliezed through the FEMORPH GUI interface or through python scripting that allows for easy integration into automated workflows and allows optimization of repair designs to extract the most return on investment.</p> -->
-
-    <!--   <div class="heritage-media"> -->
-    <!--     <figure> -->
-    <!--       <img src="figures/blender_pbs_2.png"> -->
-    <!--       <figcaption>GUI Interface to Blender</figcaption> -->
-    <!--     </figure> -->
-
-    <!--     <figure> -->
-    <!--       <img src="figures/blender_pbs_3.png"> -->
-    <!--       <figcaption>Morphed result</figcaption> -->
-    <!--     </figure> -->
-    <!--   </div> -->
-    <!-- </section> -->
-
-
-    
-
-    <!-- <section id="heritage-damage" class="heritage-content"> -->
-    <!--   <h2>DAMAGED PART ASSESSMENTS</h2> -->
-
-    <!--   <p> -->
-    <!--     This blade foreign object damage event shows an extreme example of modeling damaged hardware. -->
-    <!--     The damaged airfoil geometry was measured and converted to an STL file. -->
-    <!--     FEMORPH recognizes gaps from reference markers and interpolates a smooth mesh. -->
-    <!--   </p> -->
-
-    <!--   <div class="heritage-media"> -->
-    <!--     <figure> -->
-    <!--       <img src="figures/und_damage_1.png"> -->
-    <!--       <figcaption>Damaged Airfoil Scan</figcaption> -->
-    <!--     </figure> -->
-
-    <!--     <figure> -->
-    <!--       <img src="figures/und_damage_morph.png"> -->
-    <!--       <figcaption>Morphed Matches Damaged State</figcaption> -->
-    <!--     </figure> -->
-    <!--   </div> -->
-    <!-- </section> -->
-
-
-    <!-- <section id="heritage-quality" class="heritage-content"> -->
-    <!--   <h2>FEMORPH for Industry 4.0</h2> -->
-
-    <!--   <p> -->
-    <!--     The part-specific modeling process that FEMORPH enables can be further expanded to generate models of all manufactured parts, not just those that go to MRB.  This allows quantification of the variation operational temperatures, stresses, and aerodynamic performace at the manufacturing stage.  This informaion can be critical to Industry 4.0 concepts and the ongoing digitization of manufacturing that saves cost and increases production rate.  It can be valuable to both in-situ improvement of process and also providing important data that can be included in AI/ML models that provide predictive insights, automate decision making, and process optimization.  -->
-	
-    <!--   </p> -->
-
-    <!--   <div class="heritage-media"> -->
-    <!--     <figure> -->
-    <!--       <img src="figures/workflow.png"> -->
-    <!--       <figcaption> -->
-    <!--         Steps in a Turbine Rotor As-manufactured Modeling Process -->
-    <!--       </figcaption> -->
-    <!--     </figure> -->
-    <!--   </div> -->
-  <!-- </section> -->
-
-
-
-
-    <!-- <section id="heritage-quality" class="heritage-content"> -->
-    <!--   <h2>Ready for Industry 4.0 Initiatives</h2> -->
-      
-    <!--   <p>FEMorph enables Industry 4.0 by transforming inspection data into actionable, physics-based insight. By directly morphing finite element models to match as-measured part geometry, FEMorph creates high-fidelity digital twins of real, manufactured components rather than relying solely on nominal CAD. This allows manufacturers to move beyond tolerance-based pass/fail decisions and instead evaluate parts based on predicted functional performance, closing the gap between inspection, simulation, and quality decision-making.</p> -->
-
-    <!--   <p>By integrating metrology, simulation, and automation into a unified workflow, FEMorph supports data-driven, scalable manufacturing intelligence. As-built finite element models can be automatically generated, analyzed, and linked to acceptance criteria, enabling predictive quality, reduced scrap, and faster disposition decisions. This tight coupling of shop-floor data with engineering physics models exemplifies the core principles of Industry 4.0: cyber-physical systems, digital twins, and vertically integrated, model-based manufacturing processes.</p> -->
-
-    <!--   <div class="heritage-media"> -->
-
-    <!-- 	  <figure style="--figure-width: 75%"> -->
-    <!--       <img src="figures/industry40_gpt3.png"> -->
-    <!--       <figcaption> -->
-    <!--         Digitially Measure All Parts -->
-    <!--       </figcaption> -->
-    <!--     </figure> -->
-
-    <!--   </div> -->
-    <!-- </section> -->
-
-
 
 <section id="heritage-repair" class="heritage-content content">
 
   <!-- Section Title -->
-  <h2>Streamline MRB Blend Repairs with FEMORPH's Blender</h2>
+  <h2>Streamline MRB Blend Repairs with FEMORPH Blender</h2>
 
   <!-- Bang Box -->
   <div class="bang-box">
@@ -2761,23 +1837,6 @@ footer {
 </section>
     
 
-
-    <!-- <section id="heritage-quality" class="heritage-content"> -->
-    <!--   <h2>FEMORPH for the Digital Twin and Digital Thread</h2> -->
-
-    <!--   <p> -->
-    <!--     The part-specific models from manufacturing can continue into operational use for products that use Digital Twin management.  FEMORPH enabled Digital Twins would have the understanding of part-specific models as well as part-specific operational usage, providing a detailed quantificationn of operationalstresses, fatigue behavior, and performance. This part-specific data can be used for predictive maintenance, enhanced safety, optimized performance while the collection of the entire fleet of data can be assessed in ML/AI for furhter decision making and optimization.  As these twins move through the life cycle and data is continually monitored, Digital Thread managagement can further add value. -->
-    <!--   </p> -->
-
-    <!--   <div class="heritage-media"> -->
-    <!--     <figure> -->
-    <!--       <img src="figures/workflow.png"> -->
-    <!--       <figcaption> -->
-    <!--         Steps in a Turbine Rotor As-manufactured Modeling Process -->
-    <!--       </figcaption> -->
-    <!--     </figure> -->
-    <!--   </div> -->
-  <!-- </section> -->
 
 <section id="heritage-industry40" class="heritage-content content">
 
@@ -2855,14 +1914,12 @@ footer {
 
     </figure>
 
-  </div>
+    </div>
 
-  <p class="example-description">
-    The images below demonstrate the flexibility of FEMORPH and it's ability to adapt to large changes in geometry.  On the left is an inital model, or source mesh, of a rotor with a bolt hole and dovetail. The dovetail starts as a rectangular notch to increase the difficulty of the mesh morphing. Next to this image is the defined target CAD surface that represents a large step in an optimization workflow, or an improved design delivered to a structures engineer by the design team.  The target CAD has a realistic dovetail, a resized bolt hole, a larger inner and outer diameter, and a large inner bore area.  To highlight the differences betweeen the source and target, the third image shows an overlay for comparison.
+    <p class="example-description">
+    The images below demonstrate the flexibility of FEMORPH and its ability to adapt to large changes in geometry.  On the left is an inital model, or source mesh, of a rotor with a bolt hole and dovetail. The dovetail starts as a rectangular notch to increase the difficulty of the mesh morphing. Next to this image is the defined target CAD surface that represents a large step in an optimization workflow, or an improved design delivered to a structures engineer by the design team.  The target CAD has a realistic dovetail, a resized bolt hole, a larger inner and outer diameter, and a large inner bore area.  To highlight the differences betweeen the source and target, the third image shows an overlay for comparison.
 
-    The last image shows the source mesh after morphing, showing that it matches the defined target surface and has notably good element quality in the dovetail and bolt hole 
-
-  </p>
+    The last image shows the source mesh after morphing, showing that it matches the defined target surface and has notably good element quality in the dovetail and bolt hole</p>
 
 </div>
 
@@ -2910,54 +1967,6 @@ footer {
 </div>
 
 </section>
-
-
-    <!-- <section id="heritage-quality" class="heritage-content"> -->
-    <!--   <h2>FEMORPH for the Digital Twin and Digital Thread</h2> -->
-
-    <!--   <p>FEMorph plays a critical role in enabling high-fidelity digital twin initiatives by bridging the gap between nominal design models and real, manufactured parts. By morphing finite element models to match as-measured geometry from inspection systems, FEMorph creates physics-capable digital twins that reflect the true as-built condition of each component. This allows engineers to evaluate structural and functional performance at the individual part level, supporting more accurate prediction, validation, and lifecycle analysis than is possible with idealized CAD-based models.</p> -->
-
-    <!--   <p>In digital thread architectures, FEMorph extends inspection data beyond quality reporting and into engineering analytics and decision-making. Geometry measurement data, simulation results, and acceptance decisions remain connected and traceable throughout the product lifecycle, from manufacturing through operation. By linking inspection results directly to simulation-driven performance assessments, FEMorph strengthens continuity across design, manufacturing, and quality systems, enabling a closed, traceable loop between physical products and their digital representations.</p> -->
-
-
-    <!--   <div class="heritage-media"> -->
-    <!-- 	<figure style="--figure-width: 75%"> -->
-    <!--       <img src="figures/digital_twin_gpt2.png"> -->
-    <!--       <figcaption> -->
-    <!--         Steps in a Turbine Rotor As-manufactured Modeling Process -->
-    <!--       </figcaption> -->
-    <!--     </figure> -->
-
-
-    <!--   </div> -->
-      
-
-    <!-- </section> -->
-
-    
-    
-
-
-    <!-- <section id="heritage-optimization" class="heritage-content"> -->
-    <!--   <h2>3D Optimization Workflows and Rapid Design Updates</h2> -->
-
-    <!--   <p> FEMORPH is not limited to use at manufacturing and during operation, its use can also accelerate design and analysis workflows.  This is because FEMORPH is not limited to creating as-measured models, it can morph meshes to CAD geometries in either IGES or STL formats.  This allows the integration of FEMORPH and parametric CAD models within an optimization framework, with the optimization algorithm determining design iteration parameters, the CAD generating the surface, FEMORPH updating the mesh, and a solver predicts the responses that feed back to the optimizer.</p> -->
-
-    <!--   <p>FEMORPH is also useful in uncoupled design processes that aren't amenable to numerical optimization.  In many cases, one team get design updates that come from another discipline group and the goal is a fast analysis of the new configration.  In these cases, FEMORPH can morph the existing model to the new CAD definition to rapidly determine sutability of changes.</p>   -->
-
-    <!--   <p>The images below demonstrate the flexibility of FEMORPH and it's ability to adapt to large changes in geometry.  On the left is an inital model, or source mesh, of a rotor with a bolt hole and dovetail. The dovetail starts as a rectangular notch to increase the difficulty of the mesh morphing. Next to this image is the defined target CAD surface that represents a large step in an optimization workflow, or an improved design delivered to a structures engineer by the design team.  The target CAD has a realistic dovetail, a resized bolt hole, a larger inner and outer diameter, and a large inner bore area.  To highlight the differences betweeen the source and target, the third image shows an overlay for comparison.</p> -->
-
-    <!--   <p>The last image shows the source mesh after morphing, showing that it matches the defined target surface and has notably good element quality in the dovetail and bolt hole geometries.</p> -->
-
-    <!--   <div class="heritage-media"> -->
-    <!--     <figure> -->
-    <!--       <img src="figures/optimization_workflow.png"> -->
-    <!--       <figcaption> -->
-    <!--         Optimization of Turbine Disk Cross Section, Dovetail, Bolt Hole -->
-    <!--       </figcaption> -->
-    <!--     </figure> -->
-    <!--   </div> -->
-    <!-- </section> -->
 
 
 
@@ -3017,39 +2026,6 @@ footer {
 
 </section>
 
-    <!-- <section id="heritage-multidiscipline" class="heritage-content imgheight"> -->
-    <!--   <h2>Integrated Multi-disciplinary Analysis Workflows</h2> -->
-
-    <!--   <p>Improving the integrated design processes is necessary to reduce design time and produce products that optimize mission potential.  One challenge faced in this process is the integration of aero, thermal, structures, and lifing groups workflows into an automated process.  A reason for this challenge is that each group often uses different computational meshes and software in there operations that require their own expert and specialized users.  This has contributed to a partially stovepiped, rather than truly integrated teams.</p> -->
-
-    <!--   <p> FEMORPH addresses this challenge by allowing different groups to interact with another's mesh using mesh morphing. For example, as a CFD group modifies their aerodynamic shape defined by "O" grids, "H" grids, or polyhedral elements, they can see the impact on heat transfer tetrahedral models and structural hexahedral models by using FEMORPH on the each source mesh</p> -->
-
-
-    <!--   <div class="heritage-media"> -->
-
-    <!--     <figure> -->
-    <!--       <img src="figures/hpt_grid.png"> -->
-    <!--       <figcaption> -->
-    <!--         CFD O- and H- Grid Mesh -->
-    <!--       </figcaption> -->
-    <!--     </figure> -->
-
-    <!--     <figure> -->
-    <!--       <img src="figures/cooled_turbine_blade.jpg"> -->
-    <!--       <figcaption> -->
-    <!--         Heat Transfer Tetrahedral Mesh -->
-    <!--       </figcaption> -->
-    <!--     </figure> -->
-
-    <!-- 	<figure> -->
-    <!--       <img src="figures/pbs_sector.png"> -->
-    <!--       <figcaption> -->
-    <!--         Structural Hexahedral Mesh -->
-    <!--       </figcaption> -->
-    <!--     </figure> -->
-
-    <!--   </div> -->
-    <!-- </section> -->
 
 <section id="heritage-ai" class="heritage-content content">
 
@@ -3096,22 +2072,6 @@ footer {
 </section>
 
 
-    <!-- <section id="heritage-ai" class="heritage-content"> -->
-    <!--   <h2>Training AI for Physics and Design</h2> -->
-
-    <!--   <p>AI relies on large sets of training data and FEMORPH allows seemless generation of models that define the design space. The training data model parameters could be selected by Latin Hypercube Sampling (LHS), which could be used in a parametric CAD to generate geometry, and FEMORPH would morph a source mesh to each new configuration.</p> -->
-
-    <!--   <p>The figures below show an example of this, where the image on the left represents an LHS sample of airfoil blend geometry with blend depth and span location are the parameters.  The center figure shows the morphed geometries that result from each training point.  This data can be used in a variety of supervised and unsupervised AI/ML methods and FEMORPHs python interface makes PyTorch and sci-kit learn attractive frameworks.</p> -->
-
-    <!--   <div class="heritage-media"> -->
-    <!--     <figure> -->
-    <!--       <img src="figures/ai_workflow.png"> -->
-    <!--       <figcaption> -->
-    <!--         Random Sampling the Design Space for ML/AI Training -->
-    <!--       </figcaption> -->
-    <!--     </figure> -->
-    <!--   </div> -->
-    <!-- </section> -->
 <section id="heritage-additive" class="heritage-content content">
 
   <!-- Section Title -->
@@ -3152,7 +2112,6 @@ footer {
   <p class="example-description">
     The image on the left shows the measured surface data on a impeller manufactured using bound metal deposition (BMD). Both the  airfoil surfacesa and rim of the impeller disk have a series of noticible ridges that stem from the manufacturing process. The central image below shows the nominal FEM of this impeller that was used as the source mesh for FEMORPH.  The right hand image shows the morphed mesh where the finite element edges have been hidden to allow visualization of the ridged structure in the model that matches the as-manufactured surface.  This capability allows detailed assessemnt of additive parts at various stages in the processing.
     
-
   </p>
 
 </div>
@@ -3160,57 +2119,95 @@ footer {
 </section>
 
 
-    <!-- <section id="heritage-additive" class="heritage-content"> -->
-    <!--   <h2>Additively Manufactured Part Analysis</h2> -->
-
-    <!--   <p> This use case can be considered and application of its Industry 4.0 part-specific modeling capabilities.  Additive parts are highlighted because of its large community of interest, the continued expansion of its applications, and that thes parts generatlly have more as-manufactured deviation compared to traditional methods. </p> -->
-
-    <!--   <p> The image on the left shows the measured surface data on a impeller manufactured using bound metal deposition (BMD). Both the  airfoil surfacesa and rim of the impeller disk have a series of noticible ridges that stem from the manufacturing process. The central image below shows the nominal FEM of this impeller that was used as the source mesh for FEMORPH.  The right hand image shows the morphed mesh where the finite element edges have been hidden to allow visualization of the ridged structure in the model that matches the as-manufactured surface.  This capability allows detailed assessemnt of additive parts at various stages in the processing. -->
-
-    <!--   <div class="heritage-media"> -->
-    <!--     <figure> -->
-    <!--       <img src="figures/additive_workflow.png"> -->
-    <!--       <figcaption> -->
-    <!-- 	    Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.     -->
-    <!--       </figcaption> -->
-    <!--     </figure> -->
-    <!--   </div> -->
-    <!-- </section> -->
 
 
-        <section id="heritage-additive" class="heritage-content">
-      <h2>Free Form Mesh Morphing</h2>
+<section id="heritage-arbitrary" class="heritage-content content">
 
-      <p>In some use cases, designer can benefit from mesh morphing that is not defined by surface data.  Instead, an alternative approach is based on a bounding box defined by control points.  The movement of these control points then modifies the interior according to predefined interpolation functions. This reduce the contrainsts associated with parametric CAD design, and can lead to improved optimzation results, or it can allow quick modifications to model in a design study. </p>
+  <!-- Section Title -->
+  <h2>Arbitrary Mesh Morphing with Control Volumes</h2>
 
-      <div class="heritage-media">
+  <!-- Bang Box -->
+  <div class="bang-box">
+    
+    <p>Break Free from CAD Constraints, FEMORPH’s Arbitrary Morphing capability enables direct, physics-ready shape modification using control-point–defined morphing volumes. By manipulating control points in space, engineers create smooth spatial deformation fields that morph existing meshes without requiring new CAD geometry. This allows rapid exploration of complex shape changes, ideal for early design studies, sensitivity analysis, and large-scale AI training data generation.</p>
+
+  </div>
+
+  <!-- Bullets -->
+  <ul class="heritage-bullets">
+
+<li><strong>Control-Point Driven Morphing:</strong> Freely move 3D control points to define smooth spatial deformation fields.</li>
+  <li><strong>Volume or Surface-Based Control:</strong> Use bounding volumes or surface-overlapping control points for refined local shaping.</li>
+  <li><strong>CAD-Free Shape Variation:</strong> Generate complex geometry changes without rebuilding or parameterizing CAD models.</li>
+  <li><strong>Physics-Ready Results:</strong> Preserve mesh quality and connectivity for immediate simulation.</li>
+  <li><strong>Expanded Design Space:</strong> Explore non-intuitive and highly nonlinear shape variations.</li>
+  <li><strong>AI Training Enablement:</strong> Rapidly generate large, diverse datasets without CAD workflow bottlenecks.</li>
+  
+</ul>
+
+
+
+<div class="femorph-example-group">
+  <div class="example-grid">
+
         <figure>
-          <img src="figures/sculptormorph.jpg">
+          <img src="figures/arbitrary_morph_box.png">
           <figcaption>
-	    Free Form Mesh Morphing
+            Airfoil with Morphing Control Points
+          </figcaption>
+          </figure>
+
+        <figure>
+          <img src="figures/arbitrary_morph_bend.png">
+          <figcaption>
+            Tip Control Points used to Bend Airfoil
           </figcaption>
         </figure>
-      </div>
-    </section>
+	  
+
+  </div>
+
+  <p class="example-description">
+  Arbitrary Morphing empowers engineers and data scientists to explore, analyze, and learn from geometry variations that would otherwise be impractical or impossible using traditional CAD-driven workflows. </p>
+
+</div>
+
+</section>
 
 
 
-    <section id="heritage-validation" class="heritage-content">
-      <h2>Experimental Validation</h2>
+<section id="heritage-validation" class="heritage-content content">
 
-      
-	<p>FEMORPH and the as-manufactured modeling process, including structured light scanning, has been validated on numerous case studies. Many of these studies have centered on predicting the mistuned behavior of integrally bladed rotors (IBRs). The modal dynamic response of these critical compoents is extremely sensitive to small variations in geometry, therefore making it at challenging test case for FEMORPH.</p>
+  <!-- Section Title -->
+  <h2>Experimental Validation and Ongoing Research</h2>
 
-	<p>As part of 2025 validation efforts, an extensive study was performed the AFRL PBS Stage 5 Research Rotor.  An iterative structured light measurement process was conducted to establish scan-to-scan measurement error less than 0.003 in.  This measured surface was aligned with FEMORPH to an available PBS Stage 4 finite element model and morphed into an the as-manufactured PBS 5 model.</p>
+  <!-- Bang Box -->
+  <div class="bang-box">
+    
+  <p>
+  FEMORPH is validated through rigorous, physics-based experimental programs led by engineers and researchers, not just software developers. By integrating advanced metrology and structural dynamics testing, FEMORPH’s as-manufactured models are proven against some of the most demanding validation cases in structural mechanics.
+  </p>
 
-        <p>This models frequencies and mode shapes were compared to experimental vibration data
-	collected on a traveling wave excitation system, with an array of speakers exciting each airfoil. A dense set of measurement points were collected with a Polytec laser vibrometer.</p>
+  </div>
 
-	<p>This dataset represents one of the highest fidelity measurements of rotor vibration response, and the figure on the left below shows a high frequency mistuned mode, showing archetypical mode localization.  The figure on the right, shows that the as-manufactured model created with FEMORPH matches the prediction of this complex mode.</p>
+  <!-- Bullets -->
+  <ul class="heritage-bullets">
+   <li><strong>Engineer-Led Validation:</strong> Developed and validated by researchers actively advancing metrology and experimental mechanics.</li>
+  <li><strong>Integrated Validation Pipeline:</strong> Structured light scanning, model morphing, and experimental testing combined into a single workflow.</li>
+  <li><strong>Improved Measurement Fidelity:</strong> Continuous refinement of structured light scanning accuracy for high-confidence geometry capture.</li>
+  <li><strong>Advanced Vibration Testing:</strong> Specialized methods developed to measure mistuned dynamics in bladed rotors.</li>
+  <li><strong>True Mistuning Physics:</strong> Captures blade-to-blade variability, modal coupling, and nonlinear sensitivity to micron-level geometry changes.</li>
+  <li><strong>Proven Decision Confidence:</strong> Experimental correlation demonstrates FEMORPH models can be trusted for critical engineering decisions.</li>
+  <li><strong>Fielded and Trusted:</strong> Validated technology relied upon by industry and the United States Air Force.</li>
+</ul>
+  
+  </ul>
 
-	<p>Validations such as this give FEMORPH customers the confidence to use the software on a wide range of failure critical parts. </p>
 
-      <div class="heritage-media">
+
+<div class="femorph-example-group">
+<div class="example-grid">
+
         <figure>
           <!-- <img src="figures/exp-full-mode-192-eps-converted-to.pdf"> -->
 	  <img src="figures/exp-full-mode-192.png">
@@ -3225,23 +2222,29 @@ footer {
 	    FEMORPH As-manufactured Predicted Mistuned Mode Shape
           </figcaption>
         </figure>
-	
-      </div>
-    </section>
+
+  </div>
+
+  <p class="example-description">
+
+	<p>As part of 2025 validation efforts, an extensive study was performed the AFRL PBS Stage 5 Research Rotor.  An iterative structured light measurement process was conducted to establish scan-to-scan measurement error less than 0.0003 in.  This measured surface was aligned with FEMORPH to an available PBS Stage 4 finite element model and morphed into an the as-manufactured PBS 5 model.</p>
+
+        <p>This models frequencies and mode shapes were compared to experimental vibration data
+	collected on a traveling wave excitation system, with an array of speakers exciting each airfoil. A dense set of measurement points were collected with a Polytec laser vibrometer.</p>
+
+	<p>This dataset represents one of the highest fidelity measurements of rotor vibration response, and the figure on the left below shows a high frequency mistuned mode, showing archetypical mode localization.  The figure on the right, shows that the as-manufactured model created with FEMORPH matches the prediction of this complex mode.</p>
+
+	<p>Validations such as this give FEMORPH customers the confidence to use the software on a wide range of failure critical parts. </p>
+ </p>
+
+</div>
+
+</section>
 
 
-<!--  <\!-- Heritage Intro Section -\-> -->
-<!-- <section class="heritage-intro"> -->
-<!--   <div class="heritage-intro-content"> -->
-<!--     <h2>Experimental Validation</h2> -->
-<!--     <p></p> -->
-<!--   <\!--   <nav class="heritage-index"> -\-> -->
-<!--   <\!--     <a href="#heritage-blend">Blender: the Blend Repair Morphing tool</a> -\-> -->
 
-<!--   <\!-- </nav> -\-> -->
-<!--   </div> -->
-<!--   <\!-- <img src="figures/heritage_intro.png" alt="Heritage Overview"> -\-> -->
-<!-- </section> -->
+
+
 
 
       <section class="about-developers">
@@ -3265,35 +2268,6 @@ footer {
 	</div>
       </section>
       
-
-
-      <!-- <section class="news-section"> -->
-      <!-- 	<h2 class="news-title">Latest News</h2> -->
-	
-      <!-- 	<div class="news-scroller"> -->
-	  
-      <!-- 	  <article class="news-card"> -->
-      <!-- 	    <h3>FEMORPH V2.3 Released</h3> -->
-      <!-- 	    <p>Includes major improvements to CAD alignment, faster morphing kernels, and enhanced CFD mesh support.</p> -->
-      <!-- 	    <span class="news-date">Feb 2025</span> -->
-      <!-- 	  </article> -->
-	  
-      <!-- 	  <article class="news-card"> -->
-      <!-- 	    <h3>FEMORPH Used in AI Training Pipeline</h3> -->
-      <!-- 	    <p>Major aerospace OEM integrates FEMORPH to accelerate ML dataset generation for turbine component analysis.</p> -->
-      <!-- 	    <span class="news-date">Jan 2025</span> -->
-      <!-- 	  </article> -->
-	  
-      <!-- 	  <article class="news-card"> -->
-      <!-- 	    <h3>AFRL Publishes Morphing Research</h3> -->
-      <!-- 	    <p>New paper highlights efficiency gains from using morphing rather than traditional remeshing techniques.</p> -->
-      <!-- 	    <span class="news-date">Dec 2024</span> -->
-      <!-- 	  </article> -->
-	  
-      <!-- 	</div> -->
-      <!-- </section> -->
-      
-
 
       <section id="faq">
 	<h2>Frequently Asked Questions</h2>
@@ -3518,23 +2492,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ======================
-     Use-case tabs
-  ====================== */
-  document.querySelectorAll('.use-case-tabs button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.use-case-tabs button')
-        .forEach(b => b.classList.remove('active'));
-
-      document.querySelectorAll('.use-case-panel')
-        .forEach(p => p.classList.remove('active'));
-
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.target)?.classList.add('active');
-    });
-  });
-
-
-  /* ======================
      FAQ accordion
   ====================== */
   document.querySelectorAll('.faq-question').forEach(button => {
@@ -3574,140 +2531,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 800);
     });
   }
-
-
-// Workflow chooser + sticky close bar
-const workflowCards = document.querySelectorAll('.workflow-card');
-const closeBar = document.querySelector('.workflow-close');
-
-workflowCards.forEach(card => {
-  card.addEventListener('click', () => {
-    const targetId = card.dataset.target;
-    const targetEl = document.getElementById(targetId);
-    if (!targetEl) return;
-
-    // Hide other workflow sections
-    document.querySelectorAll('.morph-detail')
-      .forEach(s => s.classList.remove('active'));
-
-    // Show the selected workflow
-    targetEl.classList.add('active');
-
-    // Show the sticky close bar
-    closeBar.classList.add('active');
-
-    // Scroll to the workflow
-    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
-
-document.querySelectorAll('.close-workflow').forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Hide all workflow sections
-    document.querySelectorAll('.morph-detail')
-      .forEach(s => s.classList.remove('active'));
-
-    // Hide the sticky close bar
-    closeBar.classList.remove('active');
-
-    // Scroll back to workflow chooser
-    document.querySelector('.workflow-chooser')
-      .scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
-
-
-  /* ======================
-     Workflow close buttons
-  ====================== */
-  document.querySelectorAll('.close-workflow').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const section = btn.closest('.morph-detail');
-      section?.classList.remove('active');
-
-      document
-        .querySelector('.workflow-chooser')
-        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-
-
-    // Research validation toggle
-    const researchPanel = document.querySelector('.research-panel');
-    const researchToggle = document.querySelector('.research-toggle');
-    
-    if (researchPanel && researchToggle) {
-	researchToggle.addEventListener('click', () => {
-	    researchPanel.classList.toggle('active');
-	    
-	    // Optional: scroll into view when opening
-	    if (researchPanel.classList.contains('active')) {
-		researchPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-	    }
-	});
-    }
-
-
-
-
-// Workflow chooser
-document.querySelectorAll('.workflow-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const id = card.dataset.workflow;
-
-    // Activate card
-    document.querySelectorAll('.workflow-card')
-      .forEach(c => c.classList.remove('active'));
-    card.classList.add('active');
-
-    // Activate workflow
-    document.querySelectorAll('.workflow')
-      .forEach(w => w.classList.remove('active'));
-
-    const workflowEl = document.getElementById('workflow-' + id);
-    workflowEl.classList.add('active');
-
-    // 📱 Mobile: scroll so selector stays visible
-    if (window.innerWidth <= 768) {
-      const chooser = document.querySelector('.workflow-chooser');
-      if (chooser) {
-        chooser.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }
-  });
-});
-
-
-// Card Overlay
-
-const cards = document.querySelectorAll('.workflow-card');
-const overlay = document.getElementById('card-overlay');
-const overlayImage = document.getElementById('overlay-image');
-const overlayTitle = document.getElementById('overlay-title');
-const overlayDesc = document.getElementById('overlay-desc');
-const overlayClose = document.getElementById('overlay-close');
-
-cards.forEach(card => {
-  card.addEventListener('click', () => {
-    overlayImage.src = card.dataset.image;
-    overlayTitle.textContent = card.dataset.title;
-    overlayDesc.textContent = card.dataset.desc;
-    overlay.style.display = 'block';
-  });
-});
-
-// Close overlay
-overlayClose.addEventListener('click', () => {
-  overlay.style.display = 'none';
-});
-
-// Optional: click outside content to close
-overlay.addEventListener('click', (e) => {
-  if (e.target === overlay) overlay.style.display = 'none';
-});
 
 
 			     
