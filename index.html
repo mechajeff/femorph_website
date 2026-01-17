@@ -344,8 +344,8 @@
        .problem-solution h2 {
 	   color: #00AEEF;
 	   font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
+	   margin-bottom: 20px;
+	   text-align: center;
        }
        
        /* Paragraphs / text */
@@ -686,6 +686,7 @@
 	   /* color: #00AEEF; */    
 	   text-decoration: none;
 	   font-weight: 500;
+	   font-size: 1.5rem;
 	   position: relative;
        }
        
@@ -1083,7 +1084,6 @@
 	   margin-bottom: 20px;
        }
 
-
        .femorph-example-group figure {
 	   display: block;
 	   margin: 0;
@@ -1111,7 +1111,7 @@
 	   font-size: 1rem;
 	   line-height: 1.6;
 	   color: #cfd6e0;
-	   text-align: center;
+	   text-align: left;
        }
        
        .femorph-example-group::before {
@@ -1199,11 +1199,6 @@
 	box-shadow: 0 10px 30px rgba(0, 174, 239, 0.35);
 	object-fit: contain;
     }
-
-    /* .hero-left .btn { */
-    /* 	display: inline-block;   /\* ensures button respects text-align *\/ */
-    /* 	margin-top: 8px;        /\* optional: add spacing above button *\/ */
-    /* } */
 
     .cta-row .btn {
 	display: inline-block;   /* ensures button respects text-align */
@@ -1311,7 +1306,8 @@
     .workflow-close .close-workflow:hover {
 	color: #FFB733;  /* slightly lighter on hover */
     }
-    
+
+        
 
 }
 
@@ -1333,26 +1329,28 @@
   .problem-text {
     order: 1;
   }
+
+  
 }
 
 
-.problem-solution {
-    display: flex;
-    flex-wrap: wrap;  /* Allow items to wrap on small screens */
-    gap: 2rem;        /* Optional spacing between content and media */
-}
+/* .problem-solution { */
+/*     display: flex; */
+/*     flex-wrap: wrap;  /\* Allow items to wrap on small screens *\/ */
+/*     gap: 2rem;        /\* Optional spacing between content and media *\/ */
+/* } */
 
-.problem-solution-content,
-.problem-solution-media {
-    flex: 1 1 50%;    /* Take 50% width on large screens */
-}
+/* .problem-solution-content, */
+/* .problem-solution-media { */
+/*     flex: 1 1 50%;    /\* Take 50% width on large screens *\/ */
+/* } */
 
-@media screen and (max-width: 600px) {
-    .problem-solution-content,
-    .problem-solution-media {
-        flex: 1 1 100%;  /* Stack vertically on small screens */
-    }
-}
+/* @media screen and (max-width: 600px) { */
+/*     .problem-solution-content, */
+/*     .problem-solution-media { */
+/*         flex: 1 1 100%;  /\* Stack vertically on small screens *\/ */
+/*     } */
+/* } */
 
 </style>
 
@@ -1477,7 +1475,7 @@
 
 
 <section class="problem-solution">
-<h2>Meshing is a Engineering Bottleneck</h2>	
+        <h2>Meshing is a Engineering Bottleneck</h2>	
 	<div class="content problem-solution-grid">
 
 	<div class="problem-text">
@@ -1710,13 +1708,19 @@
     
     <p>(Click links or scroll downward)</p>
     <nav class="heritage-index">
-      <a href="#heritage-damage">Material Review Board (MRB) Analysis </a>
-      <a href="#heritage-blend">Blender: the Blend Repair Morphing tool</a>
-      <a href="#heritage-quality">Physics-based Quality Control </a>
-      <a href="#heritage-optimization">3D Optimization </a>
-      <a href="#heritage-ai">ML/AI Training Data Generation </a>
-      <a href="#heritage-additive">Additively Manufactured Part Analysis </a>
-      <a href="#heritage-validation">Experimental Validation </a>
+      <a href="#heritage-mrb">Automate MRB Quality Escape Modeling</a>
+      <a href="#heritage-blend">Accelerate Design of Repairs with FEMORPH Blender</a>
+      <a href="#heritage-design">Streamline 3D Design and Analysis with FEMORPH </a>
+      <a href="#heritage-multi">Enable Integrated Multi-Disciplinary Design</a>
+      <a href="#heritage-ai">Drive data generation for Aritificial Intelligence Products </a>
+      <a href="#heritage-arbitrary">Explore free form design with FEMORPHs Arbitrary Morphing </a>
+      <a href="#heritage-additive">Expedited certification of Additively Manufactured Parts </a>
+      <a href="#heritage-instrument">Improve Experimentation and Validation </a>
+      <a href="#heritage-validation">Experimental Validation of FEMORPH and Part-specific Modeling </a>
+      <a href="#heritage-industry40">Empowering Industry 4.0 with FEMORPH </a>
+      <a href="#heritage-twin">Delivers Instance-level Digital Twin and Thread </a>
+      
+      
   </nav>
   </div>
   <!-- <img src="figures/heritage_intro.png" alt="Heritage Overview"> -->
@@ -1724,10 +1728,10 @@
 
 
 
-<section id="heritage-damage" class="heritage-content content">
+<section id="heritage-mrb" class="heritage-content content">
 
   <!-- Section Title -->
-  <h2>Automated MRB Quality Escape Modeling</h2>
+  <h2>Automate MRB Quality Escape Modeling</h2>
 
   <!-- Bang Box -->
   <div class="bang-box">
@@ -1791,10 +1795,12 @@
 </section>
 
 
+
+
 <section id="heritage-repair" class="heritage-content content">
 
   <!-- Section Title -->
-  <h2>Streamline MRB Blend Repairs with FEMORPH Blender</h2>
+  <h2>Accelerate Design of Repairs with FEMORPH Blender</h2>
 
   <!-- Bang Box -->
   <div class="bang-box">
@@ -1838,51 +1844,12 @@
     
 
 
-<section id="heritage-industry40" class="heritage-content content">
-
-  <!-- Section Title -->
-  <h2>Empowering Industry 4.0 with FEMORPH</h2>
-
-  <!-- Bang Box -->
-  <div class="bang-box">
-    
-    <p>Transform inspection data into actionable, physics-based insight. FEMORPH generates high-fidelity digital twins from as-measured parts, closing the gap between inspection, simulation, and quality decisions.</p>
-
-  </div>
-
-  <!-- Bullets -->
-  <ul class="heritage-bullets">
-
- <li><strong>High-Fidelity Digital Twins:</strong> Morph finite element models to match real, manufactured components.</li>
-  <li><strong>Performance-Based Evaluation:</strong> Move beyond tolerance checks to functional performance predictions.</li>
-  <li><strong>Automated Workflows:</strong> Generate, analyze, and link as-built models to acceptance criteria at scale.</li>
-  <li><strong>Predictive Quality:</strong> Reduce scrap, accelerate disposition, and make smarter shop-floor decisions.</li>
-  <li><strong>Integrated Manufacturing Intelligence:</strong> Combine metrology, simulation, and automation in a single workflow.</li>
-  </ul>
-
-<div class="femorph-example-group">
-  <div class="example-grid">
-
-    <figure>
-      <img src="figures/industry40_gpt3.png" alt="FEMORPH example showing leading-edge damage">
-      <figcaption>GUI control of Blend Locations and Shape</figcaption>
-    </figure>
-
-  </div>
-
-  <p class="example-description">
-    Empowering Industry 4.0 with FEMORPH
-  </p>
-
-</div>
-
-</section>
 
 
 <section id="heritage-design" class="heritage-content content">
 
   <!-- Section Title -->
-  <h2>Accelerate Design and Analysis with FEMORPH</h2>
+  <h2>Spe 3D Design and Analysis with FEMORPH</h2>
 
   <!-- Bang Box -->
   <div class="bang-box">
@@ -1926,54 +1893,11 @@
 </section>
 
 
-<section id="heritage-twin" class="heritage-content content">
-
-  <!-- Section Title -->
-  <h2> Advanced Instance-level Digital Twin and Thread Analysis with FEMORPH</h2>
-
-  <!-- Bang Box -->
-  <div class="bang-box">
-    
-    <p>FEMORPH transforms inspection data into physics-capable digital twins, bridging the gap between nominal CAD and as-built components. Engineers can predict, validate, and analyze real-world performance at the individual part level.</p>
-
-  </div>
-
-  <!-- Bullets -->
-  <ul class="heritage-bullets">
-    <li><strong>Realistic Digital Twins:</strong> Morph FE models to match as-measured geometry for accurate simulations.</li>
-  <li><strong>Traceable Digital Thread:</strong> Keep inspection, simulation, and acceptance data connected across the lifecycle.</li>
-  <li><strong>Performance Validation:</strong> Evaluate structural and functional behavior at the part level.</li>
-  <li><strong>Lifecycle Insights:</strong> Support predictive maintenance, design validation, and operational decision-making.</li>
-  <li><strong>Engineering-Ready Data:</strong> Inspection results feed directly into simulation-driven assessments.</li>
-
-  </ul>
-
-<div class="femorph-example-group">
-  <div class="example-grid">
-
-    <figure>
-      <img src="figures/digital_twin_gpt2.png">
-      <figcaption>
-        Instance-level Digital Twin & Thread
-      </figcaption>
-    </figure>
-
-  </div>
-
-  <p class="example-description">
-
-  </p>
-
-</div>
-
-</section>
-
-
 
 <section id="heritage-multi" class="heritage-content content">
 
   <!-- Section Title -->
-  <h2>Enable Integrated Multi-Disciplinary Analysis with FEMORPH</h2>
+  <h2>Enable Integrated Multi-Disciplinary Design with FEMORPH</h2>
 
   <!-- Bang Box -->
   <div class="bang-box">
@@ -2030,7 +1954,7 @@
 <section id="heritage-ai" class="heritage-content content">
 
   <!-- Section Title -->
-  <h2>Accelerate AI and ML Training with FEMORPH</h2>
+  <h2>Drive data generation for Aritificial Intelligence Products</h2>
 
   <!-- Bang Box -->
   <div class="bang-box">
@@ -2072,59 +1996,11 @@
 </section>
 
 
-<section id="heritage-additive" class="heritage-content content">
-
-  <!-- Section Title -->
-  <h2>Enable Rapid, High-Fidelity Additive Manufacturing with FEMORPH</h2>
-
-  <!-- Bang Box -->
-  <div class="bang-box">
-    
-    <p>FEMORPH transforms design and inspection data into mesh-ready models for additive manufacturing. Engineers can quickly iterate designs, predict build performance, and ensure as-built fidelity for complex geometries.</p>
-
-  </div>
-
-  <!-- Bullets -->
-  <ul class="heritage-bullets">
-    
-
-  <li><strong>Fast Model Preparation:</strong> Generate AM-ready meshes directly from CAD or as-measured parts.</li>
-  <li><strong>Complex Geometry Support:</strong> Handle intricate lattice structures, conformal surfaces, and topology-optimized parts.</li>
-  <li><strong>Performance Prediction:</strong> Assess structural and thermal behavior before printing to reduce trial-and-error builds.</li>
-  <li><strong>Seamless Design Iteration:</strong> Morph existing meshes to updated designs for rapid testing and optimization.</li>
-  <li><strong>Quality Assurance:</strong> Ensure as-built parts match design intent, reducing scrap and rework.</li>
-
-  </ul>
-
-<div class="femorph-example-group">
-  <div class="example-grid">
-
-    <figure>
-          <img src="figures/additive_workflow.png">
-          <figcaption>
-	    Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.    
-          </figcaption>
-        </figure>
-
-
-  </div>
-
-  <p class="example-description">
-    The image on the left shows the measured surface data on a impeller manufactured using bound metal deposition (BMD). Both the  airfoil surfacesa and rim of the impeller disk have a series of noticible ridges that stem from the manufacturing process. The central image below shows the nominal FEM of this impeller that was used as the source mesh for FEMORPH.  The right hand image shows the morphed mesh where the finite element edges have been hidden to allow visualization of the ridged structure in the model that matches the as-manufactured surface.  This capability allows detailed assessemnt of additive parts at various stages in the processing.
-    
-  </p>
-
-</div>
-
-</section>
-
-
-
 
 <section id="heritage-arbitrary" class="heritage-content content">
 
   <!-- Section Title -->
-  <h2>Arbitrary Mesh Morphing with Control Volumes</h2>
+  <h2>Explore free form design with FEMORPHs Arbitrary Morphing</h2>
 
   <!-- Bang Box -->
   <div class="bang-box">
@@ -2176,10 +2052,112 @@
 
 
 
+<section id="heritage-additive" class="heritage-content content">
+
+  <!-- Section Title -->
+  <h2>Expedited certification of Additively Manufactured Parts with FEMORPH</h2>
+
+  <!-- Bang Box -->
+  <div class="bang-box">
+    
+    <p>FEMORPH transforms design and inspection data into mesh-ready models for additive manufacturing. Engineers can quickly iterate designs, predict build performance, and ensure as-built fidelity for complex geometries.</p>
+
+  </div>
+
+  <!-- Bullets -->
+  <ul class="heritage-bullets">
+    
+
+  <li><strong>Fast Model Preparation:</strong> Generate AM-ready meshes directly from CAD or as-measured parts.</li>
+  <li><strong>Complex Geometry Support:</strong> Handle intricate lattice structures, conformal surfaces, and topology-optimized parts.</li>
+  <li><strong>Performance Prediction:</strong> Assess structural and thermal behavior before printing to reduce trial-and-error builds.</li>
+  <li><strong>Seamless Design Iteration:</strong> Morph existing meshes to updated designs for rapid testing and optimization.</li>
+  <li><strong>Quality Assurance:</strong> Ensure as-built parts match design intent, reducing scrap and rework.</li>
+
+  </ul>
+
+<div class="femorph-example-group">
+  <div class="example-grid">
+
+    <figure>
+          <img src="figures/additive_workflow.png">
+          <figcaption>
+	    Manufacturing processes rely on advanced metrology systems to ensure that parts meet geometric intent.    
+          </figcaption>
+        </figure>
+
+
+  </div>
+
+  <p class="example-description">
+    The image on the left shows the measured surface data on a impeller manufactured using bound metal deposition (BMD). Both the  airfoil surfacesa and rim of the impeller disk have a series of noticible ridges that stem from the manufacturing process. The central image below shows the nominal FEM of this impeller that was used as the source mesh for FEMORPH.  The right hand image shows the morphed mesh where the finite element edges have been hidden to allow visualization of the ridged structure in the model that matches the as-manufactured surface.  This capability allows detailed assessemnt of additive parts at various stages in the processing.
+    
+  </p>
+
+</div>
+
+</section>
+
+
+<section id="heritage-instrument" class="heritage-content content">
+
+  <!-- Section Title -->
+  <h2>Improve Experimentation and Validation</h2>
+
+  <!-- Bang Box -->
+  <div class="bang-box">
+    
+  <p>
+  Experimental data is often derived from modeling results that are scaled by sensor measurements. Becuase of this, FEMORPHs part-specific models can give more accurate and reliabile measuremetn of stress, temperature, and pressure measurements. These models reduce measurement uncertainty, optimize sensor placement, and provide a full-field response that aligns with real operating conditions.
+  </p>
+
+  </div>
+
+  <!-- Bullets -->
+  <ul class="heritage-bullets">
+  <li><strong>Reduced Measurement Uncertainty:</strong> Part-specific models provide a more accurate mapping from sensor readings to true part responses.</li>
+  <li><strong>Optimized Sensor Placement:</strong> Improve the location of strain gages and non-contact sensors for more representative data.</li>
+  <li><strong>Full-Field Response Prediction:</strong> Capture stresses, temperatures, and pressures across the entire part, not just where sensors are located.</li>
+  <li><strong>Improved Ratio Calculations:</strong> Update gage factors and NSMS ratios using as-manufactured models rather than nominal CAD.</li>
+  <li><strong>Confidence in High-Performance Parts:</strong> Reduce uncertainty to enable design and validation of advanced, high-performance components.</li>
+</ul>
+
+  </ul>
+
+
+<div class="femorph-example-group">
+<div class="example-grid">
+
+<figure>
+ <img src="figures/pbs4_gages.png">
+<figcaption>
+Model of an Airfoil with Strain Gage Locations
+</figcaption>
+</figure>
+
+<figure>
+<img src="figures/pbs4_gage_variation.png">
+<figcaption>
+Large Variation of Part-specific Gage Measurements
+</figcaption>
+</figure>
+	  
+</div>
+
+  <p class="example-description">
+  Research has been conducted assessing the impact of part-specific variations on measured response.  The figure on the right shows the layout of gages on an the PBS 4 experimental rotor.  On the left, we see the variation found from the part-specifc gage limits.  For this rotor, it is found that there were part-specific instrumentation results which required reduced operating limits to ensure safety. 	There are also cases what you could run futher into the operating range.  Understanding the part-specific behavior allows these decisions.
+  </p>
+
+</div>
+
+</section>
+
+
+
 <section id="heritage-validation" class="heritage-content content">
 
   <!-- Section Title -->
-  <h2>Experimental Validation and Ongoing Research</h2>
+  <h2> Experimental Validation of FEMORPH and Part-specific Modeling</h2>
 
   <!-- Bang Box -->
   <div class="bang-box">
@@ -2202,8 +2180,6 @@
 </ul>
   
   </ul>
-
-
 
 <div class="femorph-example-group">
 <div class="example-grid">
@@ -2242,8 +2218,87 @@
 </section>
 
 
+<section id="heritage-industry40" class="heritage-content content">
 
+  <!-- Section Title -->
+  <h2>Empowering Industry 4.0 with FEMORPH</h2>
 
+  <!-- Bang Box -->
+  <div class="bang-box">
+    
+    <p>Transform inspection data into actionable, physics-based insight. FEMORPH generates high-fidelity digital twins from as-measured parts, closing the gap between inspection, simulation, and quality decisions.</p>
+
+  </div>
+
+  <!-- Bullets -->
+  <ul class="heritage-bullets">
+
+ <li><strong>High-Fidelity Digital Twins:</strong> Morph finite element models to match real, manufactured components.</li>
+  <li><strong>Performance-Based Evaluation:</strong> Move beyond tolerance checks to functional performance predictions.</li>
+  <li><strong>Automated Workflows:</strong> Generate, analyze, and link as-built models to acceptance criteria at scale.</li>
+  <li><strong>Predictive Quality:</strong> Reduce scrap, accelerate disposition, and make smarter shop-floor decisions.</li>
+  <li><strong>Integrated Manufacturing Intelligence:</strong> Combine metrology, simulation, and automation in a single workflow.</li>
+  </ul>
+
+<div class="femorph-example-group">
+  <div class="example-grid">
+
+    <figure>
+      <img src="figures/industry40_gpt3.png" alt="FEMORPH example showing leading-edge damage">
+      <figcaption>GUI control of Blend Locations and Shape</figcaption>
+    </figure>
+
+  </div>
+
+  <p class="example-description">
+    Empowering Industry 4.0 with FEMORPH
+  </p>
+
+</div>
+
+</section>
+
+<section id="heritage-twin" class="heritage-content content">
+
+  <!-- Section Title -->
+  <h2> Delivers Instance-level Digital Twin and Thread with FEMORPH</h2>
+
+  <!-- Bang Box -->
+  <div class="bang-box">
+    
+    <p>FEMORPH transforms inspection data into physics-capable digital twins, bridging the gap between nominal CAD and as-built components. Engineers can predict, validate, and analyze real-world performance at the individual part level.</p>
+
+  </div>
+
+  <!-- Bullets -->
+  <ul class="heritage-bullets">
+    <li><strong>Realistic Digital Twins:</strong> Morph FE models to match as-measured geometry for accurate simulations.</li>
+  <li><strong>Traceable Digital Thread:</strong> Keep inspection, simulation, and acceptance data connected across the lifecycle.</li>
+  <li><strong>Performance Validation:</strong> Evaluate structural and functional behavior at the part level.</li>
+  <li><strong>Lifecycle Insights:</strong> Support predictive maintenance, design validation, and operational decision-making.</li>
+  <li><strong>Engineering-Ready Data:</strong> Inspection results feed directly into simulation-driven assessments.</li>
+
+  </ul>
+
+<div class="femorph-example-group">
+  <div class="example-grid">
+
+    <figure>
+      <img src="figures/digital_twin_gpt2.png">
+      <figcaption>
+        Instance-level Digital Twin & Thread
+      </figcaption>
+    </figure>
+
+  </div>
+
+  <p class="example-description">
+
+  </p>
+
+</div>
+
+</section>
 
 
 
