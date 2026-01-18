@@ -404,24 +404,6 @@
 	   display: block;
        }
        
-       /* Responsive tweaks for mobile */
-       @media screen and (max-width: 768px) {
-	   .problem-solution-grid {
-               grid-template-columns: 1fr; /* stack content and media */
-	   }
-	   
-	   .problem-solution p {
-               padding: 0 1rem;  /* reduce padding on small screens */
-               font-size: 1.1em;
-	   }
-	   
-	   .problem-solution--bottom-media .problem-solution-media {
-               flex-direction: column;
-               align-items: center;
-	   }
-       }
-       
-       
        
        
        /* First Heritage Slide */
@@ -607,26 +589,6 @@
 	   background: linear-gradient(to right, transparent, #00AEEF, transparent);
 	   margin-bottom: 60px;
        }
-       
-       /* Mobile */
-       @media (max-width: 768px) {
-	   .heritage-content {
-	       width: 100%;
-	       max-width: 100%;
-	       padding: 0 22px;
-	   }
-	   
-	   .heritage-content p {
-	       padding: 0;              /* 🔑 REMOVE desktop indentation */
-	       max-width: 680px;
-	       margin: 0 auto 1.2em;
-	   }
-	   
-	   .heritage-media {
-	       grid-template-columns: 1fr;
-	   }
-       }
-       
        
 
        /* Heritage Intro Section */
@@ -1274,6 +1236,19 @@
 	margin-top: 80px; /* adjust as needed */	
     }
 
+
+    .problem-solution p {
+        padding: 0 1rem;  /* reduce padding on small screens */
+        font-size: 1.1em;
+    }
+	   
+    .problem-solution--bottom-media .problem-solution-media {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+
     .problem-image {
 	order: -1;
     }
@@ -1298,18 +1273,6 @@
         gap: 30px;
     }
 
-    .close-workflow {
-	font-size: 1.0rem;
-    }
-    /* Make Back to Workflows button text orange */
-    .workflow-close .close-workflow {
-	color: #FFA500;   /* bright orange */
-    }
-
-    /* Optional: keep hover/active styling */
-    .workflow-close .close-workflow:hover {
-	color: #FFB733;  /* slightly lighter on hover */
-    }
 
     .femorph-example-group .example-description {
 	font-size: 0.9rem;
@@ -1333,10 +1296,29 @@
 	font-weight: 300;
     }
 
+
+    .heritage-content {
+	width: 100%;
+	max-width: 100%;
+	       padding: 0 22px;
+    }
+    
+    .heritage-content p {
+	padding: 0;              /* 🔑 REMOVE desktop indentation */
+	max-width: 680px;
+	margin: 0 auto 1.2em;
+    }
+    
+    .heritage-media {
+	grid-template-columns: 1fr;
+    }
+
     .heritage-content content h2 {
 	font-size: 1.25rem;
 	font-weight: 400;
     }
+
+    
 
 
     
@@ -1370,23 +1352,6 @@
 }
 
 
-/* .problem-solution { */
-/*     display: flex; */
-/*     flex-wrap: wrap;  /\* Allow items to wrap on small screens *\/ */
-/*     gap: 2rem;        /\* Optional spacing between content and media *\/ */
-/* } */
-
-/* .problem-solution-content, */
-/* .problem-solution-media { */
-/*     flex: 1 1 50%;    /\* Take 50% width on large screens *\/ */
-/* } */
-
-/* @media screen and (max-width: 600px) { */
-/*     .problem-solution-content, */
-/*     .problem-solution-media { */
-/*         flex: 1 1 100%;  /\* Stack vertically on small screens *\/ */
-/*     } */
-/* } */
 
 </style>
 
@@ -1744,6 +1709,7 @@
     
     <p>(Click links or scroll downward)</p>
     <nav class="heritage-index">
+    
       <a href="#heritage-mrb">Automate MRB Quality Escape Modeling</a>
       <a href="#heritage-blend">Accelerate Design of Repairs with FEMORPH Blender</a>
       <a href="#heritage-design">Streamline 3D Design and Analysis with FEMORPH </a>
@@ -2630,3 +2596,32 @@ document.addEventListener('DOMContentLoaded', () => {
     
 </body>
 </html>
+
+
+
+
+<!-- .problem-solution--bottom-media .problem-solution-media { -->
+<!--   display: flex; -->
+<!--   flex-wrap: wrap; -->
+<!--   gap: 1.5rem 2rem; -->
+<!--   justify-content: center; -->
+<!--   margin: 2.5rem 0 1rem; -->
+<!-- } -->
+
+<!-- .problem-solution--bottom-media .problem-solution-media figure { -->
+<!--     flex: 1 1 280px;               /* grow & shrink, min ~280px */ -->
+<!--     /* flex: 0 1 auto;                  /\* ← changed: do NOT grow (flex-grow: 0) *\/ */ -->
+<!--     text-align: center; -->
+<!-- } -->
+
+<!-- /* When there's only one image → make it feel more important/larger */ -->
+<!-- .problem-solution--bottom-media .problem-solution-media figure:only-child { -->
+<!--   flex: 0 1 520px;              /* wider when alone */ -->
+<!--   max-width: 620px;             /* or even remove max-width if you want it bigger */ -->
+<!-- } -->
+
+/* .problem-solution--bottom-media .problem-solution-media figure { */
+/*   width: 100%; */
+/*   max-width: 1100px;             /\* ← controls max size of each card *\/ */
+/*   text-align: center; */
+/*        } */
