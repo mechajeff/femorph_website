@@ -150,6 +150,10 @@ figcaption {
   font-weight: 700;
 }
 
+.highlight-orange {
+  color: var(--orange);
+}
+
 
 /* ───────────────────────────────────────
    Header / Nav
@@ -561,6 +565,103 @@ video {
 .scroll-media .active { opacity: 1; }
 
 
+/* ───────────────────────────────────────
+   Heritage Grid
+──────────────────────────────────────── */
+
+.heritage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.heritage-card {
+  background: linear-gradient(145deg, #0f1724, #0c1320);
+  border: 1px solid rgba(0,174,239,0.25);
+  border-radius: 14px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.heritage-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.heritage-card h3 {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #d8e2ec;
+}
+
+.heritage-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,174,239,0.25);
+}
+
+/* ───────────────────────────────────────
+  MBE Section
+──────────────────────────────────────── */
+
+.mbe-section {
+  padding: 80px 20px;
+}
+
+.mbe-container {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: left;   /* CRITICAL: fixes bullet issue */
+}
+
+.mbe-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mbe-lead {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 60px;
+  color: #444;
+}
+
+.mbe-block {
+  margin-bottom: 60px;
+}
+
+.mbe-label {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #0057b8;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+}
+
+.mbe-list {
+  margin: 20px 0 20px 20px;
+  padding-left: 20px;
+}
+
+.mbe-list li {
+  margin-bottom: 8px;
+}
+
+.mbe-conclusion {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 80px;
+  padding-top: 30px;
+  border-top: 1px solid #ddd;
+}
+
 
 /* ───────────────────────────────────────
    Developer Info
@@ -907,6 +1008,8 @@ footer {
 
 
   </style>
+
+
 </head>
 <body>
 
@@ -1018,7 +1121,7 @@ footer {
       <div class="problem-solution-content">
 	<h2>Engineering Relies on Computational Meshes </h2>	      
 
-	<p>Meshes enable accurate physics-based modeling of complex structural, heat transfer, and fluid flow behaviors that inform design, manufacturing, and sustainment decisions.</p>
+	<p>Computaional models built from sturctured and unstructured meshes enable accurate physics-based prediction of complex structural, heat transfer, and fluid flow behaviors that inform design, manufacturing, and sustainment decisions.</p>
 	
 	</div>
 	<div class="problem-solution-media">	
@@ -1055,12 +1158,13 @@ footer {
 
 	<div class="problem-text">
 
-	  <p class="lead"> Creating high quality meshes for individual part that is <strong>time-consuming, labor-intensive</strong>, and requires <strong>specialized expertise</strong>.</p>
+	  <p class="lead"> Creating high quality meshes for individual parts is <strong>time-consuming, labor-intensive</strong>, and requires <strong>specialized expertise</strong>.</p>
 
 	  <p class="lead">Difficulty arises from <strong>non-robust nature of CAD-based meshing</strong>. Even small changes in geometry can cause meshing algorithms to fail, requiring engineers to spend significant time repairing and remeshing models.
 	  </p>
-
-	  <p class="lead"> Traditional meshing limits engineers ability to look at design, manufacturing, and sustainement <strong>opportunities</strong>.
+								    
+	  <p class="lead"> 
+	  This results in <strong>reduced exploration</strong> of the design space during product development and sparse use of <strong>physics-based simulations</strong> to improve manufacturing, sustainment, and operations. The overall impact is a <strong>delayed design process</strong> that provides less capabiliity that relies on <strong>conservative margins</strong> to manage production quality control, field maintenance, and operational allowables.
 	  </p>
 
 	</div>
@@ -1078,14 +1182,15 @@ footer {
       <div class="problem-solution-content">
 	<h2>FEMORPH Resolves Meshing Challenges</h2>
 
-	<p>FEMORPH addresses mesh generation challenges by transforming, rather than rebuilding computational meshes. Its distinguishing ability is Target Surface morphing</p>
+	<p><strong>FEMORPH</strong> addresses mesh generation challenges by using mesh morphing to transform, rather than rebuild, computational models. It takes control of an inital "seed" mesh and updates the nodal coordinates based with one of its <strong>three morphing methodologies</strong>, all while maintaining element quality criteria.</p>
+		      
+	<p> <strong>Target Surface:</strong> The mesh can be trasformed to low-fidelty surfaces (Coordinate Measurement Machine), high fidelity tesselated surface data (*.stl, *.ply), and CAD geometry (*.iges). In the design, the impact of CAD changes on design and tolerancing can be rapidly assessed.  In manufacturing and maintenance, geometric inspection data can be sealessly transformed into the design models to make physics-based quality control and Material Review Board dispositions.  In other words, target surface morphing enalbes as-measured modeling.</p>
 
-	<p> <strong>Target Surface Morphing</strong> updates an existing meshed model is transformed to a new 2D or 3D geometry defined by measurement data or CAD modeling.
+	<p><strong>Blend Repair:</strong> An as-measured modeling result or inspection may lead determine the need for repair.  FEMORPH contains a library of blend repair geometries that can be used on nominal and as-measured models.  This accelearates repair design process and expands repair limits.</p>
 
-	<p>FEMORPHs <strong>blend repair</strong> and <strong>aribitray shape morphing</strong> moduels make it a comprehensive workflow solution.</p>
+	<p><strong>Aribitray Shape Morphing</strong> Analysis efforts can be further accelrated within FEMORPH using a more free-form morphing approach that does not rely on surface data or defined geometries.  Instead a bounding box or cage with control points is used to produce new models.  This gives designers a simple tool to make a fast assessment of a change while also allowing consideration of geometries without CAD process constraints. </p>
 
-	<p>When combined FEMORPHs catalogue of other automated workflow features, it presents capabilities that have impacts throughout the product life cyle.</p>
-	
+	<p>These methods, along with FEMORPHs python API, and catalogue of other convienience features, allow an array of automated workflows that have signficant impact across a digital enterprise.</p>
 
       </div>	
 
@@ -1206,7 +1311,7 @@ footer {
 	<h2>Integrated with F-22 Maintenance, Repair, Overhaul Program</h2>
       </div>
       
-      <p><strong>FEMORPH</strong> is in operational use at <strong>Air Force Sustainment Center<strong> at Tinker Air Force Base.  It has been integral to the repair and maintenance of the Air Forces most advanced fighter aircraft.</p>
+      <p><strong>FEMORPH</strong> is in operational use at <strong>Air Force Sustainment Center</strong> at Tinker Air Force Base.  It has been integral to the repair and maintenance of the Air Forces most advanced fighter aircraft.</p>
       
       <div class="problem-solution-media">
 
@@ -1243,7 +1348,7 @@ footer {
 	  <div class="scroll-step">
 	    <div class="scroll-text">
               <h3>2. Import into FEMORPH</h3>
-              <p>The measurement data is imported into FEMORPH, where it can be analyzed alongside the baseline simulation model.</p>
+              <p>The measurement data is imported into FEMORPH, where it can be analyzed alongside the baseline "seed" simulation model.</p>
 	    </div>
 	    <div class="scroll-media">
               <img src="figures/gui_shiny.png" alt="Importing scan into FEMORPH" class="active">
@@ -1290,31 +1395,98 @@ footer {
 
 
 
-<!-- Heritage Intro Section -->
-<section class="heritage-intro">
-  <div class="heritage-intro-content">
-    <h2>Workflow and Use Case Examples</h2>
+<!-- <\!-- Heritage Intro Section -\-> -->
+<!-- <section class="heritage-intro"> -->
+<!--   <div class="heritage-intro-content"> -->
+<!--     <h2>Workflow and Use Case Examples</h2> -->
     
+
     
-    
-    <nav class="heritage-index">
-      <p>(Click links or scroll downward)</p>      
-      <a href="#heritage-mrb">Automate MRB Quality Escape Modeling</a>
-      <a href="#heritage-blend">Accelerate Design of Repairs with FEMORPH Blender</a>
-      <a href="#heritage-design">Streamline 3D Design and Analysis with FEMORPH </a>
-      <a href="#heritage-multi">Enable Integrated Multi-Disciplinary Design</a>
-      <a href="#heritage-ai">Drive data generation for Aritificial Intelligence Products </a>
-      <a href="#heritage-arbitrary">Explore free form design with FEMORPHs Arbitrary Morphing </a>
-      <a href="#heritage-additive">Expedited certification of Additively Manufactured Parts </a>
-      <a href="#heritage-instrument">Improve Experimentation and Validation </a>
-      <a href="#heritage-validation">Experimental Validation of FEMORPH and Part-specific Modeling </a>
-      <a href="#heritage-industry40">Empowering Industry 4.0 with FEMORPH </a>
-      <a href="#heritage-twin">Delivers Instance-level Digital Twin and Thread </a>
+<!--     <nav class="heritage-index"> -->
+<!--       <p>(Click links or scroll downward)</p> -->
+<!--       <a href="#heritage-mrb">Automate MRB Quality Escape Modeling</a> -->
+<!--       <a href="#heritage-blend">Accelerate Design of Repairs with FEMORPH Blender</a> -->
+<!--       <a href="#heritage-design">Streamline 3D Design and Analysis with FEMORPH </a> -->
+<!--       <a href="#heritage-multi">Enable Integrated Multi-Disciplinary Design</a> -->
+<!--       <a href="#heritage-ai">Drive data generation for Aritificial Intelligence Products </a> -->
+<!--       <a href="#heritage-arbitrary">Explore free form design with FEMORPHs Arbitrary Morphing </a> -->
+<!--       <a href="#heritage-additive">Expedited certification of Additively Manufactured Parts </a> -->
+<!--       <a href="#heritage-instrument">Improve Experimentation and Validation </a> -->
+<!--       <a href="#heritage-validation">Experimental Validation of FEMORPH and Part-specific -->
+<!-- 	Modeling </a> -->
+<!--       <a href="#heritage-industry40">Empowering Industry 4.0 with FEMORPH </a> -->
+<!--       <a href="#heritage-twin">Delivers Instance-level Digital Twin and Thread </a> -->
       
       
-  </nav>
-  </div>
-  <!-- <img src="figures/heritage_intro.png" alt="Heritage Overview"> -->
+<!--   </nav> -->
+<!--   </div> -->
+<!--   <\!-- <img src="figures/heritage_intro.png" alt="Heritage Overview"> -\-> -->
+<!-- </section> -->
+
+
+</section>
+<h2>Workflow and Use Case Examples</h2>
+
+<p>(Click images or scroll downward)</p>
+
+<div class="heritage-grid">
+
+  <a href="#heritage-mrb" class="heritage-card">
+    <img src="figures/und_damage_1.png" alt="MRB Modeling">
+    <h3>Automate MRB Quality Escape Modeling</h3>
+  </a>
+
+  <a href="#heritage-blend" class="heritage-card">
+    <img src="figures/blender_pbs_3.png" alt="FEMORPH Blender">
+    <h3>Accelerate Design of Repairs with FEMORPH Blender</h3>
+  </a>
+
+  <a href="#heritage-design" class="heritage-card">
+    <img src="figures/optimization_workflow.png" alt="3D Design and Analysis">
+    <h3>Streamline 3D Design and Analysis</h3>
+  </a>
+
+  <a href="#heritage-multi" class="heritage-card">
+    <img src="figures/hpt_grid.png" alt="3D Design and Analysis">
+    <h3>Enable Integrated Multi-disciplinary Design</h3>
+  </a>
+
+  <a href="#heritage-ai" class="heritage-card">
+    <img src="figures/ai_workflow.png" alt="3D Design and Analysis">
+    <h3>Drive data generation for Aritificial Intelligence</h3>
+  </a>
+
+  <a href="#heritage-arbitrary" class="heritage-card">
+    <img src="figures/arbitrary_morph_box.png" alt="3D Design and Analysis">
+    <h3>Explore free form design</h3>
+  </a>
+  
+  <a href="#heritage-additive" class="heritage-card">
+    <img src="figures/additive_workflow.png" alt="3D Design and Analysis">
+    <h3>Expedited certification of Additively Manufactured Parts</h3>
+  </a>
+
+  <a href="#heritage-instrument" class="heritage-card">
+    <img src="figures/pbs4_gages.png" alt="3D Design and Analysis">
+    <h3>Improve Experimentation and Validation</h3>
+  </a>
+
+  <a href="#heritage-validation" class="heritage-card">
+    <img src="figures/exp-full-mode-192.png" alt="3D Design and Analysis">
+    <h3>Validation of FEMORPH and Part-specific Modeling</h3>
+  </a>
+
+  <a href="#heritage-industry40" class="heritage-card">
+    <img src="figures/industry40_gpt3.png" alt="3D Design and Analysis">
+    <h3>Empowering Industry 4.0</h3>
+  </a>
+
+  <a href="#heritage-twin" class="heritage-card">
+    <img src="figures/digital_twin_gpt2.png" alt="3D Design and Analysis">
+    <h3>Delivers Instance-level Digital Twin and Thread</h3>
+  </a>
+
+</div>
 </section>
 
 
@@ -1899,7 +2071,6 @@ Large Variation of Part-specific Gage Measurements
 </section>
 
 
-
       <section class="about-developers">
 	<h2 class="process-title">About the Developers</h2>
 	
@@ -2205,5 +2376,262 @@ document.addEventListener('DOMContentLoaded', () => {
   
 </body>
 </html>
+
+
+
+/* Below is AI Generated Marketing for FEMORPH and Model Based Enterprise */
+/* Might be something to consider later */
+
+/* <section id="femorph-mbe" class="content-section"> */
+
+/*   <h1>FEMORPH and the Model-Based Enterprise</h1> */
+
+/*   <p class="lead"> */
+/*     Model-Based Enterprise (MBE) establishes the digital model as the authoritative */
+/*     source of product definition across the lifecycle. FEMORPH extends this vision */
+/*     beyond design release by keeping the model aligned with real hardware. */
+/*   </p> */
+
+/*   <h2>What Model-Based Enterprise Promises</h2> */
+
+/*   <p> */
+/*     In a Model-Based Enterprise, the authoritative product definition is no longer */
+/*     a collection of drawings, documents, and interpretations. Instead, a digitally */
+/*     enriched model drives engineering, manufacturing, inspection, and sustainment. */
+/*   </p> */
+
+/*   <p> */
+/*     The promise of MBE is continuity — from <strong>as-designed</strong> to */
+/*     <strong>as-manufactured</strong> to <strong>as-operated</strong> — with fewer */
+/*     handoffs, fewer assumptions, and fewer errors. */
+/*   </p> */
+
+/*   <h2>Where Traditional MBE Breaks Down</h2> */
+
+/*   <p> */
+/*     While MBE works well at design release, it often breaks down once real hardware */
+/*     deviates from nominal geometry. */
+/*   </p> */
+
+/*   <ul> */
+/*     <li>Manufacturing deviations exceed tolerances</li> */
+/*     <li>In-service damage or wear alters geometry</li> */
+/*     <li>Repairs introduce non-nominal features</li> */
+/*   </ul> */
+
+/*   <p> */
+/*     At this point, organizations are forced back into manual redraws, one-off */
+/*     re-meshing, conservative assumptions, or analysis workarounds. The authoritative */
+/*     model is no longer authoritative — and the digital thread is effectively broken. */
+/*   </p> */
+
+/*   <h2>FEMORPH’s Role in the Model-Based Enterprise</h2> */
+
+/*   <p> */
+/*     FEMORPH is designed to preserve the core principle of MBE: the digital model */
+/*     remains the source of truth, even as geometry changes. */
+/*   </p> */
+
+/*   <p> */
+/*     FEMORPH takes <strong>measurement data</strong> — such as CMM data, laser scans, */
+/*     or other metrology — and morphs an existing analysis-quality mesh to match the */
+/*     as-measured geometry. */
+/*   </p> */
+
+/*   <p> */
+/*     Unlike traditional approaches, FEMORPH: */
+/*   </p> */
+
+/*   <ul> */
+/*     <li>Preserves mesh topology and element quality</li> */
+/*     <li>Maintains boundary conditions, loads, and materials</li> */
+/*     <li>Eliminates the need for re-meshing or model rebuilds</li> */
+/*   </ul> */
+
+/*   <p> */
+/*     The result is an updated, analysis-ready model that reflects real hardware */
+/*     without disrupting downstream workflows. */
+/*   </p> */
+
+/*   <h2>FEMORPH as a Digital Thread Enabler</h2> */
+
+/*   <p> */
+/*     FEMORPH acts as a continuity mechanism within the digital thread, allowing */
+/*     geometry truth to evolve while analysis fidelity is preserved. */
+/*   </p> */
+
+/*   <p> */
+/*     As components transition from nominal design to manufactured parts and */
+/*     eventually to fielded hardware, FEMORPH ensures the digital representation */
+/*     evolves alongside them. */
+/*   </p> */
+
+/*   <p> */
+/*     This capability is foundational for scalable digital engineering, automated */
+/*     reanalysis, and model reuse across the lifecycle. */
+/*   </p> */
+
+/*   <h2>Impact on MRB and Sustainment Decisions</h2> */
+
+/*   <p> */
+/*     For Material Review Boards and sustainment organizations, FEMORPH enables */
+/*     physics-based decisions using as-measured geometry rather than conservative */
+/*     rules or simplified assumptions. */
+/*   </p> */
+
+/*   <p> */
+/*     Engineers can rapidly assess: */
+/*   </p> */
+
+/*   <ul> */
+/*     <li>Structural margins and life impacts</li> */
+/*     <li>Modal characteristics and mistuning effects</li> */
+/*     <li>Thermal and aerodynamic performance changes</li> */
+/*   </ul> */
+
+/*   <p> */
+/*     This shifts MRB decisions from rules-based acceptance toward */
+/*     <strong>model-based evaluation</strong>, improving confidence while reducing */
+/*     unnecessary scrap or repair. */
+/*   </p> */
+
+/*   <h2>From Static Models to Living Models</h2> */
+
+/*   <p> */
+/*     Model-Based Enterprise defines how products should be represented digitally. */
+/*     FEMORPH ensures those representations remain valid as reality changes. */
+/*   </p> */
+
+/*   <p class="highlight"> */
+/*     <strong>MBE defines the digital product.<br> */
+/*     FEMORPH keeps it true to the hardware.</strong> */
+/*   </p> */
+
+/* </section> */
+
+/* <section id="femorph-mbe" class="content-section mbe-section"> */
+
+/*   <div class="mbe-container"> */
+
+/*     <h1 class="mbe-title">FEMORPH and the Model-Based Enterprise</h1> */
+
+/*     <p class="mbe-lead"> */
+/*       Model-Based Enterprise (MBE) establishes the digital model as the authoritative */
+/*       source of product definition across the lifecycle. FEMORPH extends this vision */
+/*       beyond design release by keeping the model aligned with real hardware. */
+/*     </p> */
+
+
+/*     <!-- SECTION --> */
+/*     <div class="mbe-block"> */
+/*       <div class="mbe-label">Architectural Intent</div> */
+
+/*       <p> */
+/*         In a Model-Based Enterprise, the authoritative product definition is no longer */
+/*         a collection of drawings and documents. A digitally enriched model drives */
+/*         engineering, manufacturing, inspection, and sustainment. */
+/*       </p> */
+
+/*       <p> */
+/*         The promise is continuity — from <strong>as-designed</strong> to */
+/*         <strong>as-manufactured</strong> to <strong>as-operated</strong> — */
+/*         with fewer handoffs and fewer assumptions. */
+/*       </p> */
+/*     </div> */
+
+
+/*     <!-- SECTION --> */
+/*     <div class="mbe-block"> */
+/*       <div class="mbe-label">Failure Mode: Geometry Divergence</div> */
+
+/*       <p> */
+/*         Traditional MBE implementations break down when physical hardware */
+/*         deviates from nominal geometry. */
+/*       </p> */
+
+/*       <ul class="mbe-list"> */
+/*         <li>Manufacturing deviations beyond tolerance</li> */
+/*         <li>In-service damage or wear</li> */
+/*         <li>Repairs introducing non-nominal features</li> */
+/*       </ul> */
+
+/*       <p> */
+/*         At this point, organizations revert to manual redraws, re-meshing, */
+/*         or conservative assumptions — effectively breaking the digital thread. */
+/*       </p> */
+/*     </div> */
+
+
+/*     <!-- SECTION --> */
+/*     <div class="mbe-block"> */
+/*       <div class="mbe-label">FEMORPH: Geometry Continuity Layer</div> */
+
+/*       <p> */
+/*         FEMORPH preserves model authority by morphing an existing */
+/*         analysis-quality mesh to match as-measured geometry. */
+/*       </p> */
+
+/*       <ul class="mbe-list"> */
+/*         <li>Preserves mesh topology and element quality</li> */
+/*         <li>Maintains boundary conditions, loads, and materials</li> */
+/*         <li>Eliminates re-meshing and model rebuild cycles</li> */
+/*       </ul> */
+
+/*       <p> */
+/*         The result is an updated, analysis-ready model that reflects real hardware */
+/*         without disrupting downstream workflows. */
+/*       </p> */
+/*     </div> */
+
+
+/*     <!-- SECTION --> */
+/*     <div class="mbe-block"> */
+/*       <div class="mbe-label">Digital Thread Integration</div> */
+
+/*       <p> */
+/*         As components transition from nominal design to manufactured and */
+/*         fielded hardware, FEMORPH ensures the digital representation evolves */
+/*         alongside them. */
+/*       </p> */
+
+/*       <p> */
+/*         This enables scalable digital engineering, automated reanalysis, */
+/*         and instance-level digital twins. */
+/*       </p> */
+/*     </div> */
+
+
+/*     <!-- SECTION --> */
+/*     <div class="mbe-block"> */
+/*       <div class="mbe-label">Decision Impact</div> */
+
+/*       <p> */
+/*         For MRB and sustainment organizations, FEMORPH enables physics-based */
+/*         decisions using as-measured geometry rather than conservative rules. */
+/*       </p> */
+
+/*       <ul class="mbe-list"> */
+/*         <li>Structural margins and life impacts</li> */
+/*         <li>Modal and mistuning behavior</li> */
+/*         <li>Thermal and aerodynamic performance changes</li> */
+/*       </ul> */
+
+/*       <p> */
+/*         This shifts acceptance from rules-based screening toward */
+/*         <strong>model-based evaluation</strong>. */
+/*       </p> */
+/*     </div> */
+
+
+/*     <div class="mbe-conclusion"> */
+/*       <strong> */
+/*         MBE defines the digital product.<br> */
+/*         FEMORPH keeps it true to the hardware. */
+/*       </strong> */
+/*     </div> */
+
+/*   </div> */
+/* </section> */
+
 
 
