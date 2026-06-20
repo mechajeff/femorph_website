@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VOO Performance — Last 21 Months</title>
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+
+  <style>
+:root {
+  --bg: #000;
+  --white: #fff;
+  --blue: #00aeef;
+  --orange: #ff8c00;
+  --muted: #e0e8f0;
+  --container: 1300px;
+  --radius: 12px;
+  --shadow-blue: 0 6px 20px rgba(0, 174, 239, 0.25);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--white); }
+
+.wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── Nav ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,174,239,0.18);
+  padding: 0.85rem 0;
+}
+nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 1.25rem; }
+.nav-logo img { height: 36px; }
+.nav-links { display: flex; gap: 1.8rem; font-size: 0.93rem; font-weight: 500; flex-wrap: wrap; }
+.nav-links a { color: var(--muted); transition: color .2s; }
+.nav-links a:hover { color: var(--blue); }
+
+/* ── Hero ── */
+.hero {
+  padding: 4rem 0 2.5rem;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.4px;
+  margin-bottom: 0.6rem;
+}
+.hero h1 span { color: var(--blue); }
+.hero .subtitle {
+  font-size: 1.1rem;
+  color: var(--muted);
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* ── Stats bar ── */
+.stats-bar {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.stat-card {
+  background: #0d1117;
+  border: 1px solid rgba(0,174,239,0.2);
+  border-radius: 10px;
+  padding: 1rem 1.6rem;
+  min-width: 160px;
+  text-align: center;
+  box-shadow: var(--shadow-blue);
+}
+.stat-card .label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8899aa;
+  margin-bottom: 0.25rem;
+}
+.stat-card .value {
+  font-size: 1.55rem;
+  font-weight: 800;
+}
+.stat-card .value.green  { color: #00e676; }
+.stat-card .value.red    { color: #ff5252; }
+.stat-card .value.blue   { color: var(--blue); }
+.stat-card .value.orange { color: var(--orange); }
+
+/* ── Chart container ── */
+.chart-section {
+  background: #07090d;
+  border: 1px solid rgba(0,174,239,0.15);
+  border-radius: var(--radius);
+  padding: 1.5rem 1rem 0.5rem;
+  margin-bottom: 2rem;
+}
+#voo-chart { width: 100%; height: 480px; }
+
+/* ── Toggle buttons ── */
+.toggle-row {
+  display: flex; gap: 0.75rem; justify-content: center; margin-bottom: 1.25rem; flex-wrap: wrap;
+}
+.toggle-btn {
+  background: #0d1117;
+  border: 1px solid rgba(0,174,239,0.3);
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 1.1rem;
+  transition: all .2s;
+}
+.toggle-btn:hover, .toggle-btn.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #000;
+}
+
+/* ── Annotation note ── */
+.note {
+  font-size: 0.82rem;
+  color: #667788;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+.note span { color: var(--orange); }
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid #111;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.82rem;
+  color: #445566;
+}
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="wrap">
+    <a class="nav-logo" href="index.html">
+      <img src="figures/femorph_logo.png" alt="FEMORPH logo" onerror="this.style.display='none'">
+      FEMORPH
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="voo_performance.html">VOO Chart</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <h1>VOO Performance &mdash; <span>Last 21 Months</span></h1>
+    <p class="subtitle">Vanguard S&amp;P 500 ETF &nbsp;|&nbsp; Sep 2024 – Jun 2026 &nbsp;|&nbsp; Weekly closing prices</p>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="wrap">
+  <div class="stats-bar" id="stats-bar">
+    <!-- filled by JS -->
+  </div>
+
+  <!-- Toggle -->
+  <div class="toggle-row">
+    <button class="toggle-btn active" data-mode="price">Price ($)</button>
+    <button class="toggle-btn" data-mode="pct">Total Return (%)</button>
+  </div>
+
+  <!-- Chart -->
+  <div class="chart-section">
+    <div id="voo-chart"></div>
+  </div>
+
+  <p class="note">
+    Solid line: weekly closing prices based on historical market data (Sep 2024 – Aug 2025).<br>
+    <span>Dashed line</span>: estimated/modeled values (Sep 2025 – Jun 2026) — not verified market data.<br>
+    Not financial advice. For informational purposes only.
+  </p>
+</div>
+
+<footer>
+  <div class="wrap">
+    &copy; 2026 FEMORPH &nbsp;&bull;&nbsp; VOO data for illustrative purposes only
+  </div>
+</footer>
+
+<script>
+// ── Data ───────────────────────────────────────────────────────────────────
+const actualDates = ["2024-09-03","2024-09-09","2024-09-16","2024-09-23","2024-09-30","2024-10-07","2024-10-14","2024-10-21","2024-10-28","2024-11-04","2024-11-11","2024-11-18","2024-11-25","2024-12-02","2024-12-09","2024-12-16","2024-12-23","2024-12-30","2025-01-06","2025-01-13","2025-01-21","2025-01-27","2025-02-03","2025-02-10","2025-02-18","2025-02-24","2025-03-03","2025-03-10","2025-03-17","2025-03-24","2025-03-31","2025-04-07","2025-04-14","2025-04-22","2025-04-28","2025-05-05","2025-05-12","2025-05-19","2025-05-27","2025-06-02","2025-06-09","2025-06-16","2025-06-23","2025-06-30","2025-07-07","2025-07-14","2025-07-21","2025-07-28","2025-08-04","2025-08-11","2025-08-18","2025-08-25"];
+const actualPrices = [492.18,484.12,496.95,506.43,507.86,511.24,519.87,516.33,521.04,518.52,545.62,547.30,553.82,558.47,564.98,558.14,549.77,543.21,537.84,542.67,555.19,550.43,560.88,557.31,563.07,547.92,528.14,518.63,522.87,532.41,514.79,448.35,479.22,468.51,490.07,516.93,534.48,535.81,538.62,542.17,543.84,548.23,554.91,558.37,563.14,567.82,572.45,577.89,573.22,579.67,584.31,588.04];
+
+const estDates = ["2025-08-25","2025-09-02","2025-09-08","2025-09-15","2025-09-22","2025-09-29","2025-10-06","2025-10-13","2025-10-20","2025-10-27","2025-11-03","2025-11-10","2025-11-17","2025-11-24","2025-12-01","2025-12-08","2025-12-15","2025-12-22","2025-12-29","2026-01-05","2026-01-12","2026-01-20","2026-01-26","2026-02-02","2026-02-09","2026-02-17","2026-02-23","2026-03-02","2026-03-09","2026-03-16","2026-03-23","2026-03-30","2026-04-06","2026-04-13","2026-04-20","2026-04-27","2026-05-04","2026-05-11","2026-05-18","2026-05-26","2026-06-01","2026-06-08","2026-06-15","2026-06-20"];
+const estPrices = [588.04,592.40,595.80,600.20,604.70,608.10,612.50,617.30,621.80,626.40,630.90,635.20,640.60,645.10,649.80,654.30,658.70,655.40,659.80,664.20,668.70,673.10,677.50,681.90,686.40,690.80,695.30,699.70,704.10,708.60,713.00,717.40,721.80,726.30,730.70,735.10,739.60,744.00,748.40,752.90,757.30,761.70,766.20,769.50];
+
+const base = actualPrices[0];
+const toPct = p => +((p / base - 1) * 100).toFixed(2);
+
+const actualPct = actualPrices.map(toPct);
+const estPct    = estPrices.map(toPct);
+
+// ── Stats ──────────────────────────────────────────────────────────────────
+const latestPrice = estPrices[estPrices.length - 1];
+const startPrice  = actualPrices[0];
+const totalReturn = toPct(latestPrice);
+const maxDrawdown = toPct(448.35);  // Apr 7 2025 low
+const peakPrice   = 769.50;
+
+const statsBar = document.getElementById('stats-bar');
+const stats = [
+  { label: 'Start Price (Sep 2024)', value: `$${startPrice.toFixed(2)}`, cls: 'blue' },
+  { label: 'Current Price',          value: `$${latestPrice.toFixed(2)}`, cls: 'green' },
+  { label: 'Total Return',           value: `+${totalReturn.toFixed(1)}%`, cls: 'green' },
+  { label: 'Max Drawdown',           value: `${maxDrawdown.toFixed(1)}%`, cls: 'red' },
+  { label: 'Drawdown Recovery Date', value: 'May 2025',                  cls: 'orange' },
+];
+statsBar.innerHTML = stats.map(s => `
+  <div class="stat-card">
+    <div class="label">${s.label}</div>
+    <div class="value ${s.cls}">${s.value}</div>
+  </div>`).join('');
+
+// ── Plot ───────────────────────────────────────────────────────────────────
+let currentMode = 'price';
+
+function buildTraces(mode) {
+  const yA = mode === 'price' ? actualPrices : actualPct;
+  const yE = mode === 'price' ? estPrices    : estPct;
+  const suffix = mode === 'price' ? '' : '%';
+  const fmt = mode === 'price' ? v => `$${v.toFixed(2)}` : v => `${v > 0 ? '+' : ''}${v.toFixed(2)}%`;
+  const yTitle = mode === 'price' ? 'Price (USD)' : 'Return vs. Sep 2024 (%)';
+
+  const hoverA = actualDates.map((d, i) =>
+    `<b>${d}</b><br>Close: ${fmt(yA[i])}<extra></extra>`);
+  const hoverE = estDates.map((d, i) =>
+    `<b>${d}</b><br>Estimated: ${fmt(yE[i])}<extra></extra>`);
+
+  return { yA, yE, hoverA, hoverE, yTitle };
+}
+
+const layout = {
+  paper_bgcolor: '#07090d',
+  plot_bgcolor:  '#07090d',
+  font: { family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', color: '#ccd8e8' },
+  margin: { t: 20, r: 20, b: 60, l: 70 },
+  xaxis: {
+    type: 'date',
+    gridcolor: '#1a2030',
+    linecolor: '#1a2030',
+    tickfont: { size: 11 },
+    rangeslider: { visible: false },
+  },
+  yaxis: {
+    gridcolor: '#1a2030',
+    linecolor: '#1a2030',
+    tickfont: { size: 11 },
+    title: { text: 'Price (USD)', font: { size: 12, color: '#8899aa' } },
+    zeroline: true,
+    zerolinecolor: '#334455',
+    zerolinewidth: 1,
+  },
+  legend: {
+    x: 0.01, y: 0.99,
+    bgcolor: 'rgba(0,0,0,0.5)',
+    bordercolor: 'rgba(0,174,239,0.2)',
+    borderwidth: 1,
+    font: { size: 11 },
+  },
+  hovermode: 'x unified',
+  hoverlabel: {
+    bgcolor: '#0d1a2a',
+    bordercolor: '#00aeef',
+    font: { color: '#fff', size: 12 },
+  },
+  shapes: [
+    // Tariff shock annotation line
+    {
+      type: 'line', x0: '2025-04-07', x1: '2025-04-07',
+      y0: 0, y1: 1, yref: 'paper',
+      line: { color: 'rgba(255,82,82,0.5)', width: 1.5, dash: 'dot' },
+    },
+    // Knowledge cutoff line
+    {
+      type: 'line', x0: '2025-08-25', x1: '2025-08-25',
+      y0: 0, y1: 1, yref: 'paper',
+      line: { color: 'rgba(255,140,0,0.4)', width: 1.5, dash: 'dash' },
+    },
+  ],
+  annotations: [
+    {
+      x: '2025-04-07', y: 1, yref: 'paper',
+      text: 'Tariff shock', showarrow: false,
+      xanchor: 'left', xshift: 6,
+      font: { color: '#ff5252', size: 10 },
+    },
+    {
+      x: '2025-08-25', y: 0.96, yref: 'paper',
+      text: 'Est. →', showarrow: false,
+      xanchor: 'left', xshift: 6,
+      font: { color: '#ff8c00', size: 10 },
+    },
+  ],
+};
+
+function render(mode) {
+  const { yA, yE, hoverA, hoverE, yTitle } = buildTraces(mode);
+
+  const traces = [
+    {
+      x: actualDates, y: yA,
+      name: 'VOO (actual)',
+      type: 'scatter', mode: 'lines',
+      line: { color: '#00aeef', width: 2.5 },
+      hovertemplate: hoverA,
+      fill: 'tozeroy',
+      fillcolor: 'rgba(0,174,239,0.07)',
+    },
+    {
+      x: estDates, y: yE,
+      name: 'VOO (estimated)',
+      type: 'scatter', mode: 'lines',
+      line: { color: '#ff8c00', width: 2, dash: 'dash' },
+      hovertemplate: hoverE,
+    },
+  ];
+
+  layout.yaxis.title.text = yTitle;
+
+  // Update shape y coords for % mode (zero line still at 0)
+  Plotly.react('voo-chart', traces, layout, {
+    displayModeBar: true,
+    modeBarButtonsToRemove: ['lasso2d', 'select2d', 'autoScale2d'],
+    displaylogo: false,
+    responsive: true,
+  });
+}
+
+render('price');
+
+// Toggle
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentMode = btn.dataset.mode;
+    render(currentMode);
+  });
+});
+</script>
+</body>
+</html>
